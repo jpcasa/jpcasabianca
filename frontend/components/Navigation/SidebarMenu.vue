@@ -1,0 +1,74 @@
+<template lang="html">
+  <ul class="sidebar-menu">
+    <li>
+      <span class="menu-item active">About Me</span>
+      <ul>
+        <li class="active"><span class="menu-sub-item">Skills</span></li>
+        <li><span class="menu-sub-item">Education</span></li>
+        <li><span class="menu-sub-item">Programs</span></li>
+        <li><span class="menu-sub-item">Experience</span></li>
+        <li><span class="menu-sub-item">Testimonies</span></li>
+      </ul>
+    </li>
+    <li><span class="menu-item">Creative Process</span></li>
+    <li><span class="menu-item">My Tech Stack</span></li>
+    <li><span class="menu-item">Case Studies</span></li>
+    <li><span class="menu-item">Resources</span></li>
+    <li><span class="menu-item">Blog</span></li>
+  </ul>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="scss">
+@import '~/assets/css/helpers/_variables.scss';
+@import '~/assets/css/helpers/_extensions.scss';
+
+.sidebar-menu {
+  padding: 0;
+  margin: 0 0 30px 0;
+  list-style: none;
+  li {
+    position: relative;
+    .menu-item {
+      font-family: $gotham-rounded-medium;
+      font-size: 14px;
+      display: block;
+      padding: 10px 0 10px 30px;
+      border-left: 8px solid #fff;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-gray-light;
+        border-left: 8px solid $color-green;
+      }
+    }
+    .menu-item.active {
+      background-color: $color-gray-light;
+      border-left: 8px solid $color-green;
+    }
+    ul {
+      list-style: none;
+      margin-top: 10px;
+      li {
+        .menu-sub-item {
+          font-family: $proxima-nova;
+          display: block;
+          padding: 3px 0 3px 20px;
+          cursor: pointer;
+          border-left: 5px solid #fff;
+          color: $color-gray-heavy;
+          font-size: 13px;
+          &:hover {
+            color: $color-blue-black;
+            font-family: $proxima-nova-bold;
+            border-left: 5px solid $color-green;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

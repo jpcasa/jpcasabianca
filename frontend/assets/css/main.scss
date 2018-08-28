@@ -12,13 +12,23 @@
   GLOBALS
 */
 body {
+  font-family: $proxima-nova;
+}
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $gotham-rounded-medium;
 }
 
 input {
   &:focus {
     outline: none;
   }
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: 1000px;
 }
 
 .margin-right-small {
@@ -29,7 +39,8 @@ input {
   position: relative;
 }
 
-.desktop {
+.desktop,
+.desktop-flex {
   display: none;
 }
 
@@ -39,5 +50,8 @@ input {
   }
   .desktop {
     display: block;
+  }
+  .desktop-flex {
+    display: flex;
   }
 }
