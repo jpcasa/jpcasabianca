@@ -1,0 +1,43 @@
+// Import all Base Styles and Helpers
+@import 'base/all';
+@import 'helpers/all';
+
+// Import Fonts
+@import '../fonts/webfonts/style.css';
+
+// Import Icons
+@import '../fonts/icons/style.css';
+
+/*
+  GLOBALS
+*/
+body {
+
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+.margin-right-small {
+  margin-right: 10px;
+}
+
+.relative {
+  position: relative;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+}

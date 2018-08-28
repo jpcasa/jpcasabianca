@@ -1,0 +1,20 @@
+/*
+ * A simple set of extensions
+ * Made by JP Casabianca
+*/
+@import "mixins";
+@import "variables";
+
+%circle-icon {
+  display: inline-block;
+  padding: 10px;
+  @include border-radius(50%);
+}
+
+%background-green {
+  background-color: $color-green-light;
+  color: $color-green-dark;
+  &:hover {
+    background-color: $color-green;
+  }
+}
