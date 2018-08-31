@@ -51,6 +51,16 @@ urlpatterns = {
         name="SkillChartDetails"
     ),
     path(
+        'skill-categories/',
+        views.ListCreateSkillCategoryView.as_view(),
+        name="ListCreateSkillCategory"
+    ),
+    path(
+        'skill-categories/<int:pk>/',
+        views.SkillCategoryDetailsView.as_view(),
+        name="SkillCategoryDetails"
+    ),
+    path(
         'skills/',
         views.ListCreateSkillView.as_view(),
         name="ListCreateSkill"

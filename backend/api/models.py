@@ -163,11 +163,11 @@ class SkillChart(models.Model):
         return "{}".format(self.name)
 
 
-class Skill(models.Model):
-    """This class represents the Skill model."""
+class SkillCategory(models.Model):
+    """This class represents the Skill Category model."""
     owner = models.ForeignKey(
         'auth.User',
-        related_name='skills',
+        related_name='skill_categories',
         on_delete=models.CASCADE
     )
     name = models.CharField(
@@ -175,9 +175,31 @@ class Skill(models.Model):
         max_length=100,
         unique=True
     )
-    logo = models.CharField(
+
+    def __str__(self):
+        """Return readable representation of the model instance."""
+        return "{}".format(self.name)
+
+
+class Skill(models.Model):
+    """This class represents the Skill model."""
+    owner = models.ForeignKey(
+        'auth.User',
+        related_name='skills',
+        on_delete=models.CASCADE
+    )
+    category = models.ManyToManyField(
+        SkillCategory,
+        blank=True
+    )    
+    name = models.CharField(
         blank=False,
-        max_length=535
+        max_length=100,
+        unique=True
+    )
+    logo = models.FileField(
+        blank=False,
+        null=False
     )
     skill_level = models.IntegerField(
         blank=False,

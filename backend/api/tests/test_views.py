@@ -213,6 +213,24 @@ class SkillViewTestCase(TestCase):
             self.skill_chart
         )
 
+        self.skill_category = {
+            "name": "Portfolio",
+            "title1": "Something",
+            "points1": 7,
+            "title2": "Something",
+            "points2": 7,
+            "title3": "Something",
+            "points3": 7,
+            "title4": "Something",
+            "points4": 7,
+            "title5": "Something",
+            "points5": 7
+        }
+        self.response_skill_category = self.client.post(
+            reverse('ListCreateSkillCategory'),
+            self.skill_category
+        )
+
         self.skill = {
             "owner": user.id,
             "name": "Something",
@@ -239,6 +257,14 @@ class SkillViewTestCase(TestCase):
         )
 
 
+    def test_api_can_create_a_skill_category(self):
+        """Test the api has skill category creation capability."""
+        self.assertEqual(
+            self.response_skill_category.status_code,
+            status.HTTP_201_CREATED
+        )
+
+
     def test_api_can_create_a_skill(self):
         """Test the api has skill creation capability."""
         self.assertEqual(
@@ -261,6 +287,22 @@ class SkillViewTestCase(TestCase):
             status.HTTP_200_OK
         )
         self.assertContains(response, skill_chart)
+
+
+    def test_api_can_get_a_skill_category(self):
+        """Test the api can get a given skill category."""
+        skill_category = models.SkillCategory.objects.get()
+        response = self.client.get(
+            reverse(
+                'SkillCategoryDetails',
+                kwargs={'pk': skill_category.id}
+            ), format="json"
+        )
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK
+        )
+        self.assertContains(response, skill_category)
 
 
     def test_api_can_get_a_skill(self):
@@ -307,6 +349,32 @@ class SkillViewTestCase(TestCase):
         )
 
 
+    def test_api_can_update_skill_category(self):
+        """Test the api can update a given skill category."""
+        skill_category = models.SkillCategory.objects.get()
+        change_skill_category = {
+            "name": "Something",
+            "logo": "Something",
+            "skill_level": 7,
+            "months_worked": 24,
+            "last_project": "Something",
+            "website": "https://www.google.com/",
+            "documentation": "https://www.google.com/",
+            "github": "https://www.google.com/",
+            "why": "Something"
+        }
+        response = self.client.put(
+            reverse(
+                'SkillCategoryDetails',
+                kwargs={'pk': skill_category.id}
+            ), change_skill_category
+        )
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK
+        )
+
+
     def test_api_can_update_skill(self):
         """Test the api can update a given skill."""
         skill = models.Skill.objects.get()
@@ -340,6 +408,20 @@ class SkillViewTestCase(TestCase):
             reverse(
                 'SkillChartDetails',
                 kwargs={'pk': skill_chart.id}
+            ), format='json', follow=True)
+        self.assertEquals(
+            response.status_code,
+            status.HTTP_204_NO_CONTENT
+        )
+
+
+    def test_api_can_delete_skill_chart_category(self):
+        """Test the api can delete a skill category category."""
+        skill_category = models.SkillCategory.objects.get()
+        response = self.client.delete(
+            reverse(
+                'SkillCategoryDetails',
+                kwargs={'pk': skill_category.id}
             ), format='json', follow=True)
         self.assertEquals(
             response.status_code,

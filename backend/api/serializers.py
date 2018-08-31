@@ -94,10 +94,23 @@ class SkillChartSerializer(serializers.ModelSerializer):
         )
 
 
+class SkillCategorySerializer(serializers.ModelSerializer):
+    """Serializer to map the Skill Category Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = models.SkillCategory
+        fields = (
+            'id',
+            'name'
+        )
+
+
 class SkillSerializer(serializers.ModelSerializer):
     """Serializer to map the Menu Model instance into JSON format."""
-    skill_chart = SkillChartSerializer(read_only=True)
     owner = serializers.ReadOnlyField(source='owner.username')
+    category = SkillCategorySerializer(many=True, read_only=True)
+    skill_chart = SkillChartSerializer(read_only=True)
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
@@ -105,6 +118,7 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = (
             'owner',
             'id',
+            'category',
             'name',
             'logo',
             'skill_level',

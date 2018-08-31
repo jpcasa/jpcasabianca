@@ -96,6 +96,11 @@ class SkillModelTestCase(TestCase):
             points5=8,
         )
 
+        self.skill_category = models.SkillCategory(
+            owner=user,
+            name="Frontend"
+        )
+
         self.skill = models.Skill(
             owner=user,
             name="Vue.js",
@@ -115,6 +120,14 @@ class SkillModelTestCase(TestCase):
         old_count = models.SkillChart.objects.count()
         self.skill_chart.save()
         new_count = models.SkillChart.objects.count()
+        self.assertNotEqual(old_count, new_count)
+
+
+    def test_model_can_create_a_skill_category(self):
+        """Test the Skill model can create a skill category."""
+        old_count = models.SkillCategory.objects.count()
+        self.skill_category.save()
+        new_count = models.SkillCategory.objects.count()
         self.assertNotEqual(old_count, new_count)
 
 

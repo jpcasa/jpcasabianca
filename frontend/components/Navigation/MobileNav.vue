@@ -4,8 +4,10 @@
       v-for="(item, index) in menu"
       :class="item.id == $store.state.subMenuActive ? 'active' : ''"
       :key="index">
-      <i :class="'icon-' + item.icon"></i>
-      <span>{{ item.title }}</span>
+      <a v-scroll-to="'#' + item.url">
+        <i :class="'icon-' + item.icon"></i>
+        <span>{{ item.title }}</span>
+      </a>
     </li>
   </ul>
 </template>

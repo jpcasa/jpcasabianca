@@ -30,6 +30,7 @@ module.exports = {
     // SCSS file in the project
     '@/assets/css/main.scss'
   ],
+  plugins: ['~plugins/vue-scrollto.js'],
   modules: [
     '@nuxtjs/axios',
   ],
@@ -48,8 +49,8 @@ module.exports = {
     "eslint:recommended",
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    "plugin:vue/recommended",
-    "plugin:prettier/recommended"
+    "plugin:vue/strongly-recommended",
+    "plugin:prettier/strongly-recommended"
   ],
   // add your custom rules here
   rules: {

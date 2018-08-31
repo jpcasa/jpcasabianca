@@ -68,13 +68,13 @@ export default {
   },
   computed: {
     mainMenu() {
-      return this.$store.state.menu
+      return this.$store.state.menus.menu
     },
     contactMenu() {
-      return this.$store.state.contactMenu
+      return this.$store.state.menus.contactMenu
     },
     mobileMenu() {
-      return this.$store.state.subMenu
+      return this.$store.state.menus.subMenu
     }
   },
   components: {
@@ -88,8 +88,8 @@ export default {
       "post"
     ])
     this.$axios.setToken("6b04a68e84b72c9d24a7340316e25d990d2bbba3", "Token")
-    this.$store.dispatch('getMainMenu')
-    this.$store.dispatch('getContactMenu')
+    this.$store.dispatch('menus/getMainMenu')
+    this.$store.dispatch('menus/getContactMenu')
   }
 }
 </script>

@@ -18,3 +18,16 @@
     background-color: $color-green;
   }
 }
+
+%cta {
+  text-decoration: none;
+  display: inline-block;
+  padding: 9px 45px;
+  font-size: 14px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: $gotham-rounded-medium;
+  @include border-radius($border-radius);
+  @extend %background-green;
+}

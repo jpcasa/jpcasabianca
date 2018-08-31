@@ -86,6 +86,24 @@ class SkillChartDetailsView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
 
+class ListCreateSkillCategoryView(generics.ListCreateAPIView):
+    """This class defines the create behavior of our rest api."""
+    queryset = models.SkillCategory.objects.all()
+    serializer_class = serializers.SkillCategorySerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        """Save the post data when creating a new menu item."""
+        serializer.save(owner=self.request.user)
+
+
+class SkillCategoryDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """This class handles the http GET, PUT and DELETE requests."""
+    queryset = models.SkillCategory.objects.all()
+    serializer_class = serializers.SkillCategorySerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+
 class ListCreateSkillView(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
     queryset = models.Skill.objects.all()

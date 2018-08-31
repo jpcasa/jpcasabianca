@@ -1,7 +1,9 @@
 <template lang="html">
   <div class="title-with-cta">
     <p class="subtitle">{{ subtitle }}</p>
-    <h2 class="title">{{ title }}</h2>
+    <DynamicTitle
+      :title="title"
+      :words="words" />
     <p class="copy">{{ copy }}</p>
     <nuxt-link
       class="cta"
@@ -21,7 +23,7 @@
 import DynamicTitle from '~/components/Elements/Titles/DynamicTitle.vue'
 
 export default {
-  props: ['title', 'subtitle', 'copy', 'cta', 'ctaUrl', 'action'],
+  props: ['title', 'words', 'subtitle', 'copy', 'cta', 'ctaUrl', 'action'],
   components: {
     DynamicTitle
   }
@@ -33,7 +35,6 @@ export default {
 @import '~/assets/css/helpers/_extensions.scss';
 
 .title-with-cta {
-  display: block;
   .subtitle {
     color: $color-green-light;
     margin-bottom: 5px;
