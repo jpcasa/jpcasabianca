@@ -15,6 +15,8 @@ class SubMenuItemSerializer(serializers.ModelSerializer):
             'title',
             'url',
             'action',
+            'subtitle',
+            'icon',
             'created_at',
             'modified_at',
         )
@@ -26,6 +28,7 @@ class SubMenuItemSerializer(serializers.ModelSerializer):
 
 class MenuItemSerializer(serializers.ModelSerializer):
     """Serializer to map the Menu Item Model instance into JSON format."""
+    sub_menu_items = SubMenuItemSerializer(many=True, read_only=True)
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
@@ -48,8 +51,8 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
 class MenuSerializer(serializers.ModelSerializer):
     """Serializer to map the Menu Model instance into JSON format."""
-    menu_items = MenuItemSerializer(many=True, read_only=True)
     owner = serializers.ReadOnlyField(source='owner.username')
+    menu_items = MenuItemSerializer(many=True, read_only=True)
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""

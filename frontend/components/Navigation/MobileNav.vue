@@ -1,30 +1,18 @@
 <template lang="html">
   <ul id="navigation-mobile">
-    <li class="active">
-      <i class="icon-map-pin"></i>
-      <span>Skills</span>
-    </li>
-    <li>
-      <i class="icon-map-pin"></i>
-      <span>Education</span>
-    </li>
-    <li>
-      <i class="icon-map-pin"></i>
-      <span>Programs</span>
-    </li>
-    <li>
-      <i class="icon-map-pin"></i>
-      <span>Experience</span>
-    </li>
-    <li>
-      <i class="icon-map-pin"></i>
-      <span>Testimonies</span>
+    <li
+      v-for="(item, index) in menu"
+      :class="item.id == $store.state.subMenuActive ? 'active' : ''"
+      :key="index">
+      <i :class="'icon-' + item.icon"></i>
+      <span>{{ item.title }}</span>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
+  props: ['menu']
 }
 </script>
 
@@ -55,7 +43,7 @@ export default {
       display: block;
     }
     i {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     span {
       font-size: 10px;

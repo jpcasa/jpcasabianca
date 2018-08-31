@@ -25,6 +25,7 @@ export default {
   color: #fff;
   li {
     cursor: pointer;
+    margin: 3px 0;
     &:hover {
       color: $color-green-light;
     }

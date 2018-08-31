@@ -14,8 +14,7 @@ class SubMenuItem(models.Model):
     )
     title = models.CharField(
         blank=False,
-        max_length=100,
-        unique=True
+        max_length=100
     )
     url = models.CharField(
         blank=False,
@@ -26,6 +25,14 @@ class SubMenuItem(models.Model):
         blank=False,
         max_length=100,
         default="push"
+    )
+    subtitle = models.CharField(
+        blank=True,
+        max_length=100
+    )
+    icon = models.CharField(
+        blank=True,
+        max_length=100
     )
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -48,8 +55,7 @@ class MenuItem(models.Model):
     )
     title = models.CharField(
         blank=False,
-        max_length=100,
-        unique=True
+        max_length=100
     )
     url = models.CharField(
         blank=False,

@@ -3,9 +3,9 @@
     <!-- LOGO -->
     <nuxt-link class="main-logo" to="/">JP Casabianca</nuxt-link>
     <!-- SIDEBAR HEADER -->
-    <SidebarMenu id="sidebar-header" />
+    <SidebarMenu id="sidebar-header" :menu="menu" />
     <!-- SIMPLE MENU -->
-    <SimpleMenu />
+    <SimpleMenu :menu="contact" />
   </header>
 </template>
 
@@ -14,6 +14,7 @@ import SidebarMenu from '~/components/Navigation/SidebarMenu.vue'
 import SimpleMenu from '~/components/Navigation/SimpleMenu.vue'
 
 export default {
+  props: ['menu', 'contact'],
   components: {
     SidebarMenu,
     SimpleMenu

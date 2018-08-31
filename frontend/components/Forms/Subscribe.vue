@@ -42,6 +42,8 @@
       margin-right: 20px;
       background-color: $color-blue-black;
       text-indent: 15px;
+      color: $color-gray;
+      font-family: $proxima-nova;
     }
     input[type="email"]::placeholder {
       color: $color-gray;
@@ -52,6 +54,10 @@
       background-color: $color-green-light;
       color: $color-green-dark;
       font-family: $gotham-rounded-medium;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-green;
+      }
     }
   }
 }

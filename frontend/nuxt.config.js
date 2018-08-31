@@ -1,3 +1,7 @@
+var environment = {
+  API_URL: 'http://127.0.0.1:8000'
+}
+
 module.exports = {
   /*
   ** Headers of the page
@@ -26,9 +30,12 @@ module.exports = {
     // SCSS file in the project
     '@/assets/css/main.scss'
   ],
-  /*
-  ** Build configuration
-  */
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    baseURL: environment.API_URL
+  },
   root: true,
   env: {
     browser: true,

@@ -1,29 +1,20 @@
 <template lang="html">
   <div class="contact-menu">
-    <div class="menu-row">
-      <p>Important Stuff</p>
-      <a href="#">Resume</a>
-    </div>
-    <div class="menu-row">
-      <p>Contact</p>
-      <a href="#"><i class="icon-phone"></i></a>
-      <a href="#"><i class="icon-mail"></i></a>
-    </div>
-    <div class="menu-row">
-      <p>Find me on</p>
-      <a href="#">Linkedin</a>
-      <a href="#">Medium</a>
-    </div>
-    <div class="menu-row">
-      <p>Version Control</p>
-      <a href="#">Github</a>
-      <a href="#">Bitbucket</a>
+    <div v-for="(item, index) in menu" :key="index" class="menu-row">
+      <p>{{ item.title }}</p>
+      <a
+        v-for="(subItem, index2) in item.sub_menu_items"
+        :key="index2"
+        href="#"
+        target="_blank"
+        v-html="subItem.title" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['menu']
 }
 </script>
 

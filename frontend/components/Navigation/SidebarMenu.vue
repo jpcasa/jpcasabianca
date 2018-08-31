@@ -1,25 +1,33 @@
 <template lang="html">
   <ul class="sidebar-menu">
-    <li>
-      <span class="menu-item active">About Me</span>
-      <ul>
-        <li class="active"><span class="menu-sub-item">Skills</span></li>
-        <li><span class="menu-sub-item">Education</span></li>
-        <li><span class="menu-sub-item">Programs</span></li>
-        <li><span class="menu-sub-item">Experience</span></li>
-        <li><span class="menu-sub-item">Testimonies</span></li>
+    <li v-for="(item, index) in menu" :key="index">
+      <span
+        :class="item.id == $store.state.menuActive ? 'active menu-item' : 'menu-item'">
+        {{ item.title }}
+      </span>
+      <ul v-show="showSubMenu(item)">
+        <li v-for="(subItem, index2) in item.sub_menu_items" :key="index2">
+          <span :class="subItem.url == $store.state.subMenuActive ? 'menu-sub-item active' : 'menu-sub-item'">
+            {{ subItem.title }}
+          </span>
+        </li>
       </ul>
     </li>
-    <li><span class="menu-item">Creative Process</span></li>
-    <li><span class="menu-item">My Tech Stack</span></li>
-    <li><span class="menu-item">Case Studies</span></li>
-    <li><span class="menu-item">Resources</span></li>
-    <li><span class="menu-item">Blog</span></li>
   </ul>
 </template>
 
 <script>
 export default {
+  props: ['menu'],
+  methods: {
+    showSubMenu(item) {
+      if (this.$store.state.menuActive == item.id && item.sub_menu_items.length) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 
@@ -66,6 +74,11 @@ export default {
             font-family: $proxima-nova-bold;
             border-left: 5px solid $color-green;
           }
+        }
+        .menu-sub-item.active {
+          color: $color-blue-black;
+          font-family: $proxima-nova-bold;
+          border-left: 5px solid $color-green;
         }
       }
     }
