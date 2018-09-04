@@ -98,7 +98,8 @@ class SkillModelTestCase(TestCase):
 
         self.skill_category = models.SkillCategory(
             owner=user,
-            name="Frontend"
+            name="Frontend",
+            url="frontend"
         )
 
         self.skill = models.Skill(

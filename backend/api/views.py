@@ -122,6 +122,15 @@ class SkillDetailsView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
 
+class SearchSkills(generics.ListAPIView):
+    serializer_class = serializers.SkillSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_queryset(self):
+        url = self.kwargs['url']
+        return models.Skill.objects.filter(category__url=url)
+
+
 # Experience views
 class ListCreateExperienceView(generics.ListCreateAPIView):
     """This class defines the create behavior for the Skill Chart Model."""

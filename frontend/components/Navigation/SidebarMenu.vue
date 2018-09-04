@@ -2,14 +2,16 @@
   <ul class="sidebar-menu">
     <li v-for="(item, index) in menu" :key="index">
       <span
-        :class="item.id == $store.state.menuActive ? 'active menu-item' : 'menu-item'">
+        :class="item.id == $store.state.menus.menuActive ? 'active menu-item' : 'menu-item'">
         {{ item.title }}
       </span>
-      <ul v-show="showSubMenu(item)">
+      <ul v-if="item.id == $store.state.menus.menuActive && item.sub_menu_items.length">
         <li v-for="(subItem, index2) in item.sub_menu_items" :key="index2">
-          <span :class="subItem.url == $store.state.subMenuActive ? 'menu-sub-item active' : 'menu-sub-item'">
-            {{ subItem.title }}
-          </span>
+          <scrollactive>
+            <a :href="'#' + subItem.url" class="scrollactive-item menu-sub-item">
+              {{ subItem.title }}
+            </a>
+          </scrollactive>
         </li>
       </ul>
     </li>
@@ -21,7 +23,7 @@ export default {
   props: ['menu'],
   methods: {
     showSubMenu(item) {
-      if (this.$store.state.menuActive == item.id && item.sub_menu_items.length) {
+      if (this.$store.state.menus.menuActive == item.id && item.sub_menu_items.length > 0) {
         return true
       } else {
         return false
@@ -69,13 +71,14 @@ export default {
           border-left: 5px solid #fff;
           color: $color-gray-heavy;
           font-size: 13px;
+          text-decoration: none;
           &:hover {
             color: $color-blue-black;
             font-family: $proxima-nova-bold;
             border-left: 5px solid $color-green;
           }
         }
-        .menu-sub-item.active {
+        .menu-sub-item.is-active {
           color: $color-blue-black;
           font-family: $proxima-nova-bold;
           border-left: 5px solid $color-green;

@@ -175,6 +175,10 @@ class SkillCategory(models.Model):
         max_length=100,
         unique=True
     )
+    url = models.CharField(
+        blank=True,
+        max_length=100
+    )
 
     def __str__(self):
         """Return readable representation of the model instance."""
@@ -191,7 +195,7 @@ class Skill(models.Model):
     category = models.ManyToManyField(
         SkillCategory,
         blank=True
-    )    
+    )
     name = models.CharField(
         blank=False,
         max_length=100,

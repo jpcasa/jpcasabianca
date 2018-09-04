@@ -30,7 +30,7 @@ module.exports = {
     // SCSS file in the project
     '@/assets/css/main.scss'
   ],
-  plugins: ['~plugins/vue-scrollto.js'],
+  plugins: ['~plugins/vue-scrollto.js', '~plugins/vue-scrollactive.js'],
   modules: [
     '@nuxtjs/axios',
   ],

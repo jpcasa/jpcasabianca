@@ -1,20 +1,13 @@
 <template lang="html">
   <div class="dot-chart">
-    <div v-for="i in (0, 10)" :key="i" class="dot-chart-row">
+    <div v-for="(item, index) in items" :key="index" class="dot-chart-row">
       <div class="dot-chart-row-left">
-        <span>Vue.js</span>
+        <span>{{ item.name }}</span>
       </div>
       <div class="dot-chart-row-right">
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle active"></span></div>
-        <div class="circle-container"><span class="circle"></span></div>
-        <div class="circle-container"><span class="circle"></span></div>
+        <div v-for="j in (0, 10)" :key="j" class="circle-container">
+          <span :class="j <= item.skill_level ? 'circle active' : 'circle'" />
+        </div>
       </div>
     </div>
   </div>
@@ -22,6 +15,7 @@
 
 <script>
 export default {
+  props: ['items']
 }
 </script>
 

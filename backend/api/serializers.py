@@ -102,7 +102,8 @@ class SkillCategorySerializer(serializers.ModelSerializer):
         model = models.SkillCategory
         fields = (
             'id',
-            'name'
+            'name',
+            'url'
         )
 
 

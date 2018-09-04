@@ -2,7 +2,8 @@
 // shape: [{ id, quantity }]
 const state = {
   skills: [],
-  skill_categories: []
+  skill_categories: [],
+  skills_cat: []
 }
 
 // getters
@@ -15,6 +16,9 @@ const mutations = {
   },
   setSkillCategories: (state, skill_categories) => {
     state.skill_categories = skill_categories
+  },
+  setSkillCat: (state, skills_cat) => {
+    state.skills_cat = skills_cat
   }
 }
 
@@ -27,6 +31,10 @@ const actions = {
   async getSkillCategories ({commit}) {
     const data = await this.$axios.$get(`skill-categories/?format=json`)
     commit('setSkillCategories', data)
+  },
+  async getSkillsCat ({commit}, url) {
+    const data = await this.$axios.$get(`skills/search/${url}/?format=json`)
+    commit('setSkillCat', data)
   }
 }
 

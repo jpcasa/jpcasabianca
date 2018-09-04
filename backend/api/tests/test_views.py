@@ -214,17 +214,8 @@ class SkillViewTestCase(TestCase):
         )
 
         self.skill_category = {
-            "name": "Portfolio",
-            "title1": "Something",
-            "points1": 7,
-            "title2": "Something",
-            "points2": 7,
-            "title3": "Something",
-            "points3": 7,
-            "title4": "Something",
-            "points4": 7,
-            "title5": "Something",
-            "points5": 7
+            "owner": user.id,
+            "name": "Frontend"
         }
         self.response_skill_category = self.client.post(
             reverse('ListCreateSkillCategory'),
@@ -265,14 +256,6 @@ class SkillViewTestCase(TestCase):
         )
 
 
-    def test_api_can_create_a_skill(self):
-        """Test the api has skill creation capability."""
-        self.assertEqual(
-            self.response_skill.status_code,
-            status.HTTP_201_CREATED
-        )
-
-
     def test_api_can_get_a_skill_chart(self):
         """Test the api can get a given skill chart."""
         skill_chart = models.SkillChart.objects.get()
@@ -303,22 +286,6 @@ class SkillViewTestCase(TestCase):
             status.HTTP_200_OK
         )
         self.assertContains(response, skill_category)
-
-
-    def test_api_can_get_a_skill(self):
-        """Test the api can get a given skill."""
-        skill = models.Skill.objects.get()
-        response = self.client.get(
-            reverse(
-                'SkillDetails',
-                kwargs={'pk': skill.id}
-            ), format="json"
-        )
-        self.assertEqual(
-            response.status_code,
-            status.HTTP_200_OK
-        )
-        self.assertContains(response, skill)
 
 
     def test_api_can_update_skill_chart(self):
@@ -354,46 +321,13 @@ class SkillViewTestCase(TestCase):
         skill_category = models.SkillCategory.objects.get()
         change_skill_category = {
             "name": "Something",
-            "logo": "Something",
-            "skill_level": 7,
-            "months_worked": 24,
-            "last_project": "Something",
-            "website": "https://www.google.com/",
-            "documentation": "https://www.google.com/",
-            "github": "https://www.google.com/",
-            "why": "Something"
+            "url": "Something"
         }
         response = self.client.put(
             reverse(
                 'SkillCategoryDetails',
                 kwargs={'pk': skill_category.id}
             ), change_skill_category
-        )
-        self.assertEqual(
-            response.status_code,
-            status.HTTP_200_OK
-        )
-
-
-    def test_api_can_update_skill(self):
-        """Test the api can update a given skill."""
-        skill = models.Skill.objects.get()
-        change_skill = {
-            "name": "Something",
-            "logo": "Something",
-            "skill_level": 7,
-            "months_worked": 24,
-            "last_project": "Something",
-            "website": "https://www.google.com/",
-            "documentation": "https://www.google.com/",
-            "github": "https://www.google.com/",
-            "why": "Something"
-        }
-        response = self.client.put(
-            reverse(
-                'SkillDetails',
-                kwargs={'pk': skill.id}
-            ), change_skill
         )
         self.assertEqual(
             response.status_code,
@@ -422,20 +356,6 @@ class SkillViewTestCase(TestCase):
             reverse(
                 'SkillCategoryDetails',
                 kwargs={'pk': skill_category.id}
-            ), format='json', follow=True)
-        self.assertEquals(
-            response.status_code,
-            status.HTTP_204_NO_CONTENT
-        )
-
-
-    def test_api_can_delete_skill(self):
-        """Test the api can delete a skill."""
-        skill = models.Skill.objects.get()
-        response = self.client.delete(
-            reverse(
-                'SkillDetails',
-                kwargs={'pk': skill.id}
             ), format='json', follow=True)
         self.assertEquals(
             response.status_code,

@@ -41,10 +41,40 @@
           cta="Discover Me"
           ctaUrl="section-skills"
           action="scroll" />
-        <TabsFull :items="skillCategories" />
-        <DotChart />
+        <TabsFull :items="skillCategories" :active="url" @clicked="searchSkills" />
+        <DotChart :items="skillsCat" />
       </div>
     </section>
+
+    <div id="section-experience" />
+    <div id="section-programs" />
+    <div id="section-education" />
+    <div id="section-testimonies" />
+
+    <div id="design-thinking" />
+    <div id="ui-ux-patterns" />
+    <div id="agile-scrum" />
+    <div id="inbound-marketing" />
+    <div id="automation" />
+    <div id="data-analysis" />
+
+    <div id="frontend" />
+    <div id="backend" />
+    <div id="apis" />
+    <div id="developer-tools" />
+    <div id="business" />
+
+    <div id="estudio-codesign" />
+    <div id="printa-delivery" />
+
+    <div id="stay-to-date" />
+    <div id="courses-certiﬁcations" />
+    <div id="news-blogs" />
+    <div id="podcasts" />
+    <div id="libraries-frameworks" />
+    <div id="programs" />
+
+    <div id="" />
 
   </section>
 </template>
@@ -57,6 +87,11 @@ import TabsFull from '~/components/Navigation/Tabs/TabsFull.vue'
 import DotChart from '~/components/Elements/Charts/DotChart.vue'
 
 export default {
+  data() {
+    return {
+      url: "frontend"
+    }
+  },
   components: {
     DynamicTitleWithCta,
     ImgTitleWithCta,
@@ -71,10 +106,23 @@ export default {
     skills() {
       return this.$store.state.skills.skills
     },
+    skillsCat() {
+      return this.$store.state.skills.skills_cat
+    },
+  },
+  methods: {
+    searchSkills(url) {
+      this.url = url
+      this.searchSkillsApi(url)
+    },
+    searchSkillsApi(url) {
+      this.$store.dispatch('skills/getSkillsCat', url)
+    }
   },
   created() {
     this.$store.dispatch('skills/getSkillCategories')
     this.$store.dispatch('skills/getSkills')
+    this.searchSkillsApi(this.url)
   }
 }
 </script>

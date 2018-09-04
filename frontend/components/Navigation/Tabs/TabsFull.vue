@@ -1,12 +1,23 @@
 <template lang="html">
   <nav class="tabs-full">
-    <a v-for="(item, index) in items" :key="index">{{ item.name }}</a>
+    <a
+      v-for="(item, index) in items"
+      :key="index"
+      :class="item.url == active ? 'active' : ''"
+      @click="onClickButton(item.url)">
+      {{ item.name }}
+    </a>
   </nav>
 </template>
 
 <script>
 export default {
-  props: ['items']
+  props: ['items', 'active'],
+  methods: {
+    onClickButton (url) {
+      this.$emit('clicked', url)
+    }
+  }
 }
 </script>
 
@@ -29,7 +40,13 @@ export default {
     &:hover {
       background-color: $color-green-light;
       color: $color-green-dark;
+      font-family: $proxima-nova-bold;
     }
+  }
+  .active {
+    background-color: $color-green-light;
+    color: $color-green-dark;
+    font-family: $proxima-nova-bold;
   }
 }
 </style>

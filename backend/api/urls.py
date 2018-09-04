@@ -71,6 +71,11 @@ urlpatterns = {
         name="SkillDetails"
     ),
     path(
+        'skills/search/<url>/',
+        views.SearchSkills.as_view(),
+        name="SearchSkills"
+    ),
+    path(
         'experiences/',
         views.ListCreateExperienceView.as_view(),
         name="ListCreateExperience"

@@ -33,6 +33,7 @@ export default {
   left: 0;
   top: 0;
   background-color: #fff;
+  overflow-y: scroll;
   .main-logo {
     display: block;
     font-size: 20px;
