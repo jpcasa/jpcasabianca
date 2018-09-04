@@ -32,6 +32,7 @@
         </div>
     </section>
 
+    <!-- SECTION SKILLS -->
     <section id="section-skills">
       <div class="container">
         <TitleWithCta
@@ -46,8 +47,36 @@
       </div>
     </section>
 
-    <div id="section-experience" />
-    <div id="section-programs" />
+    <!-- SECTION EXPERIENCE -->
+    <section id="section-experience">
+      <div class="container text-center">
+        <SimpleTitle
+          title="Experience &amp; Work"
+          subtitle="A short story"
+          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          theme="light" />
+        <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
+      </div>
+      <Timeline />
+    </section>
+
+    <!-- SECTION PROGRAMS -->
+    <section id="section-programs">
+      <div class="container text-center">
+        <SimpleTitle
+          id="simple-title-programs"
+          title="Program Master"
+          subtitle="Some programs I use"
+          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          theme="light" />
+        <FilterDropdown
+          id="filter-programs"
+          icon="arrow"
+          title="Filter Programs" />
+        <HorizontalCards />
+      </div>
+    </section>
+
     <div id="section-education" />
     <div id="section-testimonies" />
 
@@ -83,8 +112,12 @@
 import DynamicTitleWithCta from '~/components/Elements/Titles/DynamicTitleWithCta.vue'
 import ImgTitleWithCta from '~/components/Elements/Titles/ImgTitleWithCta.vue'
 import TitleWithCta from '~/components/Elements/Titles/TitleWithCta.vue'
+import SimpleTitle from '~/components/Elements/Titles/SimpleTitle.vue'
 import TabsFull from '~/components/Navigation/Tabs/TabsFull.vue'
 import DotChart from '~/components/Elements/Charts/DotChart.vue'
+import Timeline from '~/components/Elements/Charts/Timeline.vue'
+import FilterDropdown from '~/components/Navigation/Dropdowns/FilterDropdown.vue'
+import HorizontalCards from '~/components/Elements/Cards/HorizontalCards.vue'
 
 export default {
   data() {
@@ -96,8 +129,12 @@ export default {
     DynamicTitleWithCta,
     ImgTitleWithCta,
     TitleWithCta,
+    SimpleTitle,
     TabsFull,
-    DotChart
+    DotChart,
+    Timeline,
+    FilterDropdown,
+    HorizontalCards
   },
   computed: {
     skillCategories() {
@@ -128,6 +165,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/css/helpers/_variables.scss';
+
 #section-first-fold {
   background-image: url('~/static/img/section-first-fold.png');
   background-size: cover;
@@ -153,6 +192,7 @@ export default {
   background-position: right;
   text-align: center;
   display: block;
+  z-index: 50;
   .title-with-cta {
     padding: 300px 0 40px 0;
   }
@@ -161,6 +201,33 @@ export default {
   }
   .dot-chart {
     padding-bottom: 180px;
+  }
+}
+
+#section-experience {
+  background-image: url('~/static/img/section-exp.png');
+  background-size: cover;
+  background-position: left;
+  z-index: 45;
+  padding-bottom: 280px;
+  .flashing-title {
+    color: $color-green;
+    font-family: $proxima-nova-bold;
+    display: block;
+    margin-bottom: 25px;
+  }
+  .subtitle {
+    margin: 0;
+  }
+}
+
+#section-programs {
+  margin-bottom: 50px;
+  #simple-title-programs {
+    margin-bottom: 25px;
+  }
+  #filter-programs {
+    margin-bottom: 30px;
   }
 }
 </style>
