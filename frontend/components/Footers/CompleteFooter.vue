@@ -21,7 +21,7 @@
 
 <script>
 import Subscribe from '~/components/Forms/Subscribe.vue'
-import ListMenu from '~/components/Navigation/ListMenu.vue'
+import ListMenu from '~/components/Navigation/Menus/ListMenu.vue'
 import SocialNav from '~/components/Navigation/SocialNav.vue'
 
 export default {

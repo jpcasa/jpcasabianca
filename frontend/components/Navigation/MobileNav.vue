@@ -1,14 +1,13 @@
 <template lang="html">
   <scrollactive id="navigation-mobile">
-    <div
+    <a
       v-for="(item, index) in menu"
-      :class="item.id == $store.state.subMenuActive ? 'active' : ''"
-      :key="index">
-      <a :href="'#' + item.url" class="scrollactive-item">
-        <i :class="'icon-' + item.icon"></i>
-        <span>{{ item.title }}</span>
-      </a>
-    </div>
+      :key="index"
+      :href="'#' + item.url"
+      :class="item.id == $store.state.subMenuActive ? 'active scrollactive-item' : 'scrollactive-item'">
+      <i :class="'icon-' + item.icon"></i>
+      <span>{{ item.title }}</span>
+    </a>
   </scrollactive>
 </template>
 
@@ -32,41 +31,34 @@ export default {
   text-align: center;
   padding: 0;
   margin: 0;
-  div {
+  a {
+    text-decoration: none;
+    color: $color-gray;
     flex: 1;
     color: $color-gray;
     padding: 0;
     margin: 0;
     padding: 5px 0;
     cursor: pointer;
-    a {
-      text-decoration: none;
-      color: $color-gray;
-      i,
-      span {
-        display: block;
-      }
-      i {
-        margin-bottom: 6px;
-      }
-      span {
-        font-size: 10px;
-        font-family: $gotham-rounded-book;
-      }
+    i,
+    span {
+      display: block;
     }
-    a.active {
-
+    i {
+      margin-bottom: 6px;
+    }
+    span {
+      font-size: 10px;
+      font-family: $gotham-rounded-book;
     }
     &:hover {
       background-color: $color-green-light;
-      a {
-        color: $color-green-dark;
-      }
+      color: $color-green-dark;
     }
   }
   .is-active {
-    color: $color-green-light;
-
+    background-color: $color-green-light;
+    color: $color-green-dark;
   }
 }
 

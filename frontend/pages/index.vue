@@ -77,8 +77,45 @@
       </div>
     </section>
 
-    <div id="section-education" />
-    <div id="section-testimonies" />
+    <div id="section-education">
+      <div class="container text-center">
+        <SimpleTitle
+          id="simple-title-education"
+          title="Education"
+          subtitle="Courses &amp; Education"
+          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          theme="light" />
+        <div class="img-cards">
+          <ImgCard v-for="i in (0,5)" :key="i" />
+        </div>
+      </div>
+    </div>
+
+    <div id="section-courses">
+      <section id="courses">
+        <div class="container text-center">
+          <SimpleTitle
+            id="simple-title-courses"
+            title="Courses"
+            subtitle="Some programs I use"
+            copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+            theme="light" />
+            <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
+        </div>
+        <CardSlider />
+      </section>
+      <section id="section-testimonies">
+        <div class="container text-center">
+          <SimpleTitle
+            id="simple-title-testimonies"
+            title="Testimonies"
+            subtitle="Some programs I use"
+            copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+            theme="light" />
+          <ProfileCard v-for="i in (0, 3)" :key="i" />
+        </div>
+      </section>
+    </div>
 
     <div id="design-thinking" />
     <div id="ui-ux-patterns" />
@@ -118,6 +155,10 @@ import DotChart from '~/components/Elements/Charts/DotChart.vue'
 import Timeline from '~/components/Elements/Charts/Timeline.vue'
 import FilterDropdown from '~/components/Navigation/Dropdowns/FilterDropdown.vue'
 import HorizontalCards from '~/components/Elements/Cards/HorizontalCards.vue'
+import ImgCard from '~/components/Elements/Cards/ImgCard.vue'
+import CardSlider from '~/components/Elements/Cards/CardSlider.vue'
+import ProfileCard from '~/components/Elements/Cards/ProfileCard.vue'
+
 
 export default {
   data() {
@@ -134,7 +175,10 @@ export default {
     DotChart,
     Timeline,
     FilterDropdown,
-    HorizontalCards
+    HorizontalCards,
+    ImgCard,
+    CardSlider,
+    ProfileCard
   },
   computed: {
     skillCategories() {
@@ -229,5 +273,39 @@ export default {
   #filter-programs {
     margin-bottom: 30px;
   }
+}
+
+#section-education {
+  background-image: url('~/static/img/section-education.png');
+  background-size: cover;
+  background-position: right;
+  #simple-title-education {
+    margin-bottom: 50px;
+  }
+}
+
+#section-courses {
+  background-image: url('~/static/img/section-courses.png');
+  background-size: cover;
+  background-position: right;
+  margin-top: 60px;
+  .flashing-title {
+    color: $color-green;
+    margin-bottom: 60px;
+  }
+  #simple-title-courses {
+    padding-top: -50px;
+  }
+}
+
+#courses {
+  margin-bottom: 60px;
+}
+
+#section-testimonies {
+  #simple-title-testimonies {
+    margin-bottom: 40px;
+  }
+  padding-bottom: 50px;
 }
 </style>

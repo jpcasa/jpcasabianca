@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SidebarMenu from '~/components/Navigation/SidebarMenu.vue'
-import SimpleMenu from '~/components/Navigation/SimpleMenu.vue'
+import SidebarMenu from '~/components/Navigation/Menus/SidebarMenu.vue'
+import SimpleMenu from '~/components/Navigation/Menus/SimpleMenu.vue'
 
 export default {
   props: ['menu', 'contact'],
