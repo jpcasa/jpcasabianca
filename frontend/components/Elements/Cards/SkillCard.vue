@@ -1,0 +1,235 @@
+<template lang="html">
+  <div class="skill-card">
+
+    <!-- SKILL CARD CONTENT -->
+    <i class="favorite icon-star"></i>
+    <span class="skill-level">9.0</span>
+    <img class="skill-logo" src="img/vuejs.png" alt="Vuejs" />
+    <span class="skill-title" @click="showSkillDetail = true">Vue.js</span>
+
+    <!-- SKILL DETAILS OVERLAY -->
+    <transition name="fade">
+      <div class="skill-detail" v-show="showSkillDetail">
+        <div class="top">
+        <div class="container clearfix">
+          <i class="icon-x-circle" @click="showSkillDetail = false" />
+        </div>
+        <div class="img-circle">
+          <img src="img/vuejs.png" alt="">
+        </div>
+      </div>
+        <div class="skill-content">
+        <div class="container">
+          <p class="skill-name">Vue.js</p>
+          <div class="skill-info">
+            <p class="skill-info-title">Skill Level</p>
+            <div class="dot-chart-row">
+              <div v-for="j in (0, 10)" :key="j" class="circle-container">
+                <span :class="j <= 8 ? 'circle active' : 'circle'" />
+              </div>
+            </div>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Worked</p>
+            <span class="skill-info-copy">+2 Years</span>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Last Project with Vue.js</p>
+            <span class="skill-info-copy">https://github.com/vuejs/vue</span>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Last Project with Vue.js</p>
+            <RadarChart
+              :data="chartData" />
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Website</p>
+            <a href="" class="skill-info-copy">https://vuejs.org/</a>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Documentation</p>
+            <a href="" class="skill-info-copy">https://vuejs.org/v2/guide/</a>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Github</p>
+            <a href="" class="skill-info-copy">https://github.com/vuejs/vue</a>
+          </div>
+          <div class="skill-info">
+            <p class="skill-info-title">Why I use Vue.js?</p>
+            <span class="skill-info-copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </transition>
+
+  </div>
+</template>
+
+<script>
+import RadarChart from '~/components/Elements/Charts/RadarChart.js'
+
+export default {
+  data() {
+    return {
+      showSkillDetail: false,
+      chartData: {
+        labels: ['Running', 'Swimming', 'Eating', 'Cycling', 'Eating', 'Cycling'],
+        datasets: [{
+          data: [9, 10, 6, 7, 8, 9],
+          backgroundColor: 'rgba(62, 236, 130, 0.5)',
+          borderColor: '#23c286',
+        }]
+      }
+    }
+  },
+  components: {
+    RadarChart
+  }
+}
+</script>
+
+<style lang="scss">
+@import '~/assets/css/helpers/_variables.scss';
+@import '~/assets/css/helpers/_mixins.scss';
+@import '~/assets/css/helpers/_extensions.scss';
+
+.chartjs-render-monitor {
+  max-width: 300px;
+  margin: auto;
+}
+
+.skill-card {
+  width: 140px;
+  background-color: #fff;
+  margin: 10px;
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+  .skill-logo {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  }
+  .skill-title {
+    display: block;
+    cursor: pointer;
+    font-family: $gotham-rounded-medium;
+    color: $color-blue-black;
+    font-size: 14px;
+    padding: 12px 0;
+    &:hover {
+      color: $color-green-dark;
+      background-color: $color-green-light;
+    }
+  }
+  .favorite {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+  }
+  .skill-level {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    font-size: 13px;
+    font-family: $gotham-rounded-medium;
+  }
+  .skill-detail {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    overflow-y: scroll;
+    .top {
+      background-color: $color-green-light;
+      padding: 25px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1100;
+      i {
+        display: inline-block;
+        font-size: 36px;
+        color: $color-green-dark;
+        cursor: pointer;
+        @include border-radius(50%);
+        &:hover {
+          background-color: $color-green;
+        }
+      }
+      .icon-x-circle {
+        float: left;
+      }
+      .img-circle {
+        position: absolute;
+        left: 37%;
+        width: 100px;
+        height: 100px;
+        bottom: -50px;
+        @include border-radius(50%);
+        background-color: #fff;
+        -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          margin: auto;
+        }
+      }
+    }
+  }
+  .skill-content {
+    .skill-name {
+      margin-top: 155px;
+      font-family: $gotham-rounded-medium;
+      color: $color-blue-black;
+    }
+    .skill-info {
+      text-align: left;
+      margin-bottom: 25px;
+      .skill-info-copy {
+        color: $color-gray-heavy;
+        font-family: $proxima-nova;
+        font-size: 14px;
+        margin: 0;
+      }
+      a.skill-info-copy {
+        &:hover {
+          color: $color-green;
+        }
+      }
+      .skill-info-title {
+        font-family: $gotham-rounded-medium;
+        font-size: 15px;
+        margin: 0 0 5px 0;
+      }
+      .dot-chart-row {
+        flex: 6;
+        display: flex;
+        .circle-container {
+          flex: 1;
+          text-align: left;
+          .circle {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-color: $color-gray;
+            margin-right: 5px;
+            @include border-radius(50%);
+          }
+          .circle.active {
+            background-color: $color-green-light;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

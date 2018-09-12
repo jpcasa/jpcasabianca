@@ -25,20 +25,20 @@
     <MobileNav :menu="mobileMenu" />
 
     <transition name="fade">
-      <div class="mobile-header" v-show="showMobileMenu">
+      <div class="mobile-header" v-if="showMobileMenu">
         <i class="icon-x-circle" @click="showMobileMenu = false"></i>
         <nuxt-link
           v-for="(item, index) in mainMenu.menu_items"
           :key="index"
-          :to="item.url"
-          class="">
+          :to="'/' + item.url"
+          @click.native="activateMenu(item.id)">
           {{ item.title }}
         </nuxt-link>
       </div>
     </transition>
 
     <transition name="fade">
-      <div class="mobile-contact-info" v-show="showMobileInfo">
+      <div class="mobile-contact-info" v-if="showMobileInfo">
         <i class="icon-x-circle" @click="showMobileInfo = false" id="close-contact-info"></i>
         <MobileContact :menu="contactMenu.menu_items" />
       </div>
@@ -83,12 +83,18 @@ export default {
     CompleteFooter,
     MobileContact
   },
+  methods: {
+    activateMenu(id) {
+      this.$store.dispatch('menus/getSubMenu', id)
+      this.showMobileMenu = false
+    }
+  },
   created() {
     this.$axios.setHeader("Content-Type", "application/x-www-form-urlencoded", [
       "post"
     ])
     this.$axios.setToken("6b04a68e84b72c9d24a7340316e25d990d2bbba3", "Token")
-    this.$store.dispatch('menus/getMainMenu')
+    this.$store.dispatch('menus/getMainMenu', this.$nuxt.$route.path)
     this.$store.dispatch('menus/getContactMenu')
   }
 }
@@ -97,13 +103,6 @@ export default {
 <style lang="scss">
 @import '~/assets/css/helpers/_variables.scss';
 @import '~/assets/css/helpers/_extensions.scss';
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 
 main {
   position: relative;
@@ -284,7 +283,7 @@ main {
       background-color: $color-green;
     }
   }
-  .active {
+  .nuxt-link-exact-active {
     background-color: $color-green;
   }
 }

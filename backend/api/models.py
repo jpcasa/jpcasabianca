@@ -58,9 +58,8 @@ class MenuItem(models.Model):
         max_length=100
     )
     url = models.CharField(
-        blank=False,
-        max_length=100,
-        unique=True
+        blank=True,
+        max_length=100
     )
     action = models.CharField(
         max_length=100,

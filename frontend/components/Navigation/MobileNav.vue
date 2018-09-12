@@ -1,14 +1,15 @@
 <template lang="html">
-  <scrollactive id="navigation-mobile">
-    <a
+  <nav id="navigation-mobile">
+    <nuxt-link
       v-for="(item, index) in menu"
       :key="index"
-      :href="'#' + item.url"
+      :to="'#' + item.url"
+      v-scroll-to="'#' + item.url"
       :class="item.id == $store.state.subMenuActive ? 'active scrollactive-item' : 'scrollactive-item'">
       <i :class="'icon-' + item.icon"></i>
       <span>{{ item.title }}</span>
-    </a>
-  </scrollactive>
+    </nuxt-link>
+  </nav>
 </template>
 
 <script>

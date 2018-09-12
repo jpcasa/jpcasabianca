@@ -1,17 +1,17 @@
 <template lang="html">
   <ul class="sidebar-menu">
     <li v-for="(item, index) in menu" :key="index">
-      <span
-        :class="item.id == $store.state.menus.menuActive ? 'active menu-item' : 'menu-item'">
+      <nuxt-link
+        :to="'/' + item.url"
+        @click.native="activateMenu(item.id)"
+        class="menu-item">
         {{ item.title }}
-      </span>
-      <ul v-if="item.id == $store.state.menus.menuActive && item.sub_menu_items.length">
+      </nuxt-link>
+      <ul v-if="showSubMenu(item.url)">
         <li v-for="(subItem, index2) in item.sub_menu_items" :key="index2">
-          <scrollactive>
-            <a :href="'#' + subItem.url" class="scrollactive-item menu-sub-item">
-              {{ subItem.title }}
-            </a>
-          </scrollactive>
+          <nuxt-link :to="'#' + subItem.url" v-scroll-to="'#' + subItem.url" class="menu-sub-item">
+            {{ subItem.title }}
+          </nuxt-link>
         </li>
       </ul>
     </li>
@@ -23,11 +23,21 @@ export default {
   props: ['menu'],
   methods: {
     showSubMenu(item) {
-      if (this.$store.state.menus.menuActive == item.id && item.sub_menu_items.length > 0) {
+      let path = this.$nuxt.$route.path
+      if (path != '/') {
+        path = path.split("/")
+        path = path[1]
+      } else {
+        path = ''
+      }
+      if (item == path) {
         return true
       } else {
         return false
       }
+    },
+    activateMenu(id) {
+      this.$store.dispatch('menus/getSubMenu', id)
     }
   }
 }
@@ -50,12 +60,14 @@ export default {
       padding: 10px 0 10px 30px;
       border-left: 8px solid #fff;
       cursor: pointer;
+      color: $color-blue-dark;
+      text-decoration: none;
       &:hover {
         background-color: $color-gray-light;
         border-left: 8px solid $color-green;
       }
     }
-    .menu-item.active {
+    .menu-item.nuxt-link-exact-active {
       background-color: $color-gray-light;
       border-left: 8px solid $color-green;
     }

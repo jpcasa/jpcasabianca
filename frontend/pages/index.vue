@@ -11,7 +11,7 @@
           subtitle="Hi There"
           copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
           cta="Discover Me"
-          ctaUrl="section-skills"
+          ctaUrl="section-short-bio"
           action="scroll" />
           <img src="img/computer.png" alt="Computer">
         </div>
@@ -77,7 +77,7 @@
       </div>
     </section>
 
-    <div id="section-education">
+    <section id="section-education">
       <div class="container text-center">
         <SimpleTitle
           id="simple-title-education"
@@ -89,9 +89,9 @@
           <ImgCard v-for="i in (0,5)" :key="i" />
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="section-courses">
+    <section id="section-courses">
       <section id="courses">
         <div class="container text-center">
           <SimpleTitle
@@ -115,32 +115,7 @@
           <ProfileCard v-for="i in (0, 3)" :key="i" />
         </div>
       </section>
-    </div>
-
-    <div id="design-thinking" />
-    <div id="ui-ux-patterns" />
-    <div id="agile-scrum" />
-    <div id="inbound-marketing" />
-    <div id="automation" />
-    <div id="data-analysis" />
-
-    <div id="frontend" />
-    <div id="backend" />
-    <div id="apis" />
-    <div id="developer-tools" />
-    <div id="business" />
-
-    <div id="estudio-codesign" />
-    <div id="printa-delivery" />
-
-    <div id="stay-to-date" />
-    <div id="courses-certiﬁcations" />
-    <div id="news-blogs" />
-    <div id="podcasts" />
-    <div id="libraries-frameworks" />
-    <div id="programs" />
-
-    <div id="" />
+    </section>
 
   </section>
 </template>
@@ -227,7 +202,8 @@ export default {
   text-align: center;
   display: flex;
   width: 100%;
-  margin: 30px 0 -60px 0;
+  margin: 30px 0 0px 0;
+  z-index: 100;
 }
 
 #section-skills {

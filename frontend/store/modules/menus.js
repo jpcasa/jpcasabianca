@@ -5,7 +5,7 @@ const state = {
   menu: {},
   subMenu: {},
   contactMenu: {},
-  menuActive: 0,
+  menuActive: "",
   subMenuActive: 0
 }
 
@@ -31,6 +31,9 @@ const mutations = {
   },
   setContactMenu: (state, contactMenu) => {
     state.contactMenu = contactMenu
+  },
+  setSubMenuClick: (state, id) => {
+    state.subMenu = state.menu.menu_items[id].sub_menu_items
   }
 }
 
@@ -40,19 +43,35 @@ const actions = {
     const data = await this.$axios.$get(`menus/?format=json`)
     commit('setMenus', data)
   },
-  async getMainMenu ({commit}) {
+  async getMainMenu ({commit}, path) {
     const data = await this.$axios.$get(`menus/1/?format=json`)
+    let path_name = ''
+    if (path != '/') {
+      path_name = path.split("/")
+      path_name = path_name[1]
+    } else {
+      path_name = ''
+    }
+    const active_item = data.menu_items.filter(item => item.url == path_name)
+    const active_item_id = active_item[0].id - 1
     commit('setMainMenu', data)
-    commit('setMenuActive', data.menu_items[0].id)
-    if (data.menu_items[0].sub_menu_items.length) {
-      commit('setSubMenu', data.menu_items[0].sub_menu_items)
-      commit('setSubMenuActive', data.menu_items[0].sub_menu_items[0].id)
+    commit('setMenuActive', data.menu_items[active_item_id].url)
+    if (data.menu_items[active_item_id].sub_menu_items.length) {
+      commit('setSubMenu', data.menu_items[active_item_id].sub_menu_items)
+      commit('setSubMenuActive', data.menu_items[active_item_id].sub_menu_items[0].id)
     }
   },
   async getContactMenu ({commit}) {
     const data = await this.$axios.$get(`menus/2/?format=json`)
     commit('setContactMenu', data)
-  }
+  },
+  async assignMenuActive ({commit}, url) {
+    commit('setMenuActive', url)
+  },
+  async getSubMenu ({commit}, id) {
+    commit('setSubMenuClick', (id - 1))
+    commit('setSubMenuActive', id)
+  },
 }
 
 export default {

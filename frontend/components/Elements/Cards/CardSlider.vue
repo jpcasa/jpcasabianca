@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="card-slider">
-    <div class="card-slider-content">
+    <div class="card-slider-content" v-for="i in (0, 5)" :key="i">
       <div class="container">
         <img src="img/udemy.png" alt="Udemy">
         <p class="title">Some programs I use</p>
@@ -23,11 +23,6 @@
         <a href="#" class="cta"><i class="icon-arrow-up-right"></i></a>
       </div>
     </div>
-    <div class="card-slider-content" />
-    <div class="card-slider-content" />
-    <div class="card-slider-content" />
-    <div class="card-slider-content" />
-    <div class="card-slider-content" />
   </section>
 </template>
 
