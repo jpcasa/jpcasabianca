@@ -131,7 +131,7 @@ import Timeline from '~/components/Elements/Charts/Timeline.vue'
 import FilterDropdown from '~/components/Navigation/Dropdowns/FilterDropdown.vue'
 import HorizontalCards from '~/components/Elements/Cards/HorizontalCards.vue'
 import ImgCard from '~/components/Elements/Cards/ImgCard.vue'
-import CardSlider from '~/components/Elements/Cards/CardSlider.vue'
+import CardSlider from '~/components/Sliders/CardSlider.vue'
 import ProfileCard from '~/components/Elements/Cards/ProfileCard.vue'
 
 

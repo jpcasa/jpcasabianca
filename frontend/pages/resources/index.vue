@@ -2,15 +2,14 @@
   <section>
 
     <section id="stay-to-date">
-      <div class="container">
+      <div class="container text-center">
         <SimpleTitle
-          class="text-center"
-          id="simple-title-resources"
-          title="Are you into APIs too? I use them all the time..."
-          subtitle="Some programs I use"
+          id="stay-to-date-title"
+          title="Experience &amp; Work"
+          subtitle="A short story"
           copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
           theme="light" />
-        <ResourceCard />
+        <ResourceCard v-for="i in (0, 9)" :key="i" />
       </div>
     </section>
 
@@ -34,5 +33,10 @@ export default {
   background-image: url('~/static/img/resources.png');
   background-size: cover;
   background-position: left;
+  padding-top: 70px;
+}
+
+#stay-to-date-title {
+  margin-bottom: 30px;
 }
 </style>

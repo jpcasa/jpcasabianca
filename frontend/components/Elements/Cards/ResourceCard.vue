@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="resource-card text-center">
+    <nuxt-link to="/resources/url" class="resource-card-cta"><i class="icon-arrow-up-right"></i></nuxt-link>
     <div class="container">
       <img class="resource-img" src="img/resource1.png" alt="Resource">
       <p class="resource-title">Stay up to date</p>
@@ -19,9 +20,13 @@ export default {
 
 .resource-card {
   background-color: #fff;
-  @include border-radius($border-radius);
   display: inline-block;
   padding: 10px 0;
+  margin-bottom: 30px;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
   .resource-img {
     width: 80px;
     height: 80px;
@@ -36,6 +41,24 @@ export default {
     color: $color-gray-heavy;
     font-size: 15px;
     font-family: $proxima-nova;
+  }
+  .resource-card-cta {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-decoration: none;
+    background-color: $color-green-light;
+    color: $color-green-dark;
+    display: inline-block;
+    padding: 8px;
+    z-index: 30;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-green;
+    }
+    i {
+      font-size: 20px;
+    }
   }
 }
 </style>
