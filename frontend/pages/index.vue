@@ -194,7 +194,7 @@ export default {
   background-image: url('~/static/img/section-first-fold.png');
   background-size: cover;
   background-position: bottom;
-  padding: 0 0 100px 0;
+  padding: 70px 0 100px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -319,6 +319,7 @@ export default {
   #section-first-fold {
     height: 500px!important;
     background-color: none;
+    padding-top: 20px;
     .container {
       display: flex;
       #title-with-cta1 {

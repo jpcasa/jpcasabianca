@@ -1,7 +1,9 @@
 <template lang="html">
   <header id="desktop-sidebar" class="desktop">
     <!-- LOGO -->
-    <nuxt-link class="main-logo" to="/">JP Casabianca</nuxt-link>
+    <nuxt-link class="main-logo" to="/">
+      <img src="img/logo2.png" alt="Logo JP Casabianca">
+    </nuxt-link>
     <!-- SIDEBAR HEADER -->
     <SidebarMenu id="sidebar-header" :menu="menu" />
     <!-- SIMPLE MENU -->
@@ -41,9 +43,13 @@ export default {
     text-decoration: none;
     color: $color-blue-heavy;
     font-family: $gotham-rounded-medium;
-    margin: 30px 0 30px 30px;
+    margin: 20px 0 20px 30px;
     &:hover {
       color: $color-green;
+    }
+    img {
+      width: 140px;
+      height: auto;
     }
   }
 }
