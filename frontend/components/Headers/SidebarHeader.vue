@@ -33,6 +33,7 @@ export default {
   left: 0;
   top: 0;
   background-color: #fff;
+  border-right: 1px solid $color-gray-light;
   overflow-y: scroll;
   .main-logo {
     display: block;

@@ -13,6 +13,9 @@
         <SubscribeSimple id="subscribe-simple" />
       </div>
       <BlogSlider id="blog-slider" />
+      <div class="text-center cta-blog">
+        <a href="#" class="cta">See All Articles</a>
+      </div>
     </section>
 
   </section>
@@ -34,13 +37,22 @@ export default {
 
 <style lang="scss">
 @import '~/assets/css/helpers/_variables.scss';
-@import '~/assets/css/helpers/_mixins.scss';
+@import '~/assets/css/helpers/_extensions.scss';
 
 #blog {
   padding-top: 70px;
   background-color: $color-gray-light;
   .subtitle {
     margin-top: 0;
+  }
+  .cta-blog {
+    padding-bottom: 50px;
+    .cta {
+      display: inline-block;
+      margin: auto;
+      @extend %background-green;
+      @extend %cta;
+    }
   }
 }
 

@@ -33,14 +33,14 @@ img {
 .container {
   width: 90%;
   margin: auto;
-  max-width: 1000px;
+  max-width: 900px;
   position: relative;
 }
 
 .cont80 {
   width: 80%;
   margin: auto;
-  max-width: 1000px;
+  max-width: 900px;
   position: relative;
 }
 
@@ -65,6 +65,11 @@ img {
     content: "";
     clear: both;
     display: table;
+}
+
+.image-responsive {
+  max-width: 600px;
+  margin: auto;
 }
 
 @keyframes flashing-title {

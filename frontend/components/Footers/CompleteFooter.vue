@@ -82,7 +82,7 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 20px 0;
-    margin: 40px 0 40px 0;
+    margin: 40px 0 38px 0;
     p {
       margin: 0;
       padding: 0;
@@ -90,6 +90,14 @@ export default {
       span {
         color: $color-green-light;
       }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #main-footer {
+    .lower-footer {
+      margin-bottom: 0;
     }
   }
 }

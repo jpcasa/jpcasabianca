@@ -79,4 +79,17 @@ export default {
     }
   }
 }
+
+@media (min-width: 768px) {
+  .profile-card {
+    .profile-card-top {
+      .profile-card-top-left {
+        flex: 1;
+      }
+      .profile-card-top-right {
+        flex: 7;
+      }
+    }
+  }
+}
 </style>

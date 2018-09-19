@@ -67,7 +67,7 @@ export default {
         border-left: 8px solid $color-green;
       }
     }
-    .menu-item.nuxt-link-exact-active {
+    .menu-item.nuxt-link-active {
       background-color: $color-gray-light;
       border-left: 8px solid $color-green;
     }

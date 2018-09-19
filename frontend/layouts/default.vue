@@ -109,7 +109,6 @@ main {
   #page-section {
     display: block;
     height: 450px;
-    background-color: $color-gray-light;
   }
 }
 

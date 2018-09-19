@@ -104,6 +104,9 @@ export default {
   .filter-dropdown-container {
     background-color: #fff;
   }
+  .desktop-list {
+    display: none;
+  }
 }
 
 .skill-cards {

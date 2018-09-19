@@ -13,8 +13,8 @@
           cta="Discover Me"
           ctaUrl="section-short-bio"
           action="scroll" />
-          <img src="img/computer.png" alt="Computer">
-        </div>
+        <img src="img/computer.png" alt="Computer">
+      </div>
     </section>
 
     <!-- SECTION SHORT BIO -->
@@ -69,11 +69,13 @@
           subtitle="Some programs I use"
           copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
           theme="light" />
-        <FilterDropdown
-          id="filter-programs"
-          icon="arrow"
-          title="Filter Programs" />
-        <HorizontalCards />
+        <div class="programs-flex">
+          <FilterDropdown
+            id="filter-programs"
+            icon="arrow"
+            title="Filter Programs" />
+          <HorizontalCards />
+        </div>
       </div>
     </section>
 
@@ -112,7 +114,9 @@
             subtitle="Some programs I use"
             copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
             theme="light" />
-          <ProfileCard v-for="i in (0, 3)" :key="i" />
+          <div class="profile-card-container">
+            <ProfileCard v-for="i in (0, 3)" :key="i" />
+          </div>
         </div>
       </section>
     </section>
@@ -189,10 +193,12 @@ export default {
 #section-first-fold {
   background-image: url('~/static/img/section-first-fold.png');
   background-size: cover;
-  padding: 60px 0 50px 0;
+  background-position: bottom;
+  padding: 0 0 100px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
+  position: relative;
   #title-with-cta1 {
     margin-bottom: 30px;
   }
@@ -248,6 +254,9 @@ export default {
   }
   #filter-programs {
     margin-bottom: 30px;
+    p {
+      background-color: $color-gray-light;
+    }
   }
 }
 
@@ -283,5 +292,75 @@ export default {
     margin-bottom: 40px;
   }
   padding-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  #section-education {
+    .img-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .img-card {
+        width: 250px;
+        margin: 0 10px 25px 10px;
+      }
+    }
+  }
+  #section-first-fold {
+    img {
+      width: 600px;
+      height: auto;
+      margin: auto;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #section-first-fold {
+    height: 500px!important;
+    background-color: none;
+    .container {
+      display: flex;
+      #title-with-cta1 {
+        flex: 2;
+        text-align: left;
+      }
+      img {
+        flex: 3;
+        text-align: left;
+        max-width: 500px;
+      }
+    }
+  }
+
+  #section-programs {
+    .programs-flex {
+      display: flex;
+    }
+    #filter-programs {
+      flex: 1;
+      margin-right: 25px;
+      span, p {
+        display: none;
+      }
+    }
+    .horizontal-cards {
+      flex: 2;
+    }
+  }
+
+  #section-testimonies {
+    .container {
+      display: flex;
+      #simple-title-testimonies {
+        flex: 2;
+        text-align: left;
+        margin-right: 25px;
+      }
+      .profile-card-container {
+        flex: 3;
+      }
+    }
+  }
 }
 </style>

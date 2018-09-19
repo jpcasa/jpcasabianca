@@ -12,6 +12,14 @@
         <li>item</li>
       </ul>
     </transition>
+    <ul class="desktop desktop-list">
+      <li class="active">item</li>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+    </ul>
   </div>
 </template>
 
@@ -106,6 +114,29 @@ export default {
     .active {
       background-color: $color-green-light;
       color: $color-green-dark;
+    }
+  }
+  .desktop-list {
+    text-align: left;
+    color: $color-gray-heavy;
+    list-style: none;
+    padding: 0;
+    li {
+      border-left: 6px solid #fff;
+      padding: 7px 0 7px 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-gray-light;
+        border-left: 6px solid $color-green-light;
+        color: $color-blue-heavy;
+        font-family: $proxima-nova-bold;
+      }
+    }
+    .active {
+      background-color: $color-gray-light;
+      border-left: 6px solid $color-green-light;
+      color: $color-blue-heavy;
+      font-family: $proxima-nova-bold;
     }
   }
 }
