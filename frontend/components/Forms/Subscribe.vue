@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="subscribe">
-    <p>A Short Timeline</p>
-    <h2>Suscribe to my Newsletter</h2>
+    <p>I hate spam just as much as you...</p>
+    <h2>Subscribe to my newsletter</h2>
     <form class="" action="index.html" method="post">
-      <input type="email" name="email" placeholder="Email">
-      <input type="submit" value="Suscribe">
+      <input type="email" name="email" placeholder="Enter your email...">
+      <input type="submit" value="Subscribe">
     </form>
   </div>
 </template>

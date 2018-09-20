@@ -3,14 +3,14 @@
     <div class="container">
       <Subscribe />
       <div class="footer-menus">
-        <ListMenu />
-        <ListMenu />
+        <ListMenu :items="footer1" />
+        <ListMenu :items="footer2" />
       </div>
       <div class="footer-info">
         <p>Bogotá, Colombia.</p>
-        <p>hola@jpcasabianca.com</p>
-        <p>+(57) 350 701 5800</p>
-        <SocialNav />
+        <a class="footer-info-cta" href="mailto:hola@jpcasabianca.com">hola@jpcasabianca.com</a>
+        <a class="footer-info-cta" href="tel:+573507015800">+(57) 350 701 5800</a>
+        <SocialNav :items="socialMenu" />
       </div>
     </div>
     <div class="lower-footer">
@@ -29,6 +29,21 @@ export default {
     Subscribe,
     ListMenu,
     SocialNav
+  },
+  computed: {
+    footer1() {
+      return this.$store.state.menus.footer1.menu_items
+    },
+    footer2() {
+      return this.$store.state.menus.footer2.menu_items
+    },
+    socialMenu() {
+      return this.$store.state.menus.socialMenu.menu_items
+    }
+  },
+  created() {
+    this.$store.dispatch('menus/getFooterMenus')
+    this.$store.dispatch('menus/getSocialMenu')
   }
 }
 </script>
@@ -51,9 +66,16 @@ export default {
   .footer-info {
     text-align: center;
     margin: 60px 0 0 0;
-    p {
+    p, .footer-info-cta {
       margin: 4px 0;
       color: #fff;
+      display: block;
+    }
+    .footer-info-cta {
+      text-decoration: none;
+      &:hover {
+        color: $color-green-light;
+      }
     }
     .social-nav {
       display: block;

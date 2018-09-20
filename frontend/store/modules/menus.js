@@ -6,7 +6,10 @@ const state = {
   subMenu: {},
   contactMenu: {},
   menuActive: "",
-  subMenuActive: 0
+  subMenuActive: 0,
+  footer1: {},
+  footer2: {},
+  socialMenu: {}
 }
 
 // getters
@@ -34,6 +37,15 @@ const mutations = {
   },
   setSubMenuClick: (state, id) => {
     state.subMenu = state.menu.menu_items[id].sub_menu_items
+  },
+  setFooter1: (state, footer1) => {
+    state.footer1 = footer1
+  },
+  setFooter2: (state, footer2) => {
+    state.footer2 = footer2
+  },
+  setSocialMenu: (state, socialMenu) => {
+    state.socialMenu = socialMenu
   }
 }
 
@@ -72,6 +84,16 @@ const actions = {
     commit('setSubMenuClick', (id - 1))
     commit('setSubMenuActive', id)
   },
+  async getFooterMenus ({commit}) {
+    const data1 = await this.$axios.$get(`menus/3/?format=json`)
+    const data2 = await this.$axios.$get(`menus/4/?format=json`)
+    commit('setFooter1', data1)
+    commit('setFooter2', data2)
+  },
+  async getSocialMenu ({commit}) {
+    const data = await this.$axios.$get(`menus/5/?format=json`)
+    commit('setSocialMenu', data)
+  }
 }
 
 export default {

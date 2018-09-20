@@ -55,11 +55,6 @@
       </div>
       <img src="img/scrum-agile.png" alt="Scrum Agile" class="mobile">
       <img src="img/scrum-agile-desktop.png" alt="Scrum Agile" class="desktop">
-      <div class="lower-scrum">
-        <div class="container">
-          <TabsFullSimple styles="dark" :items="design_thinking_steps" />
-        </div>
-      </div>
     </section>
 
     <section id="inbound-marketing">
@@ -74,9 +69,6 @@
       </div>
       <div class="text-center">
         <img src="img/inbound2.png" id="inbound-marketing-img" alt="Inbound Marketing" class="image-responsive">
-      </div>
-      <div class="container">
-        <InboundSection />
       </div>
     </section>
 
@@ -286,6 +278,7 @@ export default {
     padding: 60px 0 180px 0;
     background-image: url('~/static/img/lower-scrum.png');
     background-size: cover;
+    background-position: bottom;
   }
 }
 

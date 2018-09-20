@@ -1,16 +1,14 @@
 <template lang="html">
   <ul class="list-menu">
-    <li>About Me</li>
-    <li>Creative Process</li>
-    <li>My Tech Stack</li>
-    <li>Case Studies</li>
-    <li>Resources</li>
-    <li>Blog</li>
+    <li v-for="(item, index) in items" :key="index">
+      {{ item.title }}
+    </li>
   </ul>
 </template>
 
 <script>
 export default {
+  props: ['items']
 }
 </script>
 
