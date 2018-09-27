@@ -4,7 +4,7 @@
     <DynamicTitle
       :title="title"
       :words="words" />
-    <p class="copy">{{ copy }}</p>
+    <p class="copy" v-html="copy" />
     <nuxt-link
       class="cta"
       v-show="action == 'push'"

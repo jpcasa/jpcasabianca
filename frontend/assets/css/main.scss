@@ -94,6 +94,10 @@ img {
   opacity: 0;
 }
 
+.color-green {
+  color: $color-green;
+}
+
 @media (min-width: 992px) {
   .mobile {
     display: none;

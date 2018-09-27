@@ -2,7 +2,7 @@
   <div class="title-with-cta">
     <p class="subtitle">{{ subtitle }}</p>
     <h2 class="title">{{ title }}</h2>
-    <p class="copy">{{ copy }}</p>
+    <p class="copy" v-html="copy" />
     <nuxt-link
       class="cta"
       v-show="action == 'push'"
@@ -34,6 +34,8 @@ export default {
 
 .title-with-cta {
   display: block;
+  max-width: 500px;
+  margin: auto;
   .subtitle {
     color: $color-green-light;
     margin-bottom: 5px;

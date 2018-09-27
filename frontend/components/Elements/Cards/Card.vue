@@ -64,6 +64,10 @@ export default {
       color: $color-gray-heavy;
       text-decoration: none;
       font-size: 14px;
+      &:hover {
+        color: $color-green;
+        text-decoration: underline;
+      }
     }
   }
 }

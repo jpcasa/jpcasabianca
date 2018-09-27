@@ -2,6 +2,7 @@
   <div class="subscribe">
     <p>I hate spam just as much as you...</p>
     <h2>Subscribe to my newsletter</h2>
+    <span>I read a lot of stuff every week and love to stay up to date with everything happening. Sometimes it’s overwhelming, so I usually pin out the most important news of the week with a newsletter.</span>
     <form class="" action="index.html" method="post">
       <input type="email" name="email" placeholder="Enter your email...">
       <input type="submit" value="Subscribe">
@@ -26,8 +27,14 @@
     margin: 0;
   }
   h2 {
-    margin: 10px 0 15px 0;
+    margin: 10px 0;
     color: #fff;
+  }
+  span {
+    color: $color-gray;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
   }
   form {
     display: flex;

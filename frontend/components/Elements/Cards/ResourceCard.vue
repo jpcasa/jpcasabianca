@@ -3,14 +3,14 @@
     <nuxt-link to="/resources/url" class="resource-card-cta"><i class="icon-arrow-up-right"></i></nuxt-link>
     <div class="container">
       <img class="resource-img" src="img/resource1.png" alt="Resource">
-      <p class="resource-title">Stay up to date</p>
-      <p class="resource-copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="resource-title">{{ resource.title }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['resource']
 }
 </script>
 
@@ -21,7 +21,7 @@ export default {
 .resource-card {
   background-color: #fff;
   display: inline-block;
-  padding: 10px 0;
+  padding: 30px 0;
   margin-bottom: 30px;
   position: relative;
   -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
@@ -36,11 +36,6 @@ export default {
     font-family: $gotham-rounded-medium;
     font-size: 18px;
     color: $color-blue-black;
-  }
-  .resource-copy {
-    color: $color-gray-heavy;
-    font-size: 15px;
-    font-family: $proxima-nova;
   }
   .resource-card-cta {
     position: absolute;

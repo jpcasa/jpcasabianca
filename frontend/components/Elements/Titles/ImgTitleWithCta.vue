@@ -3,7 +3,7 @@
     <p class="subtitle">{{ subtitle }}</p>
     <h2 class="title">{{ title }}</h2>
     <img src="img/jp.png" alt="">
-    <p class="copy">{{ copy }}</p>
+    <p class="copy" v-html="copy" />
     <nuxt-link
       class="cta"
       v-show="action == 'push'"
@@ -35,6 +35,8 @@ export default {
 @import '~/assets/css/helpers/_extensions.scss';
 
 .title-with-cta {
+  max-width: 500px;
+  margin: auto;
   .subtitle {
     color: $color-green-light;
     margin-bottom: 5px;
@@ -51,6 +53,9 @@ export default {
   }
   .copy {
     color: $color-gray;
+    a {
+      color: $color-green;
+    }
   }
   .cta {
     @extend %cta;

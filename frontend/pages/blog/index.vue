@@ -6,9 +6,9 @@
         <SimpleTitle
           id="blog-title"
           class="text-center"
-          title="Experience &amp; Work"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          title="Blog"
+          subtitle="My Medium Stories"
+          copy="I read a lot of stuff every week and love to stay up to date with everything happening. Sometimes it’s overwhelming, so I usually pin out the most important news of the week with a newsletter."
           theme="light" />
         <SubscribeSimple id="subscribe-simple" />
       </div>

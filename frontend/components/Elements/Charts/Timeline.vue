@@ -37,11 +37,83 @@
         </div>
       </div>
       <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+          <div class="arrow" />
+          <div class="circle" />
+        </div>
+      </div>
+      <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+          <div class="arrow" />
+          <div class="circle" />
+        </div>
+      </div>
+      <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+          <div class="arrow" />
+          <div class="circle" />
+        </div>
+      </div>
+      <div class="timeline-content" />
     </div>
     <div class="timeline-divider">
       <div class="timeline-divider-line" />
     </div>
     <div class="timeline">
+      <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <div class="arrow-up" />
+          <div class="circle-up" />
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+        </div>
+      </div>
+      <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <div class="arrow-up" />
+          <div class="circle-up" />
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+        </div>
+      </div>
+      <div class="timeline-content" />
+      <div class="timeline-content">
+        <div class="item">
+          <div class="arrow-up" />
+          <div class="circle-up" />
+          <article class="">
+            <span class="subtitle">A Short Timeline</span>
+            <p class="title">Experience &amp; Work</p>
+            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+          </article>
+        </div>
+      </div>
       <div class="timeline-content" />
       <div class="timeline-content">
         <div class="item">
@@ -99,7 +171,7 @@ export default {
   overflow-x: scroll;
   text-align: center;
   .timeline-divider {
-    width: 880px;
+    width: 2870px;
     height: 30px;
     align-items: center;
     display: flex;

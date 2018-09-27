@@ -10,7 +10,7 @@
           copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
           theme="light" />
         <div class="resource-cards-container">
-          <ResourceCard v-for="i in (0, 9)" :key="i" />
+          <ResourceCard v-for="(item, index) in resources" :key="index" :resource="item" />
         </div>
       </div>
     </section>
@@ -23,6 +23,21 @@ import SimpleTitle from '~/components/Elements/Titles/SimpleTitle.vue';
 import ResourceCard from '~/components/Elements/Cards/ResourceCard.vue';
 
 export default {
+  data() {
+    return {
+      resources: [
+        { 'title': 'Stay up to date', 'icon': 'algo' },
+        { 'title': 'Courses', 'icon': 'algo' },
+        { 'title': 'Blogs', 'icon': 'algo' },
+        { 'title': 'Podcasts', 'icon': 'algo' },
+        { 'title': 'Repos', 'icon': 'algo' },
+        { 'title': 'Productivity', 'icon': 'algo' },
+        { 'title': 'Newsletters', 'icon': 'algo' },
+        { 'title': 'Inspiration', 'icon': 'algo' },
+        { 'title': 'Books', 'icon': 'algo' }
+      ]
+    }
+  },
   components: {
     SimpleTitle,
     ResourceCard

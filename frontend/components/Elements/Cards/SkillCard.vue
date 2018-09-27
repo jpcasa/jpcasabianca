@@ -2,10 +2,12 @@
   <div class="skill-card">
 
     <!-- SKILL CARD CONTENT -->
-    <i class="favorite icon-star"></i>
-    <span class="skill-level">9.0</span>
-    <img class="skill-logo" src="img/vuejs.png" alt="Vuejs" />
-    <span class="skill-title" @click="showSkillDetail = true">Vue.js</span>
+    <div class="skill-card-content" @click="showSkillDetail = true">
+      <i class="favorite icon-star"></i>
+      <span class="skill-level">9.0</span>
+      <img class="skill-logo" src="img/vuejs.png" alt="Vuejs" />
+      <span class="skill-title">Vue.js</span>
+    </div>
 
     <!-- SKILL DETAILS OVERLAY -->
     <transition name="fade">
@@ -106,40 +108,44 @@ export default {
   text-align: center;
   padding-top: 30px;
   position: relative;
-  .skill-logo {
-    width: 80px;
-    height: 80px;
-    margin: auto;
-  }
-  .skill-title {
-    display: block;
+  .skill-card-content {
     cursor: pointer;
-    font-family: $gotham-rounded-medium;
-    color: $color-blue-black;
-    font-size: 14px;
-    padding: 12px 0;
-    &:hover {
-      color: $color-green-dark;
-      background-color: $color-green-light;
+    .skill-logo {
+      width: 80px;
+      height: 80px;
+      margin: auto;
     }
-  }
-  .favorite {
-    position: absolute;
-    left: 8px;
-    top: 8px;
-  }
-  .skill-level {
-    position: absolute;
-    top: 10px;
-    right: 8px;
-    font-size: 13px;
-    font-family: $gotham-rounded-medium;
+    .skill-title {
+      display: block;
+      cursor: pointer;
+      font-family: $gotham-rounded-medium;
+      color: $color-blue-black;
+      font-size: 14px;
+      padding: 12px 0;
+      &:hover {
+        color: $color-green-dark;
+        background-color: $color-green-light;
+      }
+    }
+    .favorite {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+    .skill-level {
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      font-size: 13px;
+      font-family: $gotham-rounded-medium;
+    }
   }
   .skill-detail {
     position: fixed;
-    left: 0;
+    right: 0;
     top: 0;
     width: 100%;
+    max-width: 450px;
     height: 100%;
     z-index: 1000;
     background-color: #fff;
@@ -149,8 +155,9 @@ export default {
       padding: 25px 0;
       position: fixed;
       width: 100%;
+      max-width: 450px;
       top: 0;
-      left: 0;
+      right: 0;
       z-index: 1100;
       i {
         display: inline-block;
@@ -230,6 +237,13 @@ export default {
         }
       }
     }
+  }
+}
+
+@media (min-width: 768px) {
+  #radar-chart {
+    // margin-left: 0;
+    // margin-right: 0;
   }
 }
 </style>

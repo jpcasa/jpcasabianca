@@ -6,9 +6,9 @@
         <SimpleTitle
           class="text-center"
           id="simple-title-tech-stack"
-          title="Are you into APIs too? I use them all the time..."
-          subtitle="Some programs I use"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          title="Are you into Vue.js too? Django is just awesome…"
+          subtitle="My Tech Stack"
+          copy="Here is a list of languages, libraries, and frameworks I’ve used and worked with. Feel free to explore!"
           theme="light" />
         <div class="search">
           <i class="icon-search"></i>

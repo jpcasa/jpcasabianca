@@ -2,7 +2,7 @@
   <div class="simple-title">
     <p :style="subtitle_style" class="subtitle">{{ subtitle }}</p>
     <h2 :style="title_style" class="title">{{ title }}</h2>
-    <p :style="copy_style" class="copy">{{ copy }}</p>
+    <p :style="copy_style" class="copy" v-html="copy" />
   </div>
 </template>
 
@@ -41,6 +41,8 @@ export default {
 
 .simple-title {
   display: block;
+  max-width: 500px;
+  margin: auto;
   .subtitle {
     color: $color-green-light;
     margin-bottom: 5px;
@@ -52,6 +54,12 @@ export default {
   }
   .copy {
     color: $color-gray;
+    a {
+      color: $color-green;
+      &:hover {
+        color: $color-green-heavy;
+      }
+    }
   }
 }
 </style>

@@ -20,6 +20,7 @@ export default {
   display: flex;
   flex-direction: column;
   .icon-content {
+    flex: 1;
     margin-bottom: 40px;
   }
 }

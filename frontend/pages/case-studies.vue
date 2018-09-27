@@ -6,23 +6,27 @@
         <SimpleTitle
           id="simple-title-case-top"
           class="text-center"
-          title="I love creating and building cool sh*t."
-          subtitle="A short story"
+          title="I Love Creating and Building Cool Stuff"
+          subtitle="Creative process in action"
           copy=""
           theme="light" />
       </div>
-      <SimpleTitle
-        id="simple-title-case-top-desktop"
-        class="text-center"
-        title="I love creating and building cool sh*t."
-        subtitle="A short story"
-        copy="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        theme="light" />
       <img src="img/case-studies-top.png" alt="Case Studies Top" class="mobile">
-      <img src="img/case-studies-top-desktop.png" alt="Case Studies JP Casabianca" class="desktop">
       <div class="container text-center mobile">
         <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
         <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      </div>
+      <div class="case-studies-desktop">
+        <SimpleTitle
+          id="simple-title-case-top-desktop"
+          class="text-center"
+          title="I Love Creating and Building Cool Stuff"
+          subtitle="Creative process in action"
+          copy='Nothing is cooler than the real thing. You can check out my <a href="https://dribbble.com/jpcasabianca" target="_blank">Dribbble</a> account if you want to see my design work. To check out some public stuff I’ve made go to <a href="https://github.com/jpcasa" target="_blank">Github</a> or <a href="https://bitbucket.org/jpcasabianca/" target="_blank">Bitbucket</a>. If you’re looking for the complete story scroll down.'
+          theme="light" />
+        <div class="case-studies-desktop-img">
+          <img src="img/case-studies-top-desktop.png" alt="Case Studies JP Casabianca" class="desktop" id="simple-title-case-img">
+        </div>
       </div>
     </section>
 
@@ -141,18 +145,34 @@ export default {
   background-image: url('~/static/img/printa-back.png');
   background-size: cover;
   background-position: left;
+  min-height: 600px;
 }
 
 #codesign-back {
   background-image: url('~/static/img/codesign-back.png');
   background-size: cover;
   background-position: right;
+  min-height: 600px;
 }
 
 #mapps360-back {
   background-image: url('~/static/img/mapps360-back.png');
   background-size: cover;
   background-position: left;
+  min-height: 600px;
+}
+
+.case-studies-desktop {
+  display: flex;
+  align-items: center;
+  #simple-title-case-top-desktop {
+    flex: 2;
+    margin-left: 50px;
+    text-align: left;
+  }
+  .case-studies-desktop-img {
+    flex: 3;
+  }
 }
 
 @media (min-width: 992px) {
@@ -160,14 +180,6 @@ export default {
     display: flex;
     padding-top: 0;
     align-items: center;
-    #simple-title-case-top-desktop {
-      flex: 2;
-      margin-left: 40px;
-      text-align: left;
-    }
-    img {
-      flex: 3;
-    }
   }
 }
 </style>

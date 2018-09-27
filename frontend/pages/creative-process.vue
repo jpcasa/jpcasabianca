@@ -6,9 +6,9 @@
         <SimpleTitle
           id="simple-title-digital"
           class="text-center"
-          title="Experience &amp; Work"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          title="The Digital World is Complex"
+          subtitle="How my brain works..."
+          copy="With an ever-changing digital world, having a creative process can help get sh*t done. Everything is intangible, so it’s up to us to try to make everything as tangible and understanding as possible."
           theme="light" />
         <img src="img/design-thinking.png" alt="Design Thinking" class="image-responsive">
       </div>
@@ -20,8 +20,8 @@
           id="simple-title-design-patterns"
           class="text-center"
           title="Design Thinking"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="My approach to problem solving"
+          copy='Design thinking is a fantastic way to solve complex problems. For those of you not familiar with Design Thinking you can read more about it <a href="https://www.ideou.com/pages/design-thinking" target="_blank">here</a>. With design thinking you can come up with a great solution to a complex problem.'
           theme="light" />
         <img src="img/ui-ux.png" alt="UI / UX Patterns" id="ui-image" class="image-responsive">
         <TabsFullSimple styles="light" :items="design_thinking_steps" />
@@ -35,8 +35,8 @@
           id="simple-title-ui-ux"
           class="text-center"
           title="UI / UX Patterns"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="Very handful tools"
+          copy="Although design thinking is great, we really don’t have to reinvent the wheel. There are a lot of useful and cool design patterns that I normally use for my work. Check some out."
           theme="light" />
         <TabsFullCards :items="design_patterns" />
       </div>
@@ -48,8 +48,8 @@
           id="simple-title-scrum"
           class="text-center"
           title="Agile - Scrum"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="When it comes to coding"
+          copy="Agile is a cool methodology used by a lot of dev teams all over the world. If you haven’t heard of it I really recommend checking out this video, if you have, then you’re totally picturing the Post It’s on the task board right now."
           theme="light" />
         <IconSection :items="agile_section" />
       </div>
@@ -63,8 +63,8 @@
           id="simple-title-inbound"
           class="text-center"
           title="Inbound Marketing"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="Understanding the customer"
+          copy='Every designer and developer should learn about inbound marketing to really understand the client. If you don’t know what inbound marketing is read <a target="_blank" href="https://medium.com/@jpc_774/the-difference-between-outbound-and-inbound-marketing-fda4ee7a2e91">my medium article (2 min read)</a> about it. With inbound in mind, you can help the marketing team optimize product performance, stats, and analysis. Cool, right?'
           theme="light" />
       </div>
       <div class="text-center">
@@ -78,8 +78,8 @@
           id="simple-title-automation"
           class="text-center"
           title="Automation"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="The art of delegation"
+          copy="A key thing of my creative process is to automate simple tasks so I can focus on the things that create the most value. If you want to check out some programs to automate processes go here."
           theme="light" />
       </div>
       <img src="img/automation.png" alt="Automation" class="mobile">
@@ -92,8 +92,8 @@
           id="simple-title-automation"
           class="text-center"
           title="Data Analysis"
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad."
+          subtitle="Coming Soon"
+          copy='Since I finished my business major, I’ve always had a passion for data. You can check out <a href="#" target="_blank">my paper on financial analysis on family companies in Colombia</a>. I already learned Inbound Marketing to generate more data, now I want to take it up a notch and not only generate data but understand and interpret it. Coming Soon!'
           theme="dark" />
         <img src="img/data-analysis.png" alt="Data Analysis" class="image-responsive">
       </div>
@@ -117,31 +117,31 @@ export default {
           'id': 0,
           'title': '1.<br>Empathize',
           'img': 'img/empathize.svg',
-          'copy': '1Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.'
+          'copy': '<span class="color-green">Empathy</span> is the key for life, because it’s the path to understanding. Putting yourself in people’s shoes can really make you understand what’s going through their minds.'
         },
         {
           'id': 1,
           'title': '2.<br>Define',
           'img': 'img/define.svg',
-          'copy': '2Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.'
+          'copy': 'After really understanding the problem, you must <span class="color-green">define</span> the best approach to solving it. You declare personas (people that will use your product or service), what’s going to be easy, what challenges you face, decision to make, etc...'
         },
         {
           'id': 2,
           'title': '3.<br>Ideate',
           'img': 'img/ideate.svg',
-          'copy': '3Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.'
+          'copy': 'When you define something clearly enough, you can start <span class="color-green">ideating</span> the best solution. This is an analysis stage where you or the team prioritizes work. You come in stronger to a match if you have a game plan.'
         },
         {
           'id': 3,
           'title': '4.<br>Prototype',
           'img': 'img/prototype.svg',
-          'copy': '4Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.'
+          'copy': 'With the game plan and solution laid out, you can create a real tangible <span class="color-green">prototype</span> of the solution. '
         },
         {
           'id': 4,
           'title': '5.<br>Test',
           'img': 'img/test.svg',
-          'copy': '5Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.'
+          'copy': 'Finally, with a solution in your hands you can start <span class="color-green">testing</span> it. Iterate quickly, understand what works and create a roadmap to improve the solution.'
         }
       ],
       design_patterns: [
@@ -208,20 +208,20 @@ export default {
         {
           'icon': 'img/product-owner.svg',
           'title': 'Product Owner',
-          'subtitle': 'Lorem ipsum dolor sit amet',
-          'copy': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+          'subtitle': 'David',
+          'list': ['Handles Communication with the customer', 'Prioritizes Backlog', 'Communicates with dev team']
         },
         {
           'icon': 'img/scrum-master.svg',
           'title': 'Scrum Master',
-          'subtitle': 'Lorem ipsum dolor sit amet',
-          'copy': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+          'subtitle': 'Sara',
+          'list': ['Helps Team Deliver', 'Identifies Hassles', 'Princess Leia (total badass)']
         },
         {
           'icon': 'img/dev-team.svg',
-          'title': 'Dev Team',
-          'subtitle': 'Lorem ipsum dolor sit amet',
-          'copy': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+          'title': 'Dev Team Members',
+          'subtitle': 'Kim, Andy, Jane',
+          'list': ['Deliver a really good product', 'Order a bunch of food', 'Write awesome code']
         }
       ]
     }
