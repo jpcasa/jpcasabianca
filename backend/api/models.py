@@ -200,9 +200,9 @@ class Skill(models.Model):
         max_length=100,
         unique=True
     )
-    logo = models.FileField(
+    logo = models.CharField(
         blank=False,
-        null=False
+        max_length=535
     )
     skill_level = models.IntegerField(
         blank=False,

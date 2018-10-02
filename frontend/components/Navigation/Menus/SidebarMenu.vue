@@ -4,7 +4,8 @@
       <nuxt-link
         :to="'/' + item.url"
         @click.native="activateMenu(item.id)"
-        class="menu-item">
+        class="menu-item"
+        :id="getId(item.url)">
         {{ item.title }}
       </nuxt-link>
       <ul v-if="showSubMenu(item.url)">
@@ -38,6 +39,15 @@ export default {
     },
     activateMenu(id) {
       this.$store.dispatch('menus/getSubMenu', id)
+    },
+    getId(url) {
+      if(url == '') {
+        const path = this.$nuxt.$route.path
+        if (path != '/') {
+          return 'not-home'
+        }
+      }
+      return ''
     }
   }
 }
@@ -71,9 +81,13 @@ export default {
       background-color: $color-gray-light;
       border-left: 8px solid $color-green;
     }
+    #not-home {
+      background-color: #fff;
+      border-left: 8px solid #fff;
+    }
     ul {
       list-style: none;
-      margin-top: 10px;
+      margin: 10px 0;
       li {
         .menu-sub-item {
           font-family: $proxima-nova;

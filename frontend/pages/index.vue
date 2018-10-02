@@ -43,7 +43,7 @@
           ctaUrl="section-skills"
           action="scroll" />
         <TabsFull :items="skillCategories" :active="url" @clicked="searchSkills" />
-        <DotChart :items="skillsCat" />
+        <DotChart :items="skills" />
       </div>
     </section>
 
