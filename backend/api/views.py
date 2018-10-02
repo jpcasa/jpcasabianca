@@ -110,6 +110,9 @@ class ListCreateSkillView(generics.ListCreateAPIView):
     serializer_class = serializers.SkillSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
+    def get_queryset(self):
+        return models.Skill.objects.all().order_by('name')
+
     def perform_create(self, serializer):
         """Save the post data when creating a new menu item."""
         serializer.save(owner=self.request.user)
@@ -128,7 +131,7 @@ class SearchSkills(generics.ListAPIView):
 
     def get_queryset(self):
         url = self.kwargs['url']
-        return models.Skill.objects.filter(category__url=url)
+        return models.Skill.objects.filter(category__url=url).order_by('order')
 
 
 # Experience views

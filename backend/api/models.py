@@ -178,6 +178,9 @@ class SkillCategory(models.Model):
         blank=True,
         max_length=100
     )
+    message = models.TextField(
+        blank=True
+    )
 
     def __str__(self):
         """Return readable representation of the model instance."""
@@ -190,6 +193,10 @@ class Skill(models.Model):
         'auth.User',
         related_name='skills',
         on_delete=models.CASCADE
+    )
+    order = models.IntegerField(
+        blank=False,
+        default=0
     )
     category = models.ManyToManyField(
         SkillCategory,

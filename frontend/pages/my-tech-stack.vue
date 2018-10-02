@@ -22,7 +22,7 @@
           <span class="text-center"><i class="icon-star"></i> Preferred Choices</span>
         </div>
         <div class="skill-cards">
-          <SkillCard v-for="i in (0, 1)" :key="i" />
+          <SkillCard v-for="(skill, index) in skills" :key="index" :skill="skill" />
         </div>
       </div>
     </section>
@@ -40,6 +40,14 @@ export default {
     SimpleTitle,
     FilterDropdown,
     SkillCard
+  },
+  computed: {
+    skills() {
+      return this.$store.state.skills.skills
+    }
+  },
+  created() {
+    this.$store.dispatch('skills/getSkills')
   }
 }
 </script>

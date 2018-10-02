@@ -43,7 +43,7 @@
           ctaUrl="section-skills"
           action="scroll" />
         <TabsFull :items="skillCategories" :active="url" @clicked="searchSkills" />
-        <DotChart :items="skills" />
+        <DotChart :items="skillsCat" />
       </div>
     </section>
 
@@ -226,7 +226,7 @@ export default {
     margin-bottom: 20px;
   }
   .dot-chart {
-    padding-bottom: 180px;
+    padding-bottom: 280px;
   }
 }
 

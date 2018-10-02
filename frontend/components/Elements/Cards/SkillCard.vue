@@ -4,9 +4,9 @@
     <!-- SKILL CARD CONTENT -->
     <div class="skill-card-content" @click="showSkillDetail = true">
       <i class="favorite icon-star"></i>
-      <span class="skill-level">9.0</span>
-      <img class="skill-logo" src="img/vuejs.png" alt="Vuejs" />
-      <span class="skill-title">Vue.js</span>
+      <span class="skill-level">{{ skill.skill_level }}</span>
+      <img class="skill-logo" :src="skill.logo" alt="Vuejs" />
+      <span class="skill-title">{{ skill.name }}</span>
     </div>
 
     <!-- SKILL DETAILS OVERLAY -->
@@ -17,48 +17,48 @@
           <i class="icon-x-circle" @click="showSkillDetail = false" />
         </div>
         <div class="img-circle">
-          <img src="img/vuejs.png" alt="">
+          <img :src="skill.logo" alt="">
         </div>
       </div>
         <div class="skill-content">
         <div class="container">
-          <p class="skill-name">Vue.js</p>
+          <p class="skill-name">{{ skill.name }}</p>
           <div class="skill-info">
             <p class="skill-info-title">Skill Level</p>
             <div class="dot-chart-row">
               <div v-for="j in (0, 10)" :key="j" class="circle-container">
-                <span :class="j <= 8 ? 'circle active' : 'circle'" />
+                <span :class="j <= skill.skill_level ? 'circle active' : 'circle'" />
               </div>
             </div>
           </div>
           <div class="skill-info">
             <p class="skill-info-title">Worked</p>
-            <span class="skill-info-copy">+2 Years</span>
+            <span class="skill-info-copy">{{ skill.months_worked }} Months</span>
           </div>
           <div class="skill-info">
-            <p class="skill-info-title">Last Project with Vue.js</p>
-            <span class="skill-info-copy">https://github.com/vuejs/vue</span>
+            <p class="skill-info-title">Last Project with {{ skill.name }}</p>
+            <span class="skill-info-copy">{{ skill.last_project }}</span>
           </div>
-          <div class="skill-info">
+          <!-- <div class="skill-info">
             <p class="skill-info-title">Last Project with Vue.js</p>
             <RadarChart
               :data="chartData" />
-          </div>
+          </div> -->
           <div class="skill-info">
             <p class="skill-info-title">Website</p>
-            <a href="" class="skill-info-copy">https://vuejs.org/</a>
+            <a href="" class="skill-info-copy">{{ skill.website }}</a>
           </div>
           <div class="skill-info">
             <p class="skill-info-title">Documentation</p>
-            <a href="" class="skill-info-copy">https://vuejs.org/v2/guide/</a>
+            <a href="" class="skill-info-copy">{{ skill.documentation }}</a>
           </div>
           <div class="skill-info">
             <p class="skill-info-title">Github</p>
-            <a href="" class="skill-info-copy">https://github.com/vuejs/vue</a>
+            <a href="" class="skill-info-copy">{{ skill.github }}</a>
           </div>
           <div class="skill-info">
-            <p class="skill-info-title">Why I use Vue.js?</p>
-            <span class="skill-info-copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat.</span>
+            <p class="skill-info-title">Why I use {{ skill.name }}?</p>
+            <span class="skill-info-copy">{{ skill.why }}</span>
           </div>
         </div>
       </div>
@@ -72,6 +72,7 @@
 import RadarChart from '~/components/Elements/Charts/RadarChart.js'
 
 export default {
+  props: ['skill'],
   data() {
     return {
       showSkillDetail: false,
@@ -175,9 +176,10 @@ export default {
       .img-circle {
         position: absolute;
         left: 37%;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         bottom: -50px;
+        padding: 15px;
         @include border-radius(50%);
         background-color: #fff;
         -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
