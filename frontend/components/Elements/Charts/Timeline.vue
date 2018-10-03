@@ -1,12 +1,13 @@
 <template lang="html">
   <section class="timeline-container">
-    <div class="timeline">
+    <div class="timeline" v-if="items">
       <div class="timeline-content">
         <div class="item">
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[0].start_date }} - {{ items[0].end_date }}</span>
+            <p class="title">{{ items[0].job_title }}</p>
+            <p class="company">@{{ items[0].company }} - {{ items[0].place }}</p>
+            <p class="copy">{{ items[0].summary }}</p>
           </article>
           <div class="arrow" />
           <div class="circle" />
@@ -16,9 +17,10 @@
       <div class="timeline-content">
         <div class="item">
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[2].start_date }} - {{ items[2].end_date }}</span>
+            <p class="title">{{ items[2].job_title }}</p>
+            <p class="company">@{{ items[2].company }} - {{ items[2].place }}</p>
+            <p class="copy">{{ items[2].summary }}</p>
           </article>
           <div class="arrow" />
           <div class="circle" />
@@ -28,50 +30,16 @@
       <div class="timeline-content">
         <div class="item">
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[4].start_date }} - {{ items[4].end_date }}</span>
+            <p class="title">{{ items[4].job_title }}</p>
+            <p class="company">@{{ items[4].company }} - {{ items[4].place }}</p>
+            <p class="copy">{{ items[4].summary }}</p>
           </article>
           <div class="arrow" />
           <div class="circle" />
         </div>
       </div>
       <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-          <div class="arrow" />
-          <div class="circle" />
-        </div>
-      </div>
-      <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-          <div class="arrow" />
-          <div class="circle" />
-        </div>
-      </div>
-      <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-          <div class="arrow" />
-          <div class="circle" />
-        </div>
-      </div>
       <div class="timeline-content" />
     </div>
     <div class="timeline-divider">
@@ -84,9 +52,10 @@
           <div class="arrow-up" />
           <div class="circle-up" />
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[1].start_date }} - {{ items[1].end_date }}</span>
+            <p class="title">{{ items[1].job_title }}</p>
+            <p class="company">@{{ items[1].company }} - {{ items[1].place }}</p>
+            <p class="copy">{{ items[1].summary }}</p>
           </article>
         </div>
       </div>
@@ -96,9 +65,10 @@
           <div class="arrow-up" />
           <div class="circle-up" />
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[3].start_date }} - {{ items[3].end_date }}</span>
+            <p class="title">{{ items[3].job_title }}</p>
+            <p class="company">@{{ items[3].company }} - {{ items[3].place }}</p>
+            <p class="copy">{{ items[3].summary }}</p>
           </article>
         </div>
       </div>
@@ -108,45 +78,10 @@
           <div class="arrow-up" />
           <div class="circle-up" />
           <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-        </div>
-      </div>
-      <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <div class="arrow-up" />
-          <div class="circle-up" />
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-        </div>
-      </div>
-      <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <div class="arrow-up" />
-          <div class="circle-up" />
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
-          </article>
-        </div>
-      </div>
-      <div class="timeline-content" />
-      <div class="timeline-content">
-        <div class="item">
-          <div class="arrow-up" />
-          <div class="circle-up" />
-          <article class="">
-            <span class="subtitle">A Short Timeline</span>
-            <p class="title">Experience &amp; Work</p>
-            <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+            <span class="subtitle">{{ items[5].start_date }} - {{ items[5].end_date }}</span>
+            <p class="title">{{ items[5].job_title }}</p>
+            <p class="company">@{{ items[5].company }} - {{ items[5].place }}</p>
+            <p class="copy">{{ items[5].summary }}</p>
           </article>
         </div>
       </div>
@@ -156,6 +91,7 @@
 
 <script>
 export default {
+  props: ['items']
 }
 </script>
 
@@ -171,14 +107,14 @@ export default {
   overflow-x: scroll;
   text-align: center;
   .timeline-divider {
-    width: 2870px;
+    width: 2000px;
     height: 30px;
     align-items: center;
     display: flex;
     margin: 50px 0;
     .timeline-divider-line {
       width: 100%;
-      margin-left: 118px;
+      margin-left: 185px;
       border-bottom: 3px solid #85949e;
     }
   }
@@ -187,18 +123,22 @@ export default {
     min-height: 180px;
     display: flex;
     .timeline-content {
-      min-width: 250px;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 30px;
       .item {
         background-color: #fff;
         width: 90%;
         margin: auto;
         height: 200px;
-        padding: 12px 0;
+        padding: 12px 25px;
         flex: 5;
         display: flex;
         align-items: center;
+        justify-content: center;
         position: relative;
         @include border-radius($border-radius);
         .arrow,
@@ -206,7 +146,7 @@ export default {
           position: absolute;
           height: 65px;
           width: 4px;
-          left: 110px;
+          left: 160px;
           background-color: $color-green-light;
         }
         .arrow {
@@ -220,7 +160,7 @@ export default {
           position: absolute;
           height: 20px;
           width: 20px;
-          left: 102px;
+          left: 152px;
           @include border-radius(50%);
           background-color: $color-green-light;
         }
@@ -236,7 +176,7 @@ export default {
             font-size: 13px;
           }
           .title {
-            margin: 5px 0 10px 0;
+            margin: 5px 0;
             font-family: $gotham-rounded-medium;
             color: $color-blue-black;
           }
@@ -244,6 +184,12 @@ export default {
             color: $color-gray-heavy;
             font-size: 14px;
             margin: 0;
+          }
+          .company {
+            color: $color-gray-heavy;
+            font-size: 13px;
+            margin: 0 0 10px 0;
+            // font-family: $gotham-rounded-book;
           }
         }
       }

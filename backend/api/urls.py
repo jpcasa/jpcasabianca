@@ -106,6 +106,11 @@ urlpatterns = {
         name="ProgramDetails"
     ),
     path(
+        'programs/search/<url>/',
+        views.SearchPrograms.as_view(),
+        name="SearchPrograms"
+    ),
+    path(
         'education/',
         views.ListCreateEducationView.as_view(),
         name="ListCreateEducation"

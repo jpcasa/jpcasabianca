@@ -4,27 +4,24 @@
     <p @click="toggle()"><i :class="icon"></i> Business &amp; Finance</p>
     <transition name="fadeHeight">
       <ul v-show="showDropdown" class="filter-dropdown-container">
-        <li class="active">item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
+        <li v-for="(item, index) in items" :key="index">item</li>
       </ul>
     </transition>
     <ul class="desktop desktop-list">
-      <li class="active">item</li>
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        @click="onClickCat(item.url)"
+        :class="item.url == active ? 'active' : ''">
+        {{ item.name }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['items', 'active'],
   data() {
     return {
       showDropdown: false,
@@ -39,6 +36,9 @@ export default {
       } else {
         this.icon = 'icon-arrow-down'
       }
+    },
+    onClickCat (url) {
+      this.$emit('clicked', url)
     }
   }
 }

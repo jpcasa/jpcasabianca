@@ -267,13 +267,6 @@ class Experience(models.Model):
         blank=False,
         max_length=255
     )
-    company_logo = models.CharField(
-        blank=False,
-        max_length=255
-    )
-    company_website = models.URLField(
-        blank=False
-    )
     start_date = models.CharField(
         blank=False,
         max_length=255
@@ -286,11 +279,7 @@ class Experience(models.Model):
         blank=False,
         max_length=255
     )
-    responsibilities = models.CharField(
-        blank=False,
-        max_length=255
-    )
-    achievements = models.CharField(
+    summary = models.CharField(
         blank=False,
         max_length=255
     )

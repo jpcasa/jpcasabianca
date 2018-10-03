@@ -11,6 +11,7 @@
     </nuxt-link>
     <button
       class="cta"
+      v-scroll-to="'#' + ctaUrl"
       v-show="action == 'scroll'">
       {{ cta }}
     </button>

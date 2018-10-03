@@ -149,13 +149,10 @@ class ExperienceSerializer(serializers.ModelSerializer):
             'id',
             'job_title',
             'company',
-            'company_logo',
-            'company_website',
             'start_date',
             'end_date',
             'place',
-            'responsibilities',
-            'achievements',
+            'summary'
         )
 
 
@@ -176,7 +173,7 @@ class ProgramCategorySerializer(serializers.ModelSerializer):
 
 class ProgramSerializer(serializers.ModelSerializer):
     """Serializer to map the Menu Model instance into JSON format."""
-    program_category = ProgramCategorySerializer(read_only=True)
+    # program_category = ProgramCategorySerializer(read_only=True)
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:

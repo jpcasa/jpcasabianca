@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="horizontal-cards">
-    <Card v-for="i in (0, 5)" :key="i" />
+    <Card v-for="(item, index) in items" :key="index" :card="item" />
   </section>
 </template>
 
@@ -8,6 +8,7 @@
 import Card from '~/components/Elements/Cards/Card.vue'
 
 export default {
+  props: ['items'],
   components: {
     Card
   }

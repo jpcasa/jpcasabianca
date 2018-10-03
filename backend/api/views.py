@@ -141,6 +141,9 @@ class ListCreateExperienceView(generics.ListCreateAPIView):
     serializer_class = serializers.ExperienceSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
+    def get_queryset(self):
+        return models.Experience.objects.all().order_by('order')
+
     def perform_create(self, serializer):
         """Save the post data when creating a new skill chart."""
         serializer.save(owner=self.request.user)
@@ -188,6 +191,15 @@ class ProgramDetailsView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Program.objects.all()
     serializer_class = serializers.ProgramSerializer
     permission_classes = (permissions.IsAuthenticated,)
+
+
+class SearchPrograms(generics.ListAPIView):
+    serializer_class = serializers.ProgramSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_queryset(self):
+        url = self.kwargs['url']
+        return models.Program.objects.filter(program_category__url=url)
 
 
 # Education views

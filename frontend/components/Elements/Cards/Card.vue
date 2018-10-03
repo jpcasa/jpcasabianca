@@ -1,20 +1,27 @@
 <template lang="html">
   <div class="card">
     <div class="card-left">
-      <img src="img/program.png" alt="Program">
+      <img :src="card.logo" :alt="card.name">
     </div>
     <div class="card-right">
-      <span>GitHub (8.2)</span>
+      <span>{{ card.name }}</span>
       <div class="progress-bar-container">
-        <div class="progress-bar" />
+        <div class="progress-bar" :style="progress(card.skill_level)" />
       </div>
-      <a href="#" target="_blank">Visit Website</a>
+      <a :href="card.website" target="_blank">Visit Website</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['card'],
+  methods: {
+    progress(skill_level) {
+      const level = (skill_level / 10) * 100
+      return `width: ${level}%;`
+    }
+  }
 }
 </script>
 
@@ -54,7 +61,6 @@ export default {
       margin-right: 20px;
       @include border-radius(3px);
       .progress-bar {
-        width: 75%;
         height: 100%;
         @include border-radius(3px);
         background-color: $color-green-light;

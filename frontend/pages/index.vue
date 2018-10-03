@@ -40,7 +40,7 @@
           subtitle="What are you looking for?"
           copy='"Follow your dreams and use your natural-born talents and skills to make this a better world for tomorrow." When you need to get something done, you also know what skills are required to complete de task. I put my heart and mind into my work, so check out my skills and don’t forget to <a href="mailto:hola@jpcasabianca">shoot me an email</a>.'
           cta="See my Experience"
-          ctaUrl="section-skills"
+          ctaUrl="section-experience"
           action="scroll" />
         <TabsFull :items="skillCategories" :active="url" @clicked="searchSkills" />
         <DotChart :items="skillsCat" />
@@ -53,11 +53,11 @@
         <SimpleTitle
           title="My career and experience"
           subtitle="My version of a Short Story"
-          copy="I started developing in 2010 but decided to major in Business. I really wanted to understand the “business” side of things to have a better scope and understanding of real life. Soft skills are equally important as hard skills, so check out my version of a short story."
+          copy='I started developing in 2010 but decided to major in Business. I really wanted to understand the “business” side of things to have a better scope and understanding of real life. Soft skills are equally important as hard skills, so check out my version of a short story. See my full experience <a href="#resume" target="_blank">here</a>.'
           theme="light" />
         <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
       </div>
-      <Timeline />
+      <!-- <Timeline :items="experiences" /> -->
     </section>
 
     <!-- SECTION PROGRAMS -->
@@ -67,14 +67,17 @@
           id="simple-title-programs"
           title="One Program to Rule Them All"
           subtitle="Some programs I use"
-          copy="The first thing I do every morning is open Station, I feel in love with their slogan “One app to rule them all”. I add all of the apps and programs I normally use to Station and take it from there. If you choose programs wisely you can optimize and improve your work. What programs do you use?"
+          copy="The first thing I do every morning is open Station, I fell in love with their slogan “One app to rule them all”. I add all of the apps and programs I normally use to Station and take it from there. If you choose programs wisely you can optimize and improve your work. What programs do you use?"
           theme="light" />
         <div class="programs-flex">
           <FilterDropdown
             id="filter-programs"
             icon="arrow"
-            title="Filter Programs" />
-          <HorizontalCards />
+            title="Filter Programs"
+            :items="programCategories"
+            :active="program_url"
+            @clicked="searchPrograms" />
+          <HorizontalCards :items="programsCat" />
         </div>
       </div>
     </section>
@@ -142,7 +145,8 @@ import ProfileCard from '~/components/Elements/Cards/ProfileCard.vue'
 export default {
   data() {
     return {
-      url: "frontend"
+      url: "frontend",
+      program_url: "business-and-finance"
     }
   },
   components: {
@@ -169,6 +173,18 @@ export default {
     skillsCat() {
       return this.$store.state.skills.skills_cat
     },
+    experiences() {
+      return this.$store.state.experiences.experiences
+    },
+    programs() {
+      return this.$store.state.programs.programs
+    },
+    programCategories() {
+      return this.$store.state.programs.categories
+    },
+    programsCat() {
+      return this.$store.state.programs.programs_cat
+    }
   },
   methods: {
     searchSkills(url) {
@@ -177,12 +193,29 @@ export default {
     },
     searchSkillsApi(url) {
       this.$store.dispatch('skills/getSkillsCat', url)
+    },
+    searchPrograms(url) {
+      this.program_url = url
+      console.log(url)
+      this.searchProgramsApi(url)
+    },
+    searchProgramsApi(url) {
+      this.$store.dispatch('programs/getProgramsCat', url)
     }
   },
   created() {
+    // Skills
     this.$store.dispatch('skills/getSkillCategories')
     this.$store.dispatch('skills/getSkills')
     this.searchSkillsApi(this.url)
+
+    // Experience
+    this.$store.dispatch('experiences/getExperience')
+
+    // Programs
+    this.$store.dispatch('programs/getPrograms')
+    this.$store.dispatch('programs/getProgramCategories')
+    this.searchProgramsApi(this.program_url)
   }
 }
 </script>
