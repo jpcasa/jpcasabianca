@@ -91,7 +91,7 @@
           copy="Education is important as hell. Education shapes your way of thought and how you process and analyze information. Check out where I received mine!"
           theme="light" />
         <div class="img-cards">
-          <ImgCard v-for="i in (0,5)" :key="i" />
+          <ImgCard v-for="(item, index) in education" :key="index" :item="item" />
         </div>
       </div>
     </section>
@@ -184,6 +184,9 @@ export default {
     },
     programsCat() {
       return this.$store.state.programs.programs_cat
+    },
+    education() {
+      return this.$store.state.education.education
     }
   },
   methods: {
@@ -216,6 +219,9 @@ export default {
     this.$store.dispatch('programs/getPrograms')
     this.$store.dispatch('programs/getProgramCategories')
     this.searchProgramsApi(this.program_url)
+
+    // Education
+    this.$store.dispatch('education/getEducation')
   }
 }
 </script>

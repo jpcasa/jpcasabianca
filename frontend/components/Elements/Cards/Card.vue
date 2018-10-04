@@ -4,11 +4,8 @@
       <img :src="card.logo" :alt="card.name">
     </div>
     <div class="card-right">
-      <span>{{ card.name }}</span>
-      <div class="progress-bar-container">
-        <div class="progress-bar" :style="progress(card.skill_level)" />
-      </div>
-      <a :href="card.website" target="_blank">Visit Website</a>
+      <a href="" target="_blank">{{ card.name }}</a>
+      <p>{{ card.summary }}</p>
     </div>
   </div>
 </template>
@@ -49,31 +46,19 @@ export default {
   }
   .card-right {
     flex: 4;
-    span {
+    a {
       font-size: 14px;
       font-family: $gotham-rounded-medium;
       color: $color-blue-heavy;
-    }
-    .progress-bar-container {
-      width: 95%;
-      background-color: $color-gray-light;
-      height: 13px;
-      margin-right: 20px;
-      @include border-radius(3px);
-      .progress-bar {
-        height: 100%;
-        @include border-radius(3px);
-        background-color: $color-green-light;
-      }
-    }
-    a {
-      color: $color-gray-heavy;
       text-decoration: none;
-      font-size: 14px;
       &:hover {
         color: $color-green;
-        text-decoration: underline;
       }
+    }
+    p {
+      color: $color-gray-heavy;
+      font-size: 14px;
+      margin: 0;
     }
   }
 }

@@ -331,9 +331,10 @@ class Program(models.Model):
         blank=False,
         max_length=255
     )
-    skill_level = models.CharField(
+    summary = models.CharField(
         blank=False,
-        max_length=255
+        max_length=255,
+        default=""
     )
     website = models.CharField(
         blank=False,

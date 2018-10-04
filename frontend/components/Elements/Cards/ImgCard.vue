@@ -1,14 +1,15 @@
 <template lang="html">
   <div class="img-card">
-    <img src="img/nogales.png" alt="Nogales">
-    <p class="title">Colegio Los Nogales</p>
-    <p class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. ed diam nonummy nibh euismod.</p>
-    <a class="cta" href="#">View Website</a>
+    <img :src="item.place_logo" :alt="item.place">
+    <p class="title">{{ item.place }}</p>
+    <p class="copy">{{ item.description }}</p>
+    <a class="cta" :href="item.website" target="_blank">View Website</a>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['item']
 }
 </script>
 

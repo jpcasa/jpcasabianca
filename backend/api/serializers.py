@@ -185,7 +185,7 @@ class ProgramSerializer(serializers.ModelSerializer):
             'program_category',
             'name',
             'logo',
-            'skill_level',
+            'summary',
             'website',
         )
 

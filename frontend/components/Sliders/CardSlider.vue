@@ -14,7 +14,7 @@
           </ol>
         </div>
         <div class="card-slider-info">
-          <span>Main Focus</span>
+          <span>Achievements</span>
           <ol>
             <li>Something</li>
             <li>Something</li>

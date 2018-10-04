@@ -3,6 +3,7 @@ import menus from './modules/menus'
 import skills from './modules/skills'
 import experiences from './modules/experiences'
 import programs from './modules/programs'
+import education from './modules/education'
 
 
 const createStore = () => {
@@ -11,7 +12,8 @@ const createStore = () => {
        menus,
        skills,
        experiences,
-       programs
+       programs,
+       education
      }
   })
 }
