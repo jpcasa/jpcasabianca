@@ -1,0 +1,131 @@
+{
+  "section_one": [
+    {
+      "icon": "icon1",
+      "title": "Journey to The Printer",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    },
+    {
+      "icon": "icon2",
+      "title": "Pain in The Ass",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    },
+    {
+      "icon": "icon3",
+      "title": "Low Quality Service",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    }
+  ],
+  "section_two": [
+    {
+      "icon": "p0",
+      "title": "Nathaly",
+      "subtitle": "Nathaly",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    },
+    {
+      "icon": "p1",
+      "title": "Steve",
+      "subtitle": "Steve",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    },
+    {
+      "icon": "p2",
+      "title": "Will",
+      "subtitle": "Will",
+      "copy": "Well then get your shit together. Get it all together and put it in a backpack, all your shit, so it's together. ...and if you gotta take it somewhere, take it somewhere ya know? Take it to the shit store and sell it, or put it in a shit museum. I don't care what you do, you just gotta get it together... Get your shit together."
+    }
+  ],
+  "colors": [
+    {
+      "title": "Black",
+      "cmyk": {
+        "c": "72%",
+        "m": "68%",
+        "y": "62%",
+        "k": "70%"
+      },
+      "rgb": {
+        "r": "37",
+        "g": "35",
+        "b": "38"
+      },
+      "pantone": "433 C",
+      "hex": "#000000",
+      "fontColor": "#fff",
+      "border": "#000000"
+    },
+    {
+      "title": "White",
+      "cmyk": {
+        "c": "0%",
+        "m": "0%",
+        "y": "0%",
+        "k": "0%"
+      },
+      "rgb": {
+        "r": "255",
+        "g": "255",
+        "b": "255"
+      },
+      "pantone": "1-1 C",
+      "hex": "#ffffff",
+      "fontColor": "#000",
+      "border": "#000"
+    },
+    {
+      "title": "Printa Blue",
+      "cmyk": {
+        "c": "100%",
+        "m": "88%",
+        "y": "4%",
+        "k": "0%"
+      },
+      "rgb": {
+        "r": "34",
+        "g": "64",
+        "b": "153"
+      },
+      "pantone": "660 C",
+      "hex": "#00a9ea",
+      "fontColor": "#fff",
+      "border": "#00a9ea"
+    },
+    {
+      "title": "Printa Magenta",
+      "cmyk": {
+        "c": "0%",
+        "m": "89%",
+        "y": "44%",
+        "k": "0%"
+      },
+      "rgb": {
+        "r": "242",
+        "g": "64",
+        "b": "102"
+      },
+      "pantone": "710 C",
+      "hex": "#ee4066",
+      "fontColor": "#fff",
+      "border": "#ee4066"
+    },
+    {
+      "title": "Printa Yellow",
+      "cmyk": {
+        "c": "0%",
+        "m": "23%",
+        "y": "81%",
+        "k": "0%"
+      },
+      "rgb": {
+        "r": "255",
+        "g": "199",
+        "b": "74"
+      },
+      "pantone": "122 C",
+      "hex": "#ffc34a",
+      "fontColor": "#fff",
+      "border": "#ffc34a"
+    }
+  ]
+}

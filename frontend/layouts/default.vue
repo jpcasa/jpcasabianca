@@ -91,12 +91,36 @@ export default {
     }
   },
   created() {
+
     this.$axios.setHeader("Content-Type", "application/x-www-form-urlencoded", [
       "post"
     ])
     this.$axios.setToken("6b04a68e84b72c9d24a7340316e25d990d2bbba3", "Token")
+
     this.$store.dispatch('menus/getMainMenu', this.$nuxt.$route.path)
     this.$store.dispatch('menus/getContactMenu')
+
+    // Skills
+    this.$store.dispatch('skills/getSkillCategories')
+    this.$store.dispatch('skills/getSkills')
+    this.$store.dispatch('skills/getSkillsCat', 'frontend')
+
+    // Experience
+    this.$store.dispatch('experiences/getExperience')
+
+    // Programs
+    this.$store.dispatch('programs/getPrograms')
+    this.$store.dispatch('programs/getProgramCategories')
+    this.$store.dispatch('programs/getProgramsCat', 'business-and-finance')
+
+    // Education
+    this.$store.dispatch('education/getEducation')
+
+    // Courses
+    this.$store.dispatch('education/getCourses')
+
+    // Portfolio
+    this.$store.dispatch('portfolio/getCaseStudies')
   }
 }
 </script>

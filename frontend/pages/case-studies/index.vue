@@ -37,18 +37,18 @@
       <div class="portfolio-flex desktop">
         <div class="portfolio-card-flex" id="printa-back">
           <PortfolioCardSimple
-            :url="cases[0].url"
-            :title="cases[0].title"
-            :tags="cases[0].tags" />
+            :url="$store.state.portfolio.case_studies[0].url"
+            :title="$store.state.portfolio.case_studies[0].title"
+            :tags="$store.state.portfolio.case_studies[0].tags" />
         </div>
         <TitleWithCta
           id="portfolio-printa"
           class="padding-right"
-          :title="cases[0].title"
-          :subtitle="cases[0].subtitle"
-          :copy='cases[0].summary'
-          :cta="cases[0].cta"
-          :ctaUrl="'/case-studies/' + cases[0].url"
+          :title="$store.state.portfolio.case_studies[0].title"
+          :subtitle="$store.state.portfolio.case_studies[0].subtitle"
+          :copy='$store.state.portfolio.case_studies[0].summary'
+          :cta="$store.state.portfolio.case_studies[0].cta"
+          :ctaUrl="'/case-studies/' + $store.state.portfolio.case_studies[0].url"
           action="push"
           theme="light" />
       </div>
@@ -62,22 +62,21 @@
         <TitleWithCta
           id="portfolio-printa"
           class="padding-left"
-          :title="cases[1].title"
-          :subtitle="cases[1].subtitle"
-          :copy='cases[1].summary'
-          :cta="cases[1].cta"
-          :ctaUrl="'/case-studies/' + cases[1].url"
+          :title="$store.state.portfolio.case_studies[1].title"
+          :subtitle="$store.state.portfolio.case_studies[1].subtitle"
+          :copy='$store.state.portfolio.case_studies[1].summary'
+          :cta="$store.state.portfolio.case_studies[1].cta"
+          :ctaUrl="'/case-studies/' + $store.state.portfolio.case_studies[1].url"
           action="push"
           theme="light" />
         <div class="portfolio-card-flex" id="codesign-back">
           <PortfolioCardSimple
-            :url="cases[1].url"
-            :title="cases[1].title"
-            :tags="cases[1].tags" />
+            :url="$store.state.portfolio.case_studies[1].url"
+            :title="$store.state.portfolio.case_studies[1].title"
+            :tags="$store.state.portfolio.case_studies[1].tags" />
         </div>
       </div>
     </section>
-
   </section>
 </template>
 
@@ -93,15 +92,6 @@ export default {
     TitleWithCta,
     PortfolioCard,
     PortfolioCardSimple
-  },
-  computed: {
-    cases() {
-      return this.$store.state.portfolio.case_studies
-    }
-  },
-  created() {
-    // Case Studies
-    this.$store.dispatch('portfolio/getCaseStudies')
   }
 }
 </script>

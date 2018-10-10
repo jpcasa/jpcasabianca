@@ -57,7 +57,7 @@
           theme="light" />
         <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
       </div>
-      <!-- <Timeline :items="experiences" /> -->
+      <Timeline :items="$store.state.experiences.experiences" />
     </section>
 
     <!-- SECTION PROGRAMS -->
@@ -208,26 +208,6 @@ export default {
     searchProgramsApi(url) {
       this.$store.dispatch('programs/getProgramsCat', url)
     }
-  },
-  created() {
-    // Skills
-    this.$store.dispatch('skills/getSkillCategories')
-    this.$store.dispatch('skills/getSkills')
-    this.searchSkillsApi(this.url)
-
-    // Experience
-    this.$store.dispatch('experiences/getExperience')
-
-    // Programs
-    this.$store.dispatch('programs/getPrograms')
-    this.$store.dispatch('programs/getProgramCategories')
-    this.searchProgramsApi(this.program_url)
-
-    // Education
-    this.$store.dispatch('education/getEducation')
-
-    // Courses
-    this.$store.dispatch('education/getCourses')
   }
 }
 </script>
