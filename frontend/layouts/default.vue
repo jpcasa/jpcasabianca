@@ -34,6 +34,7 @@
           @click.native="activateMenu(item.id)">
           {{ item.title }}
         </nuxt-link>
+        <a href="https://medium.com/@jpc_774" target="_blank">Blog</a>
       </div>
     </transition>
 

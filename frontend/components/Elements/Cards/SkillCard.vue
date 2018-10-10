@@ -3,7 +3,7 @@
 
     <!-- SKILL CARD CONTENT -->
     <div class="skill-card-content" @click="showSkillDetail = true">
-      <i class="favorite icon-star"></i>
+      <i v-if="skill.preferred" class="favorite icon-star"></i>
       <span class="skill-level">{{ skill.skill_level }}</span>
       <img class="skill-logo" :src="skill.logo" alt="Vuejs" />
       <span class="skill-title">{{ skill.name }}</span>
@@ -132,6 +132,7 @@ export default {
       position: absolute;
       left: 8px;
       top: 8px;
+      color: $color-green;
     }
     .skill-level {
       position: absolute;

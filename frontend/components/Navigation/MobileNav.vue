@@ -2,9 +2,19 @@
   <nav id="navigation-mobile">
     <nuxt-link
       v-for="(item, index) in menu"
+      v-if="item.action=='scroll'"
       :key="index"
       :to="'#' + item.url"
       v-scroll-to="'#' + item.url"
+      :class="item.id == $store.state.subMenuActive ? 'active scrollactive-item' : 'scrollactive-item'">
+      <i :class="'icon-' + item.icon"></i>
+      <span>{{ item.title }}</span>
+    </nuxt-link>
+    <nuxt-link
+      v-for="(item, index) in menu"
+      v-if="item.action=='push'"
+      :key="index"
+      :to="item.url"
       :class="item.id == $store.state.subMenuActive ? 'active scrollactive-item' : 'scrollactive-item'">
       <i :class="'icon-' + item.icon"></i>
       <span>{{ item.title }}</span>
@@ -57,7 +67,8 @@ export default {
       color: $color-green-dark;
     }
   }
-  .is-active {
+  .is-active,
+  .nuxt-link-active {
     background-color: $color-green-light;
     color: $color-green-dark;
   }

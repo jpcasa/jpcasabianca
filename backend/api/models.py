@@ -242,6 +242,9 @@ class Skill(models.Model):
         blank=False,
         max_length=535
     )
+    preferred = models.BooleanField(
+        default=False
+    )
 
     def __str__(self):
         """Return readable representation of the model instance."""
@@ -404,13 +407,8 @@ class Course(models.Model):
         blank=False,
         max_length=255
     )
-    main_focus = models.CharField(
-        blank=False,
-        max_length=255
-    )
-    achievements = models.CharField(
-        blank=False,
-        max_length=255
+    main_focus = models.TextField(
+        blank=False
     )
     website = models.URLField(
         blank=False
@@ -476,13 +474,20 @@ class CaseStudy(models.Model):
     )
     summary = models.CharField(
         blank=False,
+        max_length=535
+    )
+    cta = models.CharField(
+        blank=False,
+        max_length=255,
+        default="View More"
+    )
+    url = models.CharField(
+        blank=False,
         max_length=255
     )
-    url = models.URLField(
-        blank=False
-    )
-    html = models.TextField(
-        blank=False
+    tags = models.CharField(
+        blank=True,
+        max_length=255
     )
 
     def __str__(self):

@@ -107,7 +107,7 @@
             theme="light" />
             <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
         </div>
-        <CardSlider />
+        <CardSlider :items="courses" />
       </section>
       <section id="section-testimonies">
         <div class="container text-center">
@@ -115,7 +115,7 @@
             id="simple-title-testimonies"
             title="Testimonies"
             subtitle="What people are saying"
-            copy="You can’t matter what people say about you or your doomed. But isn’t nice when you do a good job, and someone puts in a good word for you? <br><br> These are some happy clients and stakeholders, take a look at their experience."
+            copy="Isn’t nice when you do a good job, and someone puts in a good word for you? <br><br> These are some happy clients and stakeholders, take a look at their experience."
             theme="light" />
           <div class="profile-card-container">
             <ProfileCard v-for="i in (0, 3)" :key="i" />
@@ -187,6 +187,9 @@ export default {
     },
     education() {
       return this.$store.state.education.education
+    },
+    courses() {
+      return this.$store.state.education.courses
     }
   },
   methods: {
@@ -222,6 +225,9 @@ export default {
 
     // Education
     this.$store.dispatch('education/getEducation')
+
+    // Courses
+    this.$store.dispatch('education/getCourses')
   }
 }
 </script>

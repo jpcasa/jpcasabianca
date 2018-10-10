@@ -5,16 +5,24 @@
         :to="'/' + item.url"
         @click.native="activateMenu(item.id)"
         class="menu-item"
+        :target="item.title == 'Blog' ? '_blank' : ''"
+        v-if="item.title != 'Blog'"
         :id="getId(item.url)">
         {{ item.title }}
       </nuxt-link>
       <ul v-if="showSubMenu(item.url)">
         <li v-for="(subItem, index2) in item.sub_menu_items" :key="index2">
-          <nuxt-link :to="'#' + subItem.url" v-scroll-to="'#' + subItem.url" class="menu-sub-item">
+          <nuxt-link v-if="subItem.action == 'scroll'" :to="'#' + subItem.url" v-scroll-to="'#' + subItem.url" class="menu-sub-item">
+            {{ subItem.title }}
+          </nuxt-link>
+          <nuxt-link v-if="subItem.action == 'push'" :to="subItem.url" class="menu-sub-item">
             {{ subItem.title }}
           </nuxt-link>
         </li>
       </ul>
+    </li>
+    <li>
+      <a href="https://medium.com/@jpc_774" class="menu-item" target="_blank">Blog</a>
     </li>
   </ul>
 </template>
@@ -104,7 +112,8 @@ export default {
             border-left: 5px solid $color-green;
           }
         }
-        .menu-sub-item.is-active {
+        .menu-sub-item.is-active,
+        .menu-sub-item.nuxt-link-active {
           color: $color-blue-black;
           font-family: $proxima-nova-bold;
           border-left: 5px solid $color-green;

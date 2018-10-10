@@ -4,6 +4,7 @@ import skills from './modules/skills'
 import experiences from './modules/experiences'
 import programs from './modules/programs'
 import education from './modules/education'
+import portfolio from './modules/portfolio'
 
 
 const createStore = () => {
@@ -13,7 +14,8 @@ const createStore = () => {
        skills,
        experiences,
        programs,
-       education
+       education,
+       portfolio
      }
   })
 }

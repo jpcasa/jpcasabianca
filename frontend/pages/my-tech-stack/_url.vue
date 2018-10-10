@@ -4,20 +4,16 @@
     <section id="tech-stack">
       <div class="container">
         <SimpleTitle
-          class="text-center"
+          class="text-center text-capitalize"
           id="simple-title-tech-stack"
-          title="Are you into Vue.js too? Django is just awesome…"
+          :title="'My ' + title + ' skills'"
           subtitle="My Tech Stack"
-          copy="Here is a list of languages, libraries, and frameworks I’ve used and worked with. Feel free to explore!"
+          copy=""
           theme="light" />
         <div class="search">
           <i class="icon-search"></i>
-          <input type="search" placeholder="Enter programming language, framework, plugin, etc..." />
+          <input type="search" placeholder="Enter programming language, framework, plugin, etc..." v-model="query" />
         </div>
-        <FilterDropdown
-          id="filter-programs"
-          icon="arrow"
-          title="Filter Programs" />
         <div class="choices text-center">
           <span class="text-center"><i class="icon-star"></i> Preferred Choices</span>
         </div>
@@ -36,6 +32,11 @@ import FilterDropdown from '~/components/Navigation/Dropdowns/FilterDropdown.vue
 import SkillCard from '~/components/Elements/Cards/SkillCard.vue'
 
 export default {
+  data() {
+    return {
+      query: null
+    }
+  },
   components: {
     SimpleTitle,
     FilterDropdown,
@@ -43,11 +44,20 @@ export default {
   },
   computed: {
     skills() {
-      return this.$store.state.skills.skills
+      if (this.query && this.query.length > 2) {
+        return this.$store.state.skills.skills_cat.filter(
+          item => item.name.toLowerCase().includes(this.query.toLowerCase())
+        )
+      } else {
+        return this.$store.state.skills.skills_cat
+      }
+    },
+    title() {
+      return this.$route.params.url
     }
   },
   created() {
-    this.$store.dispatch('skills/getSkills')
+    this.$store.dispatch('skills/getSkillsCat', this.$route.params.url)
   }
 }
 </script>
@@ -80,6 +90,10 @@ export default {
   .subtitle {
     margin: 0 0 10px 0;
   }
+}
+
+.text-capitalize {
+  text-transform: capitalize;
 }
 
 .search {

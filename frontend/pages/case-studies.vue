@@ -36,33 +36,21 @@
       </div>
       <div class="portfolio-flex desktop">
         <div class="portfolio-card-flex" id="printa-back">
-          <PortfolioCardSimple />
+          <PortfolioCardSimple
+            :url="cases[0].url"
+            :title="cases[0].title"
+            :tags="cases[0].tags" />
         </div>
-        <SimpleTitle
+        <TitleWithCta
           id="portfolio-printa"
           class="padding-right"
-          title="I love creating and building cool sh*t."
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          :title="cases[0].title"
+          :subtitle="cases[0].subtitle"
+          :copy='cases[0].summary'
+          :cta="cases[0].cta"
+          :ctaUrl="'/case-studies/' + cases[0].url"
+          action="push"
           theme="light" />
-      </div>
-    </section>
-
-    <section id="estudio-codesign">
-      <div class="container">
-        <PortfolioCard class="mobile" />
-      </div>
-      <div class="portfolio-flex desktop">
-        <SimpleTitle
-          id="portfolio-codesign"
-          class="padding-left"
-          title="I love creating and building cool sh*t."
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          theme="light" />
-        <div class="portfolio-card-flex" id="codesign-back">
-          <PortfolioCardSimple />
-        </div>
       </div>
     </section>
 
@@ -71,33 +59,49 @@
         <PortfolioCard class="mobile" />
       </div>
       <div class="portfolio-flex desktop">
-        <div class="portfolio-card-flex" id="mapps360-back">
-          <PortfolioCardSimple />
-        </div>
-        <SimpleTitle
-          id="portfolio-mapps360"
-          class="padding-right"
-          title="I love creating and building cool sh*t."
-          subtitle="A short story"
-          copy="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        <TitleWithCta
+          id="portfolio-printa"
+          class="padding-left"
+          :title="cases[1].title"
+          :subtitle="cases[1].subtitle"
+          :copy='cases[1].summary'
+          :cta="cases[1].cta"
+          :ctaUrl="'/case-studies/' + cases[1].url"
+          action="push"
           theme="light" />
+        <div class="portfolio-card-flex" id="codesign-back">
+          <PortfolioCardSimple
+            :url="cases[1].url"
+            :title="cases[1].title"
+            :tags="cases[1].tags" />
+        </div>
       </div>
     </section>
-
 
   </section>
 </template>
 
 <script>
 import SimpleTitle from '~/components/Elements/Titles/SimpleTitle.vue'
+import TitleWithCta from '~/components/Elements/Titles/TitleWithCta.vue'
 import PortfolioCard from '~/components/Elements/Cards/PortfolioCard.vue'
 import PortfolioCardSimple from '~/components/Elements/Cards/PortfolioCardSimple.vue'
 
 export default {
   components: {
     SimpleTitle,
+    TitleWithCta,
     PortfolioCard,
     PortfolioCardSimple
+  },
+  computed: {
+    cases() {
+      return this.$store.state.portfolio.case_studies
+    }
+  },
+  created() {
+    // Case Studies
+    this.$store.dispatch('portfolio/getCaseStudies')
   }
 }
 </script>
@@ -124,7 +128,8 @@ export default {
 .portfolio-flex {
   display: flex;
   align-items: center;
-  .simple-title {
+  .simple-title,
+  .title-with-cta {
     flex: 2;
   }
   .portfolio-card-flex {
@@ -163,8 +168,8 @@ export default {
 }
 
 .case-studies-desktop {
-  display: flex;
   align-items: center;
+  display: none;
   #simple-title-case-top-desktop {
     flex: 2;
     margin-left: 50px;
@@ -180,6 +185,9 @@ export default {
     display: flex;
     padding-top: 0;
     align-items: center;
+  }
+  .case-studies-desktop {
+    display: flex;
   }
 }
 </style>

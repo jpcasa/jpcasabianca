@@ -1,26 +1,21 @@
 <template lang="html">
   <section class="card-slider">
-    <div class="card-slider-content" v-for="i in (0, 5)" :key="i">
+    <div
+      class="card-slider-content"
+      v-for="(item, index) in items"
+      :key="index">
       <div class="container">
-        <img src="img/udemy.png" alt="Udemy">
-        <p class="title">Some programs I use</p>
+        <img :src="item.place_logo" :alt="item.place">
+        <p class="title">{{ item.course_title }}</p>
         <hr>
-        <p class="copy">Wow, so your origin is what? You fell into a vat of redundancy?</p>
+        <p class="copy">{{ item.description }}</p>
         <div class="card-slider-info">
           <span>Main Focus</span>
-          <ol>
-            <li>Something</li>
-            <li>Something</li>
-          </ol>
+          <div class="" v-html="item.main_focus" />
         </div>
-        <div class="card-slider-info">
-          <span>Achievements</span>
-          <ol>
-            <li>Something</li>
-            <li>Something</li>
-          </ol>
-        </div>
-        <a href="#" class="cta"><i class="icon-arrow-up-right"></i></a>
+        <a :href="item.website" target="_blank" class="cta">
+          <i class="icon-arrow-up-right"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -28,6 +23,7 @@
 
 <script>
 export default {
+  props: ['items']
 }
 </script>
 
@@ -42,8 +38,9 @@ export default {
   overflow-x: scroll;
   .card-slider-content {
     min-width: 260px;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-start;
     padding: 20px 10px;
     background-color: #fff;
     -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,0.2);
@@ -54,12 +51,13 @@ export default {
     img {
       width: 80px;
       height: 80px;
+      margin-bottom: 10px;
     }
     hr {
       border: none;
       border-bottom: 1px solid $color-gray-light;
     }
-    p, ol, span {
+    p, ul, span {
       color: $color-gray-heavy;
     }
     .title {
@@ -73,7 +71,7 @@ export default {
     }
     .cta {
       position: absolute;
-      right: -23px;
+      right: -25px;
       top: -20px;
       font-size: 22px;
       padding: 8px 10px;
@@ -88,7 +86,7 @@ export default {
       font-size: 13px;
       font-family: $gotham-rounded-medium;
     }
-    ol {
+    ul {
       font-size: 14px;
     }
   }

@@ -1,16 +1,15 @@
 <template lang="html">
   <div class="portfolio-card-simple">
     <nuxt-link to="" class="portfolio-cta"><span class="icon-arrow-up-right"></span></nuxt-link>
-    <img class="portfolio-card-img" src="img/printa-delivery.png" alt="Printa Delivery">
-    <div class="tags">
-      <span class="tag" v-for="i in (0,7)" :key="i">hola</span>
-    </div>
-    <nuxt-link to="" class="cta">View More</nuxt-link>
+    <img class="portfolio-card-img" :src="'img/' + url + '.png'" :alt="title">
+    <div class="tags" v-html="tags" />
+    <nuxt-link :to="'/case-studies/' + url" class="cta">View More</nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['url', 'title', 'tags']
 }
 </script>
 
@@ -53,7 +52,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 15px;
-    .tag {
+    span {
       display: inline-block;
       padding: 4px 8px;
       background-color: $color-green-light;

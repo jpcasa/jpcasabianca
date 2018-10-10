@@ -132,6 +132,7 @@ class SkillSerializer(serializers.ModelSerializer):
             'documentation',
             'github',
             'why',
+            'preferred',
         )
 
 
@@ -226,7 +227,6 @@ class CourseSerializer(serializers.ModelSerializer):
             'course_title',
             'description',
             'main_focus',
-            'achievements',
             'website',
         )
 
@@ -266,8 +266,9 @@ class CaseStudySerializer(serializers.ModelSerializer):
             'title',
             'subtitle',
             'summary',
+            'cta',
             'url',
-            'html',
+            'tags',
         )
 
 
