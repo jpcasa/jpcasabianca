@@ -5,6 +5,7 @@
       <a
         v-for="(subItem, index2) in item.sub_menu_items"
         :key="index2"
+        :style="font_size(item)"
         href="#"
         target="_blank"
         v-html="subItem.title" />
@@ -14,7 +15,16 @@
 
 <script>
 export default {
-  props: ['menu']
+  props: ['menu'],
+  methods: {
+    font_size(item) {
+      if (item.icon == 'big-icon') {
+        return 'font-size:24px;'
+      } else {
+        return 'font-size:13px;'
+      }
+    }
+  }
 }
 </script>
 
@@ -43,6 +53,12 @@ export default {
       text-decoration: none;
       &:hover {
         text-decoration: underline;
+      }
+      .icon-whatsapp {
+        color: $color-green;
+      }
+      .icon-fb-messenger {
+        color: #0557FF;
       }
     }
   }

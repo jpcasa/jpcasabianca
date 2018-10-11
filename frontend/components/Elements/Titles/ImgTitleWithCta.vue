@@ -52,7 +52,7 @@ export default {
     height: 170px;
   }
   .copy {
-    color: $color-gray;
+    color: $color-gray-heavy;
     a {
       color: $color-green;
     }
@@ -72,7 +72,7 @@ export default {
     color: $color-blue-heavy;
   }
   .copy {
-    color: $color-gray;
+    color: $color-gray-heavy;
   }
   .cta {
     @extend %cta;

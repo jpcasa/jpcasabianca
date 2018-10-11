@@ -50,6 +50,14 @@
       :menu="mainMenu.menu_items"
       :contact="contactMenu.menu_items" />
 
+    <a href="#" id="contact-whatsapp">
+      <img src="~/static/img/whatsapp.svg" />
+    </a>
+
+    <a href="#" id="contact-fb">
+      <img src="~/static/img/fb-messenger.svg" />
+    </a>
+
   </div>
 </template>
 
@@ -312,6 +320,25 @@ main {
   }
 }
 
+#contact-whatsapp,
+#contact-fb {
+  position: fixed;
+  bottom: 55px;
+  z-index: 1000;
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+#contact-whatsapp {
+  right: 15px;
+}
+
+#contact-fb {
+  right: 60px;
+}
+
 @media (min-width: 992px) {
   #menu-icon,
   #contact-icon {
@@ -319,6 +346,10 @@ main {
   }
   #page-section {
     margin-left: $sidebar-width;
+  }
+  #contact-whatsapp,
+  #contact-fb {
+    bottom: 15px;
   }
 }
 </style>

@@ -7,7 +7,7 @@
         <DynamicTitleWithCta
           id="title-with-cta1"
           title="I’m a Full Stack Developer and "
-          :words="['design cool shit', 'dig Vue and React', 'totally into APIs', 'less is more', 'love star wars' , 'algo', 'play Zelda & Mario']"
+          :words="['Design Cool Stuff', 'Dig Vue and React', 'Totally Into Python', 'Less is More', 'Create Python & JS APIs', 'Know Inbound Marketing', 'Love Star Wars & GOT' , 'Worked in Finance', 'Play Zelda & Mario']"
           subtitle="Hi There"
           copy="The digital world is crazy, but isn’t that craziness awesome? I strive to find the best and most efficient solutions to the most complex of problems.<br><br> Not only do I apply this to development, but to design and marketing as well. Do you love tech and Star Wars too?"
           cta="Discover Me"
@@ -24,7 +24,7 @@
           title="Hi Stranger!"
           subtitle="How you doin’?"
           img=""
-          copy='I’ve been developing and designing since 2010. It’s incredible how everything has changed since then. I started off with a traditional frontend stack (HTML, CSS, jQuery) and backend (PHP and MYSQL). <br><br>After a couple of years, I’ve migrated to an awesome frontend stack <span class="color-green">(VUE, REACT)</span> and the most beautiful backend there is <span class="color-green">(PYTHON, DJANGO)</span>. Feel free to see my complete tech stack <a href="/my-tech-stack">here</a>.'
+          copy='I’ve been developing and designing since 2010. It’s incredible how everything has changed since then. I started off with a traditional frontend stack (HTML, CSS, jQuery) and backend (PHP and MYSQL). <br><br>After a couple of years, I’ve migrated to an awesome frontend stack <span class="color-green">Vue.js, React</span>. And the most beautiful backend there is <span class="color-green">Python, Django</span>. I dig <span class="color-green">Node.js</span> and <span class="color-green">Express</span> too... Feel free to see my complete tech stack <a href="/my-tech-stack">here</a>.'
           cta="Check Out My Skills"
           ctaUrl="section-skills"
           action="scroll"
@@ -38,10 +38,11 @@
         <TitleWithCta
           title="Check out my skills"
           subtitle="What are you looking for?"
-          copy='"Follow your dreams and use your natural-born talents and skills to make this a better world for tomorrow." When you need to get something done, you also know what skills are required to complete de task. I put my heart and mind into my work, so check out my skills and don’t forget to <a href="mailto:hola@jpcasabianca">shoot me an email</a>.'
+          copy='"Follow your dreams and use your natural-born talents and skills to make this a better world for tomorrow" - Paul Watson. When you need to get something done, you also know what skills are required to complete the task. I put my heart and mind into my work, so check out my skills and don’t forget to <a href="mailto:hola@jpcasabianca">shoot me an email</a>.'
           cta="See my Experience"
           ctaUrl="section-experience"
-          action="scroll" />
+          action="scroll"
+          theme="dark" />
         <TabsFull :items="skillCategories" :active="url" @clicked="searchSkills" />
         <DotChart :items="skillsCat" />
       </div>

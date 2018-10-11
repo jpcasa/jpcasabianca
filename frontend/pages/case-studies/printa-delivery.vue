@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div id="main-printa">
 
     <nuxt-link class="icon-arrow-left" id="back" to="/case-studies"></nuxt-link>
 
@@ -7,7 +7,7 @@
     <main>
 
       <!-- SECTION #1 -->
-      <section id="section-first-fold">
+      <section id="section-first-fold-printa">
         <div class="first-fold-container">
           <img src="~/static/img/printa-delivery.png" alt="Printa Delivery">
           <h1>Ctrl+P = <span class="helvetica-light-italic">“The Biggest Headache Ever”</span></h1>
@@ -52,10 +52,12 @@
         </div>
         <div class="cont80 text-center">
           <h2>Buyer <span class="helvetica-light-italic">Personas</span></h2>
-          <IconCardSubtitle
-            v-for="(item, index) in section_two"
-            :key="index"
-            :info="item" />
+          <div class="buyer-persona-cards">
+            <IconCardSubtitle
+              v-for="(item, index) in section_two"
+              :key="index"
+              :info="item" />
+          </div>
         </div>
         <div class="timeline-printa" id="timeline-center">
           <div class="third">
@@ -78,15 +80,21 @@
           </div>
         </div>
         <div class="cont80 text-center logo-symbol">
-          <h2>Buyer <span class="helvetica-light-italic">Personas</span></h2>
-          <p class="subtitle">Significado</p>
-          <p class="summary">Printa delivery es una empresa dedicada a la impresión y corte láser de obras y trabajos de arquitectos y diseñadores. es entonces necesario que el logo identifique a ambas profesiones, su constante búsqueda por la sencillez estética y su carga en significado. El logosímbolo describe un ejercicio tipográfico usando una fuente icónica y de fácil recordación, la helvetica; el achurado en diagonal hace un gesto al dibujo descriptivo mientras, las guías de corte enmarcan los ámbitos del corte y la impresión.</p>
-          <p class="subtitle">Construcción</p>
-          <p class="summary">Para la construcción del logotipo se crea una retícula de las medidas y proporciones exactas de cada uno de los elementos que componen la imagen corporativa. Se estudia la forma en búsqueda de lograr una alta legibilidad del logo, espaciando cuidadosamente la tipografía y manteniendo la distancia entre cada elemento.</p>
-          <p class="subtitle">Area de Respeto</p>
-          <p class="">Para mantener el logo limpio y lograr un mayor impacto visual se deben mantener siempre unas distancias libres de textos o cualquier elemento gráfico igual a 4x para borde superior e inferior y 3x para bordes laterales.</p>
-          <p class="summary">*(x = altura de letra de “Printadelivery”)</p>
-          <img src="~/static/img/printa/printa-logo.png" alt="">
+          <h2>Ctrl + P <span class="helvetica-light-italic">== Easy</span></h2>
+          <div class="logo-symbol-cont">
+            <div class="logo-symbol-info">
+              <p class="subtitle">Significado</p>
+              <p class="summary">Printa delivery es una empresa dedicada a la impresión y corte láser de obras y trabajos de arquitectos y diseñadores. es entonces necesario que el logo identifique a ambas profesiones, su constante búsqueda por la sencillez estética y su carga en significado. El logosímbolo describe un ejercicio tipográfico usando una fuente icónica y de fácil recordación, la helvetica; el achurado en diagonal hace un gesto al dibujo descriptivo mientras, las guías de corte enmarcan los ámbitos del corte y la impresión.</p>
+              <p class="subtitle">Construcción</p>
+              <p class="summary">Para la construcción del logotipo se crea una retícula de las medidas y proporciones exactas de cada uno de los elementos que componen la imagen corporativa. Se estudia la forma en búsqueda de lograr una alta legibilidad del logo, espaciando cuidadosamente la tipografía y manteniendo la distancia entre cada elemento.</p>
+              <p class="subtitle">Area de Respeto</p>
+              <p class="">Para mantener el logo limpio y lograr un mayor impacto visual se deben mantener siempre unas distancias libres de textos o cualquier elemento gráfico igual a 4x para borde superior e inferior y 3x para bordes laterales.</p>
+              <p class="summary">*(x = altura de letra de “Printadelivery”)</p>
+            </div>
+            <div class="logo-symbol-img">
+              <img src="~/static/img/printa/printa-logo.png" alt="">
+            </div>
+          </div>
         </div>
         <div class="timeline-printa margin-bottom">
           <div class="third">
@@ -109,7 +117,8 @@
           </div>
         </div>
         <div class="ideate">
-          <img src="~/static/img/printa/ideate-background.png" alt="">
+          <img src="~/static/img/printa/ideate-background.png" class="printa-mobile" alt="">
+          <img src="~/static/img/printa/ideate-background-desktop.png" class="printa-desktop" alt="">
           <div class="cont80 text-center">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
@@ -135,7 +144,8 @@
           </div>
         </div>
         <div class="prototype margin-bottom">
-          <img src="~/static/img/printa/prototype.png" alt="Prototype">
+          <img src="~/static/img/printa/prototype.png" class="printa-mobile" alt="Prototype">
+          <img src="~/static/img/printa/prototype-desktop.png" class="printa-desktop" alt="Prototype">
         </div>
         <div class="timeline-printa margin-bottom">
           <div class="third">
@@ -158,7 +168,8 @@
           </div>
         </div>
         <div class="test margin-bottom">
-          <img src="~/static/img/printa/test.png" alt="Test">
+          <img src="~/static/img/printa/test.png" class="printa-mobile" alt="Test">
+          <img src="~/static/img/printa/test-desktop.png" class="printa-desktop" alt="Test">
         </div>
         <div class="timeline-printa margin-bottom">
           <div class="third">
@@ -175,7 +186,8 @@
           </div>
         </div>
         <div class="implement">
-          <img src="~/static/img/printa/implement.png" alt="Implement">
+          <img src="~/static/img/printa/implement.png" class="printa-mobile" alt="Implement">
+          <img src="~/static/img/printa/implement-desktop.png" class="printa-desktop" alt="Implement">
         </div>
         <div class="branding">
           <div class="cont80">
@@ -253,7 +265,7 @@
           </div>
           <div class="solution-1 margin-bottom-big">
             <h2 class="margin-bottom color-red">Solution 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="margin-bottom-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <img src="~/static/img/printa/chars1.png" alt="Characteristics 1" class="margin-bottom">
             <img src="~/static/img/printa/chars2.png" alt="Characteristics 2">
           </div>
@@ -288,12 +300,14 @@
           <h3 class="helvetica-light-italic">Live Tracking for the complicated process</h3>
           <p>Do you know how many characters there are in the Simpsons Morty? There's like a-a billion characters, M-Morty. There was an episode where Former President BUSH was their neighbor!</p>
         </div>
-        <img src="~/static/img/printa/solution-3.png" alt="Solution 3" class="margin-bottom-big">
+        <img src="~/static/img/printa/solution-3.png" alt="Solution 3" class="margin-bottom-big printa-mobile">
+        <img src="~/static/img/printa/solution-3-desktop.png" alt="Solution 3" class="margin-bottom-big printa-desktop">
         <div class="cont80 developing text-center">
           <h2 class="section-title">Too Much <span class="helvetica-light-italic">User Interaction</span></h2>
           <p class="margin-bottom-big">Me irresponsible? All I wanted was for you to hand me a screwdriver! But instead you had me buckle down and make you a roofie juice serum, so you can roofie that poor girl at your school. W-w-w-w--are you kidding me, Morty?! You're really gonna try to take the high road on this one? Y'know your-you're a little creep, Morty! Your-your-your-you're just a little creepy creep person!</p>
           <h2 class="section-title">Bring on <span class="helvetica-light-italic">The Muscle</span></h2>
-          <img src="~/static/img/printa/coding.png" alt="Coding" class="margin-bottom">
+          <img src="~/static/img/printa/coding.png" alt="Coding" class="margin-bottom printa-mobile">
+          <img src="~/static/img/printa/coding-desktop.png" alt="Coding" class="margin-bottom printa-desktop">
           <p>Wow, so your origin is what? You fell into a vat of redundancy?</p>
         </div>
       </section>
@@ -303,12 +317,15 @@
         <div class="text-center cont80">
           <img src="~/static/img/printa/4.png" alt="" class="image-title">
           <h2 class="section-title">Testing <span class="helvetica-light-italic">The Platform</span></h2>
-          <IconCard
-            v-for="(item, index) in section_four"
-            :key="index"
-            :info="item" />
+          <div class="icons-container">
+            <IconCard
+              v-for="(item, index) in section_four"
+              :key="index"
+              :info="item" />
+          </div>
         </div>
-        <img src="~/static/img/printa/bugs.png" alt="bugs">
+        <img src="~/static/img/printa/bugs.png" class="printa-mobile" alt="bugs">
+        <img src="~/static/img/printa/bugs-desktop.png" class="printa-desktop" alt="bugs">
         <h3 class="text-center black-bug">A Couple <span class="helvetica-light-italic">Bugs Later...</span></h3>
         <img src="~/static/img/printa/home.png" alt="Home">
         <img src="~/static/img/printa/home2.png" alt="Home">
@@ -319,7 +336,8 @@
         <div class="text-center cont80">
           <img src="~/static/img/printa/56.png" alt="" class="image-title">
           <h2 class="section-title">Inbound <span class="helvetica-light-italic">Marketing</span></h2>
-          <img src="~/static/img/printa/inbound.png" alt="Inbound Marketing" class="margin-bottom">
+          <img src="~/static/img/printa/inbound.png" alt="Inbound Marketing" class="margin-bottom printa-mobile">
+          <img src="~/static/img/printa/inbound-desktop.png" alt="Inbound Marketing" class="margin-bottom printa-desktop">
           <p class="margin-bottom-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <h2>Digital <span class="helvetica-light-italic">Samples</span></h2>
           <div class="samples-container">
@@ -370,7 +388,8 @@
             </div>
           </div>
         </div>
-        <img src="~/static/img/printa/kpis.png" alt="KPIs">
+        <img src="~/static/img/printa/kpis.png" alt="KPIs" class="printa-mobile">
+        <img src="~/static/img/printa/kpis-desktop.png" alt="KPIs" class="printa-desktop margin-bottom-normal">
       </section>
 
       <!-- SECTION #8 -->
@@ -379,10 +398,9 @@
           <img src="~/static/img/printa/8.png" alt="" class="image-title">
           <h2 class="margin-bottom">Optimization <span class="helvetica-light-italic">Time</span></h2>
           <p class="margin-bottom-normal">Wow I really crononberg'd up the whole place huh Morty, just a bunch a cronenbergs walkin around.z</p>
-          <img src="~/static/img/printa/optimization.png" alt="Optimization" class="margin-bottom">
+          <img src="~/static/img/printa/optimization.png" alt="Optimization" class="margin-bottom printa-mobile">
+          <img src="~/static/img/printa/optimization-desktop.png" alt="Optimization" class="margin-bottom printa-desktop">
           <p>You're not gonna believe this, because it usually never happens, but I made a mistake.</p>
-          <LineChart
-            :data="chartData" />
         </div>
       </section>
 
@@ -393,7 +411,8 @@
           <h2 class="margin-bottom">Immediate <span class="helvetica-light-italic">Sales Contact</span></h2>
           <p class="margin-bottom-normal">Wow I really crononberg'd up the whole place huh Morty, just a bunch a cronenbergs walkin around.z</p>
         </div>
-        <img src="~/static/img/printa/sales.png" alt="Sales">
+        <img src="~/static/img/printa/sales.png" alt="Sales" class="printa-mobile">
+        <img src="~/static/img/printa/sales-desktop.png" alt="Sales" class="printa-desktop">
       </section>
 
       <!-- SECTION #10 -->
@@ -481,8 +500,9 @@ $color-red: #ee4066;
 $color-yellow: #ffc34a;
 
 // GLOBAL STYLES
-body {
-  background-image: url('~/static/img/printa-background.png');
+#main-printa {
+  background-image: url('~/static/img/printa-background.png')!important;
+  background-color: #fff;
   background-position: center;
   font-family: $avenir;
 }
@@ -542,6 +562,12 @@ p {
 }
 .margin-bottom-normal {
   margin-bottom: 50px;
+}
+
+.printa-desktop,
+.printa-desktop-flex,
+.printa-desktop-inline {
+  display: none;
 }
 
 // SECTIONS
@@ -607,7 +633,7 @@ p {
   }
 }
 
-#section-first-fold {
+#section-first-fold-printa {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -670,9 +696,10 @@ p {
     .subtitle {
       font-family: $helvetica-light-bold;
       color: #000;
+      font-size: 15px;
     }
     .summary {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
   }
   .ideate {
@@ -868,4 +895,98 @@ p {
   }
 }
 
+@media (min-width: 800px) {
+
+  .printa-mobile {
+    display: none;
+  }
+
+  .printa-desktop {
+    display: block;
+  }
+
+  .printa-desktop-inline {
+    display: inline-block;
+  }
+
+  .printa-desktop-flex {
+    display: flex;
+  }
+
+  .icons-container {
+    display: flex;
+    .printa-icon-card {
+      flex: 1;
+      margin: 0 12px;
+    }
+  }
+
+  .buyer-persona-cards {
+    display: flex;
+    margin-bottom: 70px;t
+    .printa-icon-card {
+      flex: 1;
+      margin: 0 12px;
+    }
+  }
+
+  .logo-symbol-cont {
+    display: flex;
+    .logo-symbol-info {
+      flex: 2;
+      text-align: left;
+      margin-right: 40px;
+      .summary {
+        font-size: 14px;
+      }
+    }
+    .logo-symbol-img {
+      flex: 2;
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .card {
+      width: 300px;
+      margin: 0 10px;
+      height: 180px;
+    }
+  }
+
+  .samples-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    img {
+      width: 280px;
+      margin: 0 10px 25px 10px;
+    }
+  }
+
+  .kpis {
+    display: flex;
+    .kpi {
+      flex: 1;
+      margin: 0 25px;
+    }
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .icons-container {
+    .printa-icon-card {
+      margin: 0 25px;
+    }
+  }
+  .buyer-persona-cards {
+    .printa-icon-card {
+      margin: 0 25px;
+    }
+  }
+}
 </style>
