@@ -3,7 +3,10 @@
     <img v-if="info.icon == 'icon1'" src="~/static/img/printa/icon-1.png" alt="Icon ALT">
     <img v-if="info.icon == 'icon2'" src="~/static/img/printa/icon-2.png" alt="Icon ALT">
     <img v-if="info.icon == 'icon3'" src="~/static/img/printa/icon-3.png" alt="Icon ALT">
-    <h3>{{ info.title }}</h3>
+    <img v-if="info.icon == 'test1'" src="~/static/img/printa/test1.png" alt="Icon ALT">
+    <img v-if="info.icon == 'test2'" src="~/static/img/printa/test2.png" alt="Icon ALT">
+    <img v-if="info.icon == 'test3'" src="~/static/img/printa/test3.png" alt="Icon ALT">
+    <h3 v-html="info.title" />
     <p>{{ info.copy }}</p>
   </div>
 </template>
