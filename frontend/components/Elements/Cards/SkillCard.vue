@@ -2,68 +2,12 @@
   <div class="skill-card">
 
     <!-- SKILL CARD CONTENT -->
-    <div class="skill-card-content" @click="showSkillDetail = true">
+    <div class="skill-card-content" @click="showDetail(skill)">
       <i v-if="skill.preferred" class="favorite icon-star"></i>
       <span class="skill-level">{{ skill.skill_level }}</span>
       <img class="skill-logo" :src="skill.logo" alt="Vuejs" />
       <span class="skill-title">{{ skill.name }}</span>
     </div>
-
-    <!-- SKILL DETAILS OVERLAY -->
-    <transition name="fade">
-      <div class="skill-detail" v-show="showSkillDetail">
-        <div class="top">
-        <div class="container clearfix">
-          <i class="icon-x-circle" @click="showSkillDetail = false" />
-        </div>
-        <div class="img-circle">
-          <img :src="skill.logo" alt="">
-        </div>
-      </div>
-        <div class="skill-content">
-        <div class="container">
-          <p class="skill-name">{{ skill.name }}</p>
-          <div class="skill-info">
-            <p class="skill-info-title">Skill Level</p>
-            <div class="dot-chart-row">
-              <div v-for="j in (0, 10)" :key="j" class="circle-container">
-                <span :class="j <= skill.skill_level ? 'circle active' : 'circle'" />
-              </div>
-            </div>
-          </div>
-          <div class="skill-info">
-            <p class="skill-info-title">Worked</p>
-            <span class="skill-info-copy">{{ skill.months_worked }} Months</span>
-          </div>
-          <div class="skill-info">
-            <p class="skill-info-title">Last Project with {{ skill.name }}</p>
-            <span class="skill-info-copy">{{ skill.last_project }}</span>
-          </div>
-          <!-- <div class="skill-info">
-            <p class="skill-info-title">Last Project with Vue.js</p>
-            <RadarChart
-              :data="chartData" />
-          </div> -->
-          <div class="skill-info">
-            <p class="skill-info-title">Website</p>
-            <a href="" class="skill-info-copy">{{ skill.website }}</a>
-          </div>
-          <div class="skill-info">
-            <p class="skill-info-title">Documentation</p>
-            <a href="" class="skill-info-copy">{{ skill.documentation }}</a>
-          </div>
-          <div class="skill-info">
-            <p class="skill-info-title">Github</p>
-            <a href="" class="skill-info-copy">{{ skill.github }}</a>
-          </div>
-          <div class="skill-info">
-            <p class="skill-info-title">Why I use {{ skill.name }}?</p>
-            <span class="skill-info-copy">{{ skill.why }}</span>
-          </div>
-        </div>
-      </div>
-      </div>
-    </transition>
 
   </div>
 </template>
@@ -88,6 +32,11 @@ export default {
   },
   components: {
     RadarChart
+  },
+  methods: {
+    showDetail(skill) {
+      this.$emit('clicked', skill)
+    }
   }
 }
 </script>
@@ -194,48 +143,48 @@ export default {
         }
       }
     }
-  }
-  .skill-content {
-    .skill-name {
-      margin-top: 155px;
-      font-family: $gotham-rounded-medium;
-      color: $color-blue-black;
-    }
-    .skill-info {
-      text-align: left;
-      margin-bottom: 25px;
-      .skill-info-copy {
-        color: $color-gray-heavy;
-        font-family: $proxima-nova;
-        font-size: 14px;
-        margin: 0;
-      }
-      a.skill-info-copy {
-        &:hover {
-          color: $color-green;
-        }
-      }
-      .skill-info-title {
+    .skill-content {
+      .skill-name {
+        margin-top: 155px;
         font-family: $gotham-rounded-medium;
-        font-size: 15px;
-        margin: 0 0 5px 0;
+        color: $color-blue-black;
       }
-      .dot-chart-row {
-        flex: 6;
-        display: flex;
-        .circle-container {
-          flex: 1;
-          text-align: left;
-          .circle {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            background-color: $color-gray;
-            margin-right: 5px;
-            @include border-radius(50%);
+      .skill-info {
+        text-align: left;
+        margin-bottom: 25px;
+        .skill-info-copy {
+          color: $color-gray-heavy;
+          font-family: $proxima-nova;
+          font-size: 14px;
+          margin: 0;
+        }
+        a.skill-info-copy {
+          &:hover {
+            color: $color-green;
           }
-          .circle.active {
-            background-color: $color-green-light;
+        }
+        .skill-info-title {
+          font-family: $gotham-rounded-medium;
+          font-size: 15px;
+          margin: 0 0 5px 0;
+        }
+        .dot-chart-row {
+          flex: 6;
+          display: flex;
+          .circle-container {
+            flex: 1;
+            text-align: left;
+            .circle {
+              display: inline-block;
+              width: 18px;
+              height: 18px;
+              background-color: $color-gray;
+              margin-right: 5px;
+              @include border-radius(50%);
+            }
+            .circle.active {
+              background-color: $color-green-light;
+            }
           }
         }
       }

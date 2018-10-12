@@ -4,7 +4,7 @@
       <img :src="card.logo" :alt="card.name">
     </div>
     <div class="card-right">
-      <a href="" target="_blank">{{ card.name }}</a>
+      <a :href="card.website" target="_blank">{{ card.name }}</a>
       <p>{{ card.summary }}</p>
     </div>
   </div>

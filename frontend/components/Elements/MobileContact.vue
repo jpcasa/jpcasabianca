@@ -10,16 +10,16 @@
           <p>JP Casabianca</p>
           <div class="lower-info-menu">
             <div class="lower-info-menu-item">
-              <i class="icon-share"></i>
-              <span>Share</span>
+              <i class="icon-mail"></i>
+              <span>Email</span>
             </div>
             <div class="lower-info-menu-item">
-              <i class="icon-twitter"></i>
-              <span>Write</span>
+              <i class="icon-whatsapp"></i>
+              <span>Whatsapp</span>
             </div>
             <div class="lower-info-menu-item">
-              <i class="icon-facebook"></i>
-              <span>Write</span>
+              <i class="icon-fb-messenger"></i>
+              <span>FB</span>
             </div>
           </div>
         </div>
@@ -28,31 +28,23 @@
         <div class="description-info">
           <div class="description-row">
             <div class="description-row-left">
-              <p>Important Stuff</p>
+              <p>Experience</p>
             </div>
             <div class="description-row-right">
-              <p>Resume</p>
+              <a href="#" class="item">Resume</a>
               <span>Download Latest</span>
             </div>
           </div>
           <div class="description-row">
             <div class="description-row-left">
-              <p>Contact</p>
+              <p>Important Stuff</p>
             </div>
             <div class="description-row-right">
               <div class="desc-mini">
-                <p><i class="icon-mail"></i><i class="icon-phone "></i></p>
-                <span>Speak with me</span>
+                <a href="#" class="item"><i class="icon-linkedin-1"></i></a>
+                <a href="#" class="item"><i class="icon-medium "></i></a>
+                <span>Check me out</span>
               </div>
-            </div>
-          </div>
-          <div class="description-row">
-            <div class="description-row-left">
-              <p>Find me on</p>
-            </div>
-            <div class="description-row-right">
-              <p><i class="icon-linkedin"></i><i class="icon-medium"></i></p>
-              <span>Don't be shy</span>
             </div>
           </div>
           <div class="description-row">
@@ -60,14 +52,25 @@
               <p>Version Control</p>
             </div>
             <div class="description-row-right">
-              <p><i class="icon-github"></i><i class="icon-atlassian"></i></p>
+              <a href="#" class="item"><i class="icon-github-logo"></i></a>
+              <a href="#" class="item"><i class="icon-atlassian "></i></a>
               <span>Latest Work</span>
+            </div>
+          </div>
+          <div class="description-row">
+            <div class="description-row-left">
+              <p>Portfolio</p>
+            </div>
+            <div class="description-row-right">
+              <a href="#" class="item"><i class="icon-dribbble-big-logo"></i></a>
+              <a href="#" class="item"><i class="icon-behance-logo"></i></a>
+              <span>Don't be shy</span>
             </div>
           </div>
           <div class="description-row">
             <div class="description-row-left" />
             <div class="description-row-right">
-              <a href="#">Call</a>
+              <a href="#" id="call">Call</a>
             </div>
           </div>
         </div>
@@ -173,19 +176,32 @@ export default {
         }
         span {
           color: $color-gray-heavy;
+          display: block;
         }
-        a {
-          text-decoration: none;
+        .item {
+          padding: 0;
+          margin: 0 5px 0 0;
+          background: none;
           display: inline-block;
-          padding: 9px 45px;
-          font-family: $gotham-rounded-medium;
-          font-size: 14px;
-          @include border-radius($border-radius);
-          @extend %background-green;
-          margin-top: 10px;
+          color: #1a2a40;
+          &:hover {
+            background: none;
+            text-decoration: underline;
+          }
         }
       }
     }
   }
+}
+
+#call {
+  text-decoration: none;
+  display: inline-block;
+  padding: 9px 45px;
+  font-family: $gotham-rounded-medium;
+  font-size: 14px;
+  @include border-radius($border-radius);
+  @extend %background-green;
+  margin-top: 10px;
 }
 </style>

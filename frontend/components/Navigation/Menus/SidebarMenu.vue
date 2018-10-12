@@ -12,10 +12,10 @@
       </nuxt-link>
       <ul v-if="showSubMenu(item.url)">
         <li v-for="(subItem, index2) in item.sub_menu_items" :key="index2">
-          <nuxt-link v-if="subItem.action == 'scroll'" :to="'#' + subItem.url" v-scroll-to="'#' + subItem.url" class="menu-sub-item">
+          <nuxt-link v-if="subItem.action == 'scroll'" :to="'#' + subItem.url" v-scroll-to="'#' + subItem.url" class="menu-sub-item" :id="getSubId(item.url)">
             {{ subItem.title }}
           </nuxt-link>
-          <nuxt-link v-if="subItem.action == 'push'" :to="subItem.url" class="menu-sub-item">
+          <nuxt-link v-if="subItem.action == 'push'" :to="subItem.url" class="menu-sub-item" :id="getSubId(item.url)">
             {{ subItem.title }}
           </nuxt-link>
         </li>
@@ -53,6 +53,15 @@ export default {
         const path = this.$nuxt.$route.path
         if (path != '/') {
           return 'not-home'
+        }
+      }
+      return ''
+    },
+    getSubId(url) {
+      const path = this.$nuxt.$route.path
+      if (path != '/my-tech-stack') {
+        if (url == '/my-tech-stack') {
+          return 'not-tech-stack'
         }
       }
       return ''
@@ -113,7 +122,7 @@ export default {
           }
         }
         .menu-sub-item.is-active,
-        .menu-sub-item.nuxt-link-active {
+        .menu-sub-item.nuxt-link-exact-active {
           color: $color-blue-black;
           font-family: $proxima-nova-bold;
           border-left: 5px solid $color-green;

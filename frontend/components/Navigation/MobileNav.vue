@@ -68,7 +68,7 @@ export default {
     }
   }
   .is-active,
-  .nuxt-link-active {
+  .nuxt-link-exact-active {
     background-color: $color-green-light;
     color: $color-green-dark;
   }

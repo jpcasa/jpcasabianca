@@ -13,8 +13,7 @@
       </div>
       <img src="img/case-studies-top.png" alt="Case Studies Top" class="mobile">
       <div class="container text-center mobile">
-        <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <p class="copy">Nothing is cooler than the real thing. You can check out my <a href="https://dribbble.com/jpcasabianca" target="_blank">Dribbble</a> account if you want to see my design work. To check out some public stuff I’ve made go to <a href="https://github.com/jpcasa" target="_blank">Github</a> or <a href="https://bitbucket.org/jpcasabianca/" target="_blank">Bitbucket</a>. If you’re looking for the complete story scroll down.</p>
       </div>
       <div class="case-studies-desktop">
         <SimpleTitle
@@ -32,9 +31,15 @@
 
     <section id="printa-delivery">
       <div class="container">
-        <PortfolioCard class="mobile" />
+        <PortfolioCard class="mobile"
+          :title="$store.state.portfolio.case_studies[0].title"
+          :subtitle="$store.state.portfolio.case_studies[0].subtitle"
+          :copy='$store.state.portfolio.case_studies[0].summary'
+          :cta="$store.state.portfolio.case_studies[0].cta"
+          :ctaUrl="$store.state.portfolio.case_studies[0].url"
+          :comingSoon="$store.state.portfolio.case_studies[0].coming_soon" />
       </div>
-      <div class="portfolio-flex desktop">
+      <div class="portfolio-flex desktop" id="printa-desktop">
         <div class="portfolio-card-flex" id="printa-back">
           <PortfolioCardSimple
             :url="$store.state.portfolio.case_studies[0].url"
@@ -56,9 +61,15 @@
 
     <section id="mapps360">
       <div class="container">
-        <PortfolioCard class="mobile" />
+        <PortfolioCard class="mobile"
+          :title="$store.state.portfolio.case_studies[1].title"
+          :subtitle="$store.state.portfolio.case_studies[1].subtitle"
+          :copy='$store.state.portfolio.case_studies[1].summary'
+          :cta="$store.state.portfolio.case_studies[1].cta"
+          :ctaUrl="$store.state.portfolio.case_studies[1].url"
+          :comingSoon="$store.state.portfolio.case_studies[1].coming_soon" />
       </div>
-      <div class="portfolio-flex desktop">
+      <div class="portfolio-flex desktop" id="mapps360-desktop">
         <TitleWithCta
           id="portfolio-printa"
           class="padding-left"
@@ -99,6 +110,11 @@ export default {
 <style lang="scss">
 @import '~/assets/css/helpers/_variables.scss';
 
+#printa-desktop,
+#mapps360-desktop {
+  display: none;
+}
+
 #cases {
   padding-bottom: 50px;
 }
@@ -112,6 +128,13 @@ export default {
   }
   .copy {
     color: $color-gray-heavy;
+    a {
+      color: $color-green;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -177,6 +200,10 @@ export default {
     align-items: center;
   }
   .case-studies-desktop {
+    display: flex;
+  }
+  #printa-desktop,
+  #mapps360-desktop {
     display: flex;
   }
 }

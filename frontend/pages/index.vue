@@ -58,7 +58,7 @@
           theme="light" />
         <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
       </div>
-      <Timeline :items="$store.state.experiences.experiences" />
+      <!-- <Timeline :items="$store.state.experiences.experiences" /> -->
     </section>
 
     <!-- SECTION PROGRAMS -->
@@ -201,10 +201,10 @@ export default {
     searchSkillsApi(url) {
       this.$store.dispatch('skills/getSkillsCat', url)
     },
-    searchPrograms(url) {
-      this.program_url = url
-      console.log(url)
-      this.searchProgramsApi(url)
+    searchPrograms(item) {
+      this.program_url = item.url
+      console.log(item.url)
+      this.searchProgramsApi(item.url)
     },
     searchProgramsApi(url) {
       this.$store.dispatch('programs/getProgramsCat', url)
@@ -287,7 +287,7 @@ export default {
 }
 
 #section-education {
-  background-image: url('~/static/img/section-education.png');
+  background-image: url('~/static/img/section-education2.png');
   background-size: cover;
   background-position: right;
   #simple-title-education {
@@ -299,13 +299,15 @@ export default {
   background-image: url('~/static/img/section-courses.png');
   background-size: cover;
   background-position: right;
-  margin-top: 60px;
+  margin-top: 80px;
+  padding-bottom: 80px;
   .flashing-title {
     color: $color-green;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 0px;
   }
   #simple-title-courses {
-    padding-top: -50px;
+    // padding-top: -170px;
   }
 }
 

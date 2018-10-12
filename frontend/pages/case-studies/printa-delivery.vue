@@ -505,70 +505,68 @@ $color-yellow: #ffc34a;
   background-color: #fff;
   background-position: center;
   font-family: $avenir;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $helvetica-light-bold;
+    font-weight: normal;
+  }
+  p {
+    color: #808080;
+  }
+  .helvetica-light {
+    font-family: $helvetica-light;
+  }
+  .helvetica-light-italic {
+    font-family: $helvetica-light-italic;
+  }
+  .helvetica-light-bold {
+    font-family: $helvetica-light-bold;
+  }
+  .avenir {
+    font-family: $avenir;
+  }
+
+  .image-title {
+    width: 200px;
+    height: auto;
+    margin: auto;
+  }
+
+  .section-title {
+    margin-bottom: 70px;
+  }
+
+  .double-border {
+    border-top: 1px solid #b3b3b3;
+    border-bottom: 1px solid #b3b3b3;
+  }
+
+  .color-blue {
+    color: $color-blue;
+  }
+  .color-red {
+    color: $color-red;
+  }
+  .color-yellow {
+    color: $color-yellow;
+  }
+
+  .margin-bottom {
+    margin-bottom: 30px;
+  }
+  .margin-bottom-big {
+    margin-bottom: 70px;
+  }
+  .margin-bottom-normal {
+    margin-bottom: 50px;
+  }
+
+  .printa-desktop,
+  .printa-desktop-flex,
+  .printa-desktop-inline {
+    display: none;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helvetica-light-bold;
-  font-weight: normal;
-}
-
-p {
-  color: #808080;
-}
-
-.helvetica-light {
-  font-family: $helvetica-light;
-}
-.helvetica-light-italic {
-  font-family: $helvetica-light-italic;
-}
-.helvetica-light-bold {
-  font-family: $helvetica-light-bold;
-}
-.avenir {
-  font-family: $avenir;
-}
-
-.image-title {
-  width: 200px;
-  height: auto;
-  margin: auto;
-}
-
-.section-title {
-  margin-bottom: 70px;
-}
-
-.double-border {
-  border-top: 1px solid #b3b3b3;
-  border-bottom: 1px solid #b3b3b3;
-}
-
-.color-blue {
-  color: $color-blue;
-}
-.color-red {
-  color: $color-red;
-}
-.color-yellow {
-  color: $color-yellow;
-}
-
-.margin-bottom {
-  margin-bottom: 30px;
-}
-.margin-bottom-big {
-  margin-bottom: 70px;
-}
-.margin-bottom-normal {
-  margin-bottom: 50px;
-}
-
-.printa-desktop,
-.printa-desktop-flex,
-.printa-desktop-inline {
-  display: none;
-}
 
 // SECTIONS
 #back {

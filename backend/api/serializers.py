@@ -11,6 +11,7 @@ class SubMenuItemSerializer(serializers.ModelSerializer):
         model = models.SubMenuItem
         fields = (
             'owner',
+            'order',
             'id',
             'title',
             'url',
@@ -35,6 +36,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
         model = models.MenuItem
         fields = (
             'owner',
+            'order',
             'id',
             'title',
             'url',
@@ -269,6 +271,7 @@ class CaseStudySerializer(serializers.ModelSerializer):
             'cta',
             'url',
             'tags',
+            'coming_soon',
         )
 
 

@@ -1,16 +1,21 @@
 <template lang="html">
   <div class="portfolio-card">
-    <span class="subtitle">Case Study #1</span>
-    <h1>Ctrl + P = Problem. Solving the hazzle of printing.</h1>
-    <img class="portfolio-card-img" src="img/printa-delivery.png" alt="Printa Delivery">
-    <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <nuxt-link class="cta" to="#">Discover Printa</nuxt-link>
+    <span class="subtitle">{{ subtitle }}</span>
+    <h1>{{ title }}</h1>
+    <img class="portfolio-card-img" v-if="ctaUrl == 'printa-delivery'" src="img/printa-delivery.png" alt="Printa Delivery">
+    <img class="portfolio-card-img" v-if="ctaUrl == 'mapps360'" src="img/mapps360.png" alt="Mapps360">
+    <p class="copy" v-html="copy" />
+    <nuxt-link v-if="!comingSoon" class="cta" :to="'/case-studies/' + ctaUrl">{{ cta }}</nuxt-link>
+    <a v-if="comingSoon" class="cta">Coming Soon</a>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['title', 'subtitle', 'copy', 'cta', 'ctaUrl', 'comingSoon'],
+  created() {
+    console.log(this.title)
+  }
 }
 </script>
 
@@ -31,6 +36,7 @@ export default {
     color: $color-green;
   }
   .cta {
+    cursor: pointer;
     @extend %background-green;
     @extend %cta;
   }

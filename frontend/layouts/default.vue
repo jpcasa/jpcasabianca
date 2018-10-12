@@ -6,7 +6,7 @@
 
       <!-- HEADERS -->
       <span @click="showMobileMenu = true" class="icon-menu" id="menu-icon"></span>
-      <span @click="showMobileInfo = true" class="icon-message-square" id="contact-icon"></span>
+      <span @click="toggleMobileContact('open')" class="icon-message-square" id="contact-icon"></span>
 
       <section id="page-section">
 
@@ -40,7 +40,7 @@
 
     <transition name="fade">
       <div class="mobile-contact-info" v-if="showMobileInfo">
-        <i class="icon-x-circle" @click="showMobileInfo = false" id="close-contact-info"></i>
+        <i class="icon-x-circle" @click="toggleMobileContact('close')" id="close-contact-info"></i>
         <MobileContact :menu="contactMenu.menu_items" />
       </div>
     </transition>
@@ -50,11 +50,11 @@
       :menu="mainMenu.menu_items"
       :contact="contactMenu.menu_items" />
 
-    <a href="#" id="contact-whatsapp">
+    <a v-show="showMessageIcons" href="#" id="contact-whatsapp">
       <img src="~/static/img/whatsapp.svg" />
     </a>
 
-    <a href="#" id="contact-fb">
+    <a v-show="showMessageIcons" href="#" id="contact-fb">
       <img src="~/static/img/fb-messenger.svg" />
     </a>
 
@@ -72,7 +72,8 @@ export default {
   data() {
     return {
       showMobileMenu: false,
-      showMobileInfo: false
+      showMobileInfo: false,
+      showMessageIcons: true
     }
   },
   computed: {
@@ -96,6 +97,15 @@ export default {
     activateMenu(id) {
       this.$store.dispatch('menus/getSubMenu', id)
       this.showMobileMenu = false
+    },
+    toggleMobileContact(action) {
+      if (action == 'open') {
+        this.showMobileInfo = true
+        this.showMessageIcons = false
+      } else {
+        this.showMobileInfo = false
+        this.showMessageIcons = true
+      }
     }
   },
   created() {

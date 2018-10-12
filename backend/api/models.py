@@ -12,6 +12,10 @@ class SubMenuItem(models.Model):
         related_name='submenuitems',
         on_delete=models.CASCADE
     )
+    order = models.IntegerField(
+        blank=False,
+        default=0
+    )
     title = models.CharField(
         blank=False,
         max_length=100
@@ -41,6 +45,9 @@ class SubMenuItem(models.Model):
         auto_now=True
     )
 
+    class Meta:
+        ordering = ["order"]
+
     def __str__(self):
         """Return readable representation of the model instance."""
         return "{}".format(self.title)
@@ -52,6 +59,10 @@ class MenuItem(models.Model):
         'auth.User',
         related_name='menuitems',
         on_delete=models.CASCADE
+    )
+    order = models.IntegerField(
+        blank=False,
+        default=0
     )
     title = models.CharField(
         blank=False,
@@ -488,6 +499,9 @@ class CaseStudy(models.Model):
     tags = models.CharField(
         blank=True,
         max_length=255
+    )
+    coming_soon = models.BooleanField(
+        default=False
     )
 
     def __str__(self):

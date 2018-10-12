@@ -1,17 +1,23 @@
 <template lang="html">
   <div class="filter-dropdown">
     <span>Filter Programs</span>
-    <p @click="toggle()"><i :class="icon"></i> Business &amp; Finance</p>
+    <p @click="toggle()"><i :class="icon"></i> {{ message }}</p>
     <transition name="fadeHeight">
       <ul v-show="showDropdown" class="filter-dropdown-container">
-        <li v-for="(item, index) in items" :key="index">item</li>
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          @click="onClickCat(item, 'mobile')"
+          :class="item.url == active ? 'active' : ''">
+          {{ item.name }}
+        </li>
       </ul>
     </transition>
     <ul class="desktop desktop-list">
       <li
         v-for="(item, index) in items"
         :key="index"
-        @click="onClickCat(item.url)"
+        @click="onClickCat(item, 'desktop')"
         :class="item.url == active ? 'active' : ''">
         {{ item.name }}
       </li>
@@ -25,7 +31,8 @@ export default {
   data() {
     return {
       showDropdown: false,
-      icon: 'icon-arrow-down'
+      icon: 'icon-arrow-down',
+      message: 'Business & Finance'
     }
   },
   methods: {
@@ -37,8 +44,13 @@ export default {
         this.icon = 'icon-arrow-down'
       }
     },
-    onClickCat (url) {
-      this.$emit('clicked', url)
+    onClickCat (item, version) {
+      this.$emit('clicked', item)
+      if (version == 'mobile') {
+        this.showDropdown = false
+        this.message = item.name
+        this.icon = 'icon-arrow-down'
+      }
     }
   }
 }

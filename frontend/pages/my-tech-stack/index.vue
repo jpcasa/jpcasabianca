@@ -18,8 +18,15 @@
           <span class="text-center"><i class="icon-star"></i> Preferred Choices</span>
         </div>
         <div class="skill-cards">
-          <SkillCard v-for="(skill, index) in skills" :key="index" :skill="skill" />
+          <SkillCard
+            v-for="(skill, index) in skills"
+            :key="index"
+            :skill="skill"
+            @clicked="showSkillDetail" />
         </div>
+        <transition name="fade">
+          <SkillCardDetail v-show="skill_detail" :skill="detail" @clicked="closeDetail" />
+        </transition>
       </div>
     </section>
 
@@ -30,17 +37,21 @@
 import SimpleTitle from '~/components/Elements/Titles/SimpleTitle.vue'
 import FilterDropdown from '~/components/Navigation/Dropdowns/FilterDropdown.vue'
 import SkillCard from '~/components/Elements/Cards/SkillCard.vue'
+import SkillCardDetail from '~/components/Elements/Cards/SkillCardDetail.vue'
 
 export default {
   data() {
     return {
-      query: null
+      query: null,
+      skill_detail: false,
+      detail: this.$store.state.skills.skills
     }
   },
   components: {
     SimpleTitle,
     FilterDropdown,
-    SkillCard
+    SkillCard,
+    SkillCardDetail
   },
   computed: {
     skills() {
@@ -51,6 +62,15 @@ export default {
       } else {
         return this.$store.state.skills.skills
       }
+    }
+  },
+  methods: {
+    showSkillDetail(skill) {
+      this.detail = skill
+      this.skill_detail = true
+    },
+    closeDetail() {
+      this.skill_detail = false
     }
   },
   created() {
