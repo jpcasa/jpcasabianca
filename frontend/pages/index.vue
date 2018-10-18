@@ -58,7 +58,7 @@
           theme="light" />
         <span class="flashing-title">Swipe Right<i class="icon-arrow-right"></i></span>
       </div>
-      <!-- <Timeline :items="$store.state.experiences.experiences" /> -->
+      <Timeline :items="$store.state.experiences.experiences" />
     </section>
 
     <!-- SECTION PROGRAMS -->
@@ -116,10 +116,13 @@
             id="simple-title-testimonies"
             title="Testimonies"
             subtitle="What people are saying"
-            copy="Isn’t nice when you do a good job, and someone puts in a good word for you? <br><br> These are some happy clients and stakeholders, take a look at their experience."
+            copy="Isn’t nice when you do a good job, and someone puts in a good word for you? <br><br> These are some happy clients and stakeholders, take a look at their experience. If you think I can help you solve a problem or create an awesome digital product, please don't hesitate and <a href='mailto:hola@jpcasabianca.com'>shoot me an emial</a>."
             theme="light" />
           <div class="profile-card-container">
-            <ProfileCard v-for="i in (0, 3)" :key="i" />
+            <ProfileCard
+              v-for="(testimony, index) in testimonies"
+              :testimony="testimony"
+              :key="index" />
           </div>
         </div>
       </section>
@@ -191,6 +194,9 @@ export default {
     },
     courses() {
       return this.$store.state.education.courses
+    },
+    testimonies() {
+      return this.$store.state.testimonies.testimonies
     }
   },
   methods: {

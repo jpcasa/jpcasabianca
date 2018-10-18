@@ -3,22 +3,23 @@
     <div class="profile-card-top">
       <div class="profile-card-top-left">
         <div class="img-circle">
-          <img src="img/loaiza.jpg" alt="algo">
+          <img :src="testimony.avatar" alt="algo">
         </div>
       </div>
       <div class="profile-card-top-right">
-        <p class="name">Daniel Loaiza</p>
-        <p class="job">Global Trainee - Bavaria</p>
+        <a :href="testimony.linkedin" target="_blank" class="name">{{ testimony.person }}</a>
+        <p class="job">{{ testimony.job }}</p>
       </div>
     </div>
     <div class="profile-card-bottom">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>{{ testimony.testimony }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['testimony']
 }
 </script>
 
@@ -56,13 +57,17 @@ export default {
     }
     .profile-card-top-right {
       flex: 4;
-      p {
+      p, a {
         margin: 0;
       }
       .name {
         font-family: $gotham-rounded-medium;
         color: $color-blue-black;
         font-size: 15px;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       .job {
         font-size: 14px;

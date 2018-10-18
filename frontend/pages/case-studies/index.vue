@@ -44,7 +44,8 @@
           <PortfolioCardSimple
             :url="$store.state.portfolio.case_studies[0].url"
             :title="$store.state.portfolio.case_studies[0].title"
-            :tags="$store.state.portfolio.case_studies[0].tags" />
+            :tags="$store.state.portfolio.case_studies[0].tags"
+            :comingSoon="$store.state.portfolio.case_studies[0].coming_soon" />
         </div>
         <TitleWithCta
           id="portfolio-printa"
@@ -54,6 +55,7 @@
           :copy='$store.state.portfolio.case_studies[0].summary'
           :cta="$store.state.portfolio.case_studies[0].cta"
           :ctaUrl="'/case-studies/' + $store.state.portfolio.case_studies[0].url"
+          :comingSoon="$store.state.portfolio.case_studies[0].coming_soon"
           action="push"
           theme="light" />
       </div>
@@ -78,13 +80,15 @@
           :copy='$store.state.portfolio.case_studies[1].summary'
           :cta="$store.state.portfolio.case_studies[1].cta"
           :ctaUrl="'/case-studies/' + $store.state.portfolio.case_studies[1].url"
+          :comingSoon="$store.state.portfolio.case_studies[1].coming_soon"
           action="push"
           theme="light" />
         <div class="portfolio-card-flex" id="codesign-back">
           <PortfolioCardSimple
             :url="$store.state.portfolio.case_studies[1].url"
             :title="$store.state.portfolio.case_studies[1].title"
-            :tags="$store.state.portfolio.case_studies[1].tags" />
+            :tags="$store.state.portfolio.case_studies[1].tags"
+            :comingSoon="$store.state.portfolio.case_studies[1].coming_soon" />
         </div>
       </div>
     </section>

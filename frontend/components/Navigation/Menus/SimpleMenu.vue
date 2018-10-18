@@ -6,7 +6,7 @@
         v-for="(subItem, index2) in item.sub_menu_items"
         :key="index2"
         :style="font_size(item)"
-        href="#"
+        :href="subItem.url"
         target="_blank"
         v-html="subItem.title" />
     </div>

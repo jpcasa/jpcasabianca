@@ -25,7 +25,7 @@
         </div>
         <div class="skill-info">
           <p class="skill-info-title">Last Project with {{ skill.name }}</p>
-          <span class="skill-info-copy">{{ skill.last_project }}</span>
+          <a :href="skill.last_project" class="skill-info-copy">{{ skill.last_project }}</a>
         </div>
         <!-- <div class="skill-info">
           <p class="skill-info-title">Last Project with Vue.js</p>
@@ -34,15 +34,15 @@
         </div> -->
         <div class="skill-info">
           <p class="skill-info-title">Website</p>
-          <a href="" class="skill-info-copy">{{ skill.website }}</a>
+          <a :href="skill.website" class="skill-info-copy">{{ skill.website }}</a>
         </div>
         <div class="skill-info">
           <p class="skill-info-title">Documentation</p>
-          <a href="" class="skill-info-copy">{{ skill.documentation }}</a>
+          <a :href="skill.documentation" class="skill-info-copy">{{ skill.documentation }}</a>
         </div>
         <div class="skill-info">
           <p class="skill-info-title">Github</p>
-          <a href="" class="skill-info-copy">{{ skill.github }}</a>
+          <a :href="skill.github" class="skill-info-copy">{{ skill.github }}</a>
         </div>
         <div class="skill-info">
           <p class="skill-info-title">Why I use {{ skill.name }}?</p>
@@ -139,6 +139,7 @@ export default {
     }
   }
   .skill-content {
+    padding-bottom: 40px;
     .skill-name {
       margin-top: 155px;
       font-family: $gotham-rounded-medium;

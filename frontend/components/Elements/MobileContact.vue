@@ -9,18 +9,18 @@
         <div class="lower-info-name">
           <p>JP Casabianca</p>
           <div class="lower-info-menu">
-            <div class="lower-info-menu-item">
+            <a href="mailto:hola@jpcasabianca.com" class="lower-info-menu-item">
               <i class="icon-mail"></i>
-              <span>Email</span>
-            </div>
-            <div class="lower-info-menu-item">
+              <span class="">Email</span>
+            </a>
+            <a href="https://wa.me/573507015800" target="_blank" class="lower-info-menu-item">
               <i class="icon-whatsapp"></i>
-              <span>Whatsapp</span>
-            </div>
-            <div class="lower-info-menu-item">
+              <span class="whatsapp">Whatsapp</span>
+            </a>
+            <a href="http://m.me/juan.p.casabianca" target="_blank" class="lower-info-menu-item">
               <i class="icon-fb-messenger"></i>
-              <span>FB</span>
-            </div>
+              <span class="fb">FB</span>
+            </a>
           </div>
         </div>
       </div>
@@ -41,8 +41,8 @@
             </div>
             <div class="description-row-right">
               <div class="desc-mini">
-                <a href="#" class="item"><i class="icon-linkedin-1"></i></a>
-                <a href="#" class="item"><i class="icon-medium "></i></a>
+                <a href="https://www.linkedin.com/in/juan-pablo-casabianca/" class="item"><i class="icon-linkedin-1"></i></a>
+                <a href="https://medium.com/@jpc_774" class="item"><i class="icon-medium "></i></a>
                 <span>Check me out</span>
               </div>
             </div>
@@ -52,8 +52,8 @@
               <p>Version Control</p>
             </div>
             <div class="description-row-right">
-              <a href="#" class="item"><i class="icon-github-logo"></i></a>
-              <a href="#" class="item"><i class="icon-atlassian "></i></a>
+              <a href="https://github.com/jpcasa" class="item"><i class="icon-github-logo"></i></a>
+              <a href="https://bitbucket.org/jpcasabianca/" class="item"><i class="icon-atlassian "></i></a>
               <span>Latest Work</span>
             </div>
           </div>
@@ -62,15 +62,15 @@
               <p>Portfolio</p>
             </div>
             <div class="description-row-right">
-              <a href="#" class="item"><i class="icon-dribbble-big-logo"></i></a>
-              <a href="#" class="item"><i class="icon-behance-logo"></i></a>
+              <a href="https://dribbble.com/jpcasabianca" class="item"><i class="icon-dribbble-big-logo"></i></a>
+              <a href="https://www.behance.net/holae2af" class="item"><i class="icon-behance-logo"></i></a>
               <span>Don't be shy</span>
             </div>
           </div>
           <div class="description-row">
             <div class="description-row-left" />
             <div class="description-row-right">
-              <a href="#" id="call">Call</a>
+              <a href="tel:573507015800" id="call">Call</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default {
   height: 100vh;
   width: 100vw;
   .upper-info {
-    background-image: url('/img/mobile.jpg');
+    background-image: url('/img/mobile.png');
     background-size: cover;
     flex: 4;
   }
@@ -133,6 +133,7 @@ export default {
           .lower-info-menu-item {
             flex: 1;
             text-align: center;
+            text-decoration: none;
             i, span {
               display: block;
               color: $color-gray-heavy;
@@ -141,6 +142,14 @@ export default {
               margin-top: 4px;
               font-size: 12px;
               font-family: $proxima-nova;
+            }
+            .icon-whatsapp,
+            .whatsapp {
+              color: $color-green;
+            }
+            .icon-fb-messenger,
+            .fb {
+              color: $color-blue;
             }
           }
         }

@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="portfolio-card-simple">
-    <nuxt-link to="" class="portfolio-cta"><span class="icon-arrow-up-right"></span></nuxt-link>
+    <nuxt-link v-if="!comingSoon" to="" class="portfolio-cta"><span class="icon-arrow-up-right"></span></nuxt-link>
     <img class="portfolio-card-img" :src="'img/' + url + '.png'" :alt="title">
     <div class="tags" v-html="tags" />
-    <nuxt-link :to="'/case-studies/' + url" class="cta">View More</nuxt-link>
+    <nuxt-link v-if="!comingSoon" :to="'/case-studies/' + url" class="cta">View More</nuxt-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['url', 'title', 'tags']
+  props: ['url', 'title', 'tags', 'comingSoon']
 }
 </script>
 

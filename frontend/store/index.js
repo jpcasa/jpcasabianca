@@ -5,6 +5,7 @@ import experiences from './modules/experiences'
 import programs from './modules/programs'
 import education from './modules/education'
 import portfolio from './modules/portfolio'
+import testimonies from './modules/testimonies'
 
 
 const createStore = () => {
@@ -15,7 +16,8 @@ const createStore = () => {
        experiences,
        programs,
        education,
-       portfolio
+       portfolio,
+       testimonies
      }
   })
 }

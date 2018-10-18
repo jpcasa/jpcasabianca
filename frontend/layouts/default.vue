@@ -50,11 +50,11 @@
       :menu="mainMenu.menu_items"
       :contact="contactMenu.menu_items" />
 
-    <a v-show="showMessageIcons" href="#" id="contact-whatsapp">
+    <a v-show="showMessageIcons" href="https://wa.me/573507015800" target="_blank" id="contact-whatsapp">
       <img src="~/static/img/whatsapp.svg" />
     </a>
 
-    <a v-show="showMessageIcons" href="#" id="contact-fb">
+    <a v-show="showMessageIcons" href="http://m.me/juan.p.casabianca" target="_blank" id="contact-fb">
       <img src="~/static/img/fb-messenger.svg" />
     </a>
 
@@ -139,6 +139,9 @@ export default {
 
     // Portfolio
     this.$store.dispatch('portfolio/getCaseStudies')
+
+    // Portfolio
+    this.$store.dispatch('testimonies/getTestimonies')
   }
 }
 </script>
@@ -190,11 +193,14 @@ main {
   flex-direction: column;
   #close-contact-info {
     position: absolute;
-    right: 20px;
+    left: 20px;
     top: 20px;
     font-size: 36px;
     color: #fff;
     cursor: pointer;
+    &:hover {
+      color: $color-green-light;
+    }
   }
   .upper-info {
     background-image: url('/img/mobile.jpg');

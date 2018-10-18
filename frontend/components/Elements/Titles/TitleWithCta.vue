@@ -5,10 +5,11 @@
     <p :style="copy_style" class="copy" v-html="copy" />
     <nuxt-link
       class="cta"
-      v-show="action == 'push'"
+      v-show="action == 'push' && !comingSoon"
       :to="ctaUrl">
       {{ cta }}
     </nuxt-link>
+    <a v-show="action == 'push' && comingSoon" class="cta cta-normal">Coming Soon</a>
     <button
       class="cta"
       v-scroll-to="'#' + ctaUrl"
@@ -22,7 +23,7 @@
 import DynamicTitle from '~/components/Elements/Titles/DynamicTitle.vue'
 
 export default {
-  props: ['title', 'subtitle', 'copy', 'cta', 'ctaUrl', 'action', 'theme'],
+  props: ['title', 'subtitle', 'copy', 'cta', 'ctaUrl', 'action', 'theme', 'comingSoon'],
   computed: {
     title_style() {
       if (this.theme == 'dark') {
@@ -74,6 +75,12 @@ export default {
   }
   .cta {
     @extend %cta;
+  }
+  .cta-normal {
+    cursor: default;
+    &:hover {
+      background-color: $color-green-light;
+    }
   }
 }
 </style>
